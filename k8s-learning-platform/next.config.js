@@ -5,8 +5,9 @@ const nextConfig = {
   images: {
     unoptimized: true
   },
-  basePath: process.env.NODE_ENV === 'production' ? '/k8s-learning-platform' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/k8s-learning-platform' : '',
+  // Remove basePath and assetPrefix if deploying to root domain
+  // basePath: process.env.NODE_ENV === 'production' ? '/k8s-learning-platform' : '',
+  // assetPrefix: process.env.NODE_ENV === 'production' ? '/k8s-learning-platform' : '',
 }
 
 module.exports = nextConfig
