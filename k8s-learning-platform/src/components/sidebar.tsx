@@ -91,6 +91,26 @@ export function Sidebar({ isMobileOpen, onMobileClose }: { isMobileOpen?: boolea
   const pathname = usePathname()
   const [isCollapsed, setIsCollapsed] = useState(true)
 
+  // Helper function to determine if a navigation item should be highlighted
+  const isActive = (item: any) => {
+    // Exact match for the main item
+    if (pathname === item.href) {
+      return true
+    }
+    
+    // Check if current path starts with the item's href (for parent sections)
+    if (item.href !== '/' && pathname.startsWith(item.href + '/')) {
+      return true
+    }
+    
+    // Check if any child matches the current path
+    if (item.children) {
+      return item.children.some((child: any) => pathname === child.href)
+    }
+    
+    return false
+  }
+
   return (
     <div>
       {/* Mobile Overlay */}
@@ -145,7 +165,7 @@ export function Sidebar({ isMobileOpen, onMobileClose }: { isMobileOpen?: boolea
                   href={item.href}
                   className={cn(
                     'group flex items-center py-1.5 md:py-2 text-xs md:text-sm font-medium rounded-md transition-colors',
-                    pathname === item.href
+                    isActive(item)
                       ? 'bg-blue-100 text-blue-900'
                       : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
                     (isCollapsed && !isMobileOpen) ? 'justify-center px-2' : 'px-1 md:px-2'
@@ -155,7 +175,7 @@ export function Sidebar({ isMobileOpen, onMobileClose }: { isMobileOpen?: boolea
                   <item.icon
                     className={cn(
                       'flex-shrink-0 h-4 w-4 md:h-5 md:w-5',
-                      pathname === item.href ? 'text-blue-500' : 'text-gray-400 group-hover:text-gray-500',
+                      isActive(item) ? 'text-blue-500' : 'text-gray-400 group-hover:text-gray-500',
                       (isCollapsed && !isMobileOpen) ? '' : 'mr-2 md:mr-3'
                     )}
                   />
