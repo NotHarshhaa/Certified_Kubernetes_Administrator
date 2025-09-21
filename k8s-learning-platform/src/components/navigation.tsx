@@ -1,16 +1,12 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
 import { Search, Menu, Github, ExternalLink, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 
-export function Navigation({ onMobileMenuToggle }: { onMobileMenuToggle?: () => void }) {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-
+export function Navigation({ onMobileMenuToggle, isMobileMenuOpen }: { onMobileMenuToggle?: () => void; isMobileMenuOpen?: boolean }) {
   const handleMobileMenuToggle = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen)
     onMobileMenuToggle?.()
   }
 

@@ -104,26 +104,31 @@ export function Sidebar({ isMobileOpen, onMobileClose }: { isMobileOpen?: boolea
       {/* Sidebar */}
       <div className={cn(
         "flex flex-col transition-all duration-300 z-50 flex-shrink-0 h-screen",
-        "hidden md:flex",
-        isMobileOpen ? "fixed inset-y-0 left-0 w-80" : "",
-        isCollapsed ? "w-16" : "w-80"
+        isMobileOpen ? "fixed inset-y-0 left-0 w-80 md:relative md:inset-auto" : "hidden md:flex",
+        isCollapsed && !isMobileOpen ? "w-16" : "w-80"
       )}>
       <div className="flex-1 flex flex-col min-h-0 bg-white border-r border-gray-200 h-full">
         <div className="flex-1 flex flex-col pt-3 md:pt-5 pb-2 md:pb-4 overflow-y-auto sidebar-scroll max-h-full">
           <div className={cn(
             "flex items-center flex-shrink-0 mb-2 md:mb-4",
-            isCollapsed ? "justify-center px-2" : "justify-between px-3 md:px-4"
+            (isCollapsed && !isMobileOpen) ? "justify-center px-2" : "justify-between px-3 md:px-4"
           )}>
-            {!isCollapsed && (
+            {!(isCollapsed && !isMobileOpen) && (
               <h2 className="text-sm md:text-lg font-semibold text-gray-900">Learning Path</h2>
             )}
             <Button
               variant="ghost"
               size="icon"
-              onClick={() => setIsCollapsed(!isCollapsed)}
+              onClick={() => {
+                if (isMobileOpen) {
+                  onMobileClose?.()
+                } else {
+                  setIsCollapsed(!isCollapsed)
+                }
+              }}
               className="h-8 w-8 hover:bg-gray-100 flex-shrink-0"
             >
-              {isCollapsed ? (
+              {(isCollapsed && !isMobileOpen) ? (
                 <ChevronRightIcon className="h-4 w-4" />
               ) : (
                 <ChevronLeft className="h-4 w-4" />
@@ -132,7 +137,7 @@ export function Sidebar({ isMobileOpen, onMobileClose }: { isMobileOpen?: boolea
           </div>
           <nav className={cn(
             "mt-3 md:mt-5 flex-1 space-y-0.5 md:space-y-1",
-            isCollapsed ? "px-2" : "px-1 md:px-2"
+            (isCollapsed && !isMobileOpen) ? "px-2" : "px-1 md:px-2"
           )}>
             {navigation.map((item) => (
               <div key={item.name}>
@@ -143,18 +148,18 @@ export function Sidebar({ isMobileOpen, onMobileClose }: { isMobileOpen?: boolea
                     pathname === item.href
                       ? 'bg-blue-100 text-blue-900'
                       : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
-                    isCollapsed ? 'justify-center px-2' : 'px-1 md:px-2'
+                    (isCollapsed && !isMobileOpen) ? 'justify-center px-2' : 'px-1 md:px-2'
                   )}
-                  title={isCollapsed ? item.name : undefined}
+                  title={(isCollapsed && !isMobileOpen) ? item.name : undefined}
                 >
                   <item.icon
                     className={cn(
                       'flex-shrink-0 h-4 w-4 md:h-5 md:w-5',
                       pathname === item.href ? 'text-blue-500' : 'text-gray-400 group-hover:text-gray-500',
-                      isCollapsed ? '' : 'mr-2 md:mr-3'
+                      (isCollapsed && !isMobileOpen) ? '' : 'mr-2 md:mr-3'
                     )}
                   />
-                  {!isCollapsed && (
+                  {!(isCollapsed && !isMobileOpen) && (
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between">
                         <span className="truncate text-xs md:text-sm">{item.name}</span>
@@ -169,7 +174,7 @@ export function Sidebar({ isMobileOpen, onMobileClose }: { isMobileOpen?: boolea
                   )}
                 </Link>
                 
-                {item.children && !isCollapsed && (
+                {item.children && !(isCollapsed && !isMobileOpen) && (
                   <div className="ml-4 md:ml-8 mt-0.5 md:mt-1 space-y-0.5 md:space-y-1">
                     {item.children.map((child) => (
                       <Link
