@@ -6,32 +6,44 @@ import { Badge } from '@/components/ui/badge'
 
 const topics = [
   {
-    title: 'Kubernetes Fundamentals',
-    description: 'Understanding the core concepts of Kubernetes',
-    icon: BookOpen,
-    duration: '2-3 hours',
-    topics: ['What is Kubernetes', 'Cluster Architecture', 'Control Plane Components', 'Node Components']
-  },
-  {
-    title: 'Pods and Containers',
-    description: 'Learn about the smallest deployable units in Kubernetes',
+    title: 'Pods & Deployments',
+    description: 'Master the fundamental building blocks of Kubernetes applications',
     icon: PlayCircle,
     duration: '3-4 hours',
-    topics: ['Pod Lifecycle', 'Container Specs', 'Resource Limits', 'Health Checks']
+    topics: ['Pod Lifecycle', 'Deployment Strategies', 'StatefulSets', 'DaemonSets', 'Scaling'],
+    href: '/cka/pods-deployments'
   },
   {
-    title: 'Deployments and ReplicaSets',
-    description: 'Managing application deployments and scaling',
-    icon: Settings,
-    duration: '2-3 hours',
-    topics: ['Deployment Strategies', 'Rolling Updates', 'Rollbacks', 'Scaling']
-  },
-  {
-    title: 'Services and Networking',
-    description: 'Connecting applications and managing network traffic',
+    title: 'Services & Networking',
+    description: 'Learn how to connect and secure your applications in Kubernetes',
     icon: Code,
     duration: '3-4 hours',
-    topics: ['Service Types', 'ClusterIP', 'NodePort', 'LoadBalancer', 'Ingress']
+    topics: ['Service Types', 'Ingress Controllers', 'Network Policies', 'DNS Resolution'],
+    href: '/cka/services-networking'
+  },
+  {
+    title: 'Storage & Volumes',
+    description: 'Master persistent storage and data management in Kubernetes',
+    icon: Settings,
+    duration: '2-3 hours',
+    topics: ['Persistent Volumes', 'Storage Classes', 'Volume Snapshots', 'Data Persistence'],
+    href: '/cka/storage-volumes'
+  },
+  {
+    title: 'Security & RBAC',
+    description: 'Secure your cluster with authentication, authorization, and access controls',
+    icon: BookOpen,
+    duration: '3-4 hours',
+    topics: ['Authentication', 'RBAC', 'Pod Security', 'Network Policies'],
+    href: '/cka/security-rbac'
+  },
+  {
+    title: 'Troubleshooting',
+    description: 'Master systematic approaches to diagnosing and fixing Kubernetes issues',
+    icon: Settings,
+    duration: '3-4 hours',
+    topics: ['Pod Diagnostics', 'Network Issues', 'Storage Problems', 'Cluster Health'],
+    href: '/cka/troubleshooting'
   }
 ]
 
@@ -119,7 +131,7 @@ export default function CKAGettingStartedPage() {
                   </ul>
                 </div>
                 <Button asChild className="w-full">
-                  <Link href={`/cka/${topic.title.toLowerCase().replace(/\s+/g, '-')}`}>
+                  <Link href={topic.href}>
                     Start Learning
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
@@ -134,13 +146,13 @@ export default function CKAGettingStartedPage() {
       <div className="bg-blue-50 rounded-2xl p-8 text-center">
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Ready to Start Learning?</h2>
         <p className="text-lg text-gray-600 mb-6">
-          Begin with Kubernetes fundamentals and work your way through each topic systematically.
+          Begin with Pods & Deployments and work your way through each topic systematically.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button size="lg" asChild>
-            <Link href="/cka/kubernetes-fundamentals">
-              <BookOpen className="mr-2 h-5 w-5" />
-              Start with Fundamentals
+            <Link href="/cka/pods-deployments">
+              <PlayCircle className="mr-2 h-5 w-5" />
+              Start with Pods & Deployments
             </Link>
           </Button>
           <Button variant="outline" size="lg" asChild>
