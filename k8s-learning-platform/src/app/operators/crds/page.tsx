@@ -1,62 +1,62 @@
 import Link from 'next/link'
-import { ArrowRight, BookOpen, PlayCircle, Code, Settings, Clock, CheckCircle, Zap, Layers, Database, Activity } from 'lucide-react'
+import { ArrowRight, BookOpen, PlayCircle, Code, Settings, Clock, CheckCircle, FileText, Layers, Zap, Database } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 
 const topics = [
   {
-    title: 'Operator Pattern',
-    description: 'Understanding the Kubernetes Operator pattern and its benefits',
-    icon: Zap,
-    duration: '3-4 hours',
-    topics: ['Operator Architecture', 'Controller Pattern', 'Reconciliation Loop', 'Event-driven Design', 'State Management']
-  },
-  {
-    title: 'Controller Development',
-    description: 'Building controllers to manage custom resources',
-    icon: Code,
-    duration: '4-5 hours',
-    topics: ['Controller Framework', 'Event Handling', 'Reconciliation Logic', 'Error Handling', 'Testing Strategies']
-  },
-  {
-    title: 'Operator SDK',
-    description: 'Using the Operator SDK for rapid operator development',
-    icon: Settings,
-    duration: '3-4 hours',
-    topics: ['SDK Installation', 'Project Scaffolding', 'Code Generation', 'Testing Tools', 'Deployment']
-  },
-  {
-    title: 'Operator Lifecycle',
-    description: 'Managing operator deployment, updates, and maintenance',
-    icon: Activity,
+    title: 'CRD Fundamentals',
+    description: 'Understanding Custom Resource Definitions and their structure',
+    icon: FileText,
     duration: '2-3 hours',
-    topics: ['Deployment Strategies', 'Version Management', 'Rolling Updates', 'Monitoring', 'Troubleshooting']
+    topics: ['CRD Schema Definition', 'API Versioning', 'Validation Rules', 'Default Values', 'Status Subresources']
+  },
+  {
+    title: 'Custom Resources',
+    description: 'Creating and managing custom resources in Kubernetes',
+    icon: Database,
+    duration: '2-3 hours',
+    topics: ['Resource Lifecycle', 'CRUD Operations', 'Resource Validation', 'Status Management', 'Finalizers']
+  },
+  {
+    title: 'API Extensions',
+    description: 'Extending the Kubernetes API with custom resources',
+    icon: Code,
+    duration: '3-4 hours',
+    topics: ['API Server Integration', 'Aggregated APIs', 'API Discovery', 'OpenAPI Schema', 'Client Libraries']
+  },
+  {
+    title: 'Advanced CRD Patterns',
+    description: 'Advanced patterns and best practices for CRDs',
+    icon: Zap,
+    duration: '2-3 hours',
+    topics: ['Conversion Webhooks', 'Admission Controllers', 'Schema Evolution', 'Migration Strategies', 'Performance Optimization']
   }
 ]
 
 const prerequisites = [
-  'Understanding of CRDs and Custom Resources',
-  'Basic knowledge of Go programming',
-  'Experience with Kubernetes controllers',
-  'Familiarity with event-driven programming'
+  'Understanding of Kubernetes API concepts',
+  'Basic knowledge of YAML and JSON',
+  'Experience with kubectl commands',
+  'Familiarity with Kubernetes resources'
 ]
 
-export default function OperatorsConceptsPage() {
+export default function OperatorsCRDsPage() {
   return (
     <div className="space-y-12">
       {/* Hero Section */}
       <div className="text-center py-6 md:py-12">
         <div className="max-w-4xl mx-auto">
           <Badge variant="outline" className="mb-4 text-sm">
-            ⚡ Operator Fundamentals
+            🔧 Kubernetes Extensions
           </Badge>
           <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-            Operator Concepts
+            CRDs & Custom Resources
           </h1>
           <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
-            Master the Kubernetes Operator pattern and learn how to build intelligent 
-            controllers that manage complex applications automatically.
+            Learn how to extend the Kubernetes API with Custom Resource Definitions. 
+            Master the art of creating domain-specific resources for your applications.
           </p>
         </div>
       </div>
@@ -67,7 +67,7 @@ export default function OperatorsConceptsPage() {
         <Card className="max-w-4xl mx-auto">
           <CardHeader>
             <CardTitle>What You Should Know Before Starting</CardTitle>
-            <CardDescription>Essential knowledge for understanding Operator concepts</CardDescription>
+            <CardDescription>Essential knowledge for working with CRDs and Custom Resources</CardDescription>
           </CardHeader>
           <CardContent>
             <ul className="space-y-3">
@@ -135,19 +135,19 @@ export default function OperatorsConceptsPage() {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center">
-                <Zap className="h-5 w-5 mr-2 text-blue-500" />
-                Operator Pattern
+                <FileText className="h-5 w-5 mr-2 text-blue-500" />
+                CRD Schema
               </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-gray-600 mb-4">
-                A method of packaging, deploying, and managing Kubernetes applications.
+                Defining the structure and validation rules for custom resources.
               </p>
               <ul className="text-sm space-y-1">
-                <li>• Application-specific controllers</li>
-                <li>• Domain knowledge encoding</li>
-                <li>• Automated operations</li>
-                <li>• Self-healing capabilities</li>
+                <li>• OpenAPI schema definition</li>
+                <li>• Field validation rules</li>
+                <li>• Required and optional fields</li>
+                <li>• Default value specifications</li>
               </ul>
             </CardContent>
           </Card>
@@ -155,19 +155,19 @@ export default function OperatorsConceptsPage() {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center">
-                <Code className="h-5 w-5 mr-2 text-green-500" />
-                Controller Logic
+                <Database className="h-5 w-5 mr-2 text-green-500" />
+                Custom Resources
               </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-gray-600 mb-4">
-                The core logic that watches and reconciles desired state.
+                Instances of custom resources that follow the CRD schema.
               </p>
               <ul className="text-sm space-y-1">
-                <li>• Event-driven architecture</li>
-                <li>• Reconciliation loops</li>
-                <li>• State management</li>
-                <li>• Error handling</li>
+                <li>• Resource lifecycle management</li>
+                <li>• CRUD operations</li>
+                <li>• Status and spec sections</li>
+                <li>• Finalizers and cleanup</li>
               </ul>
             </CardContent>
           </Card>
@@ -175,19 +175,19 @@ export default function OperatorsConceptsPage() {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center">
-                <Settings className="h-5 w-5 mr-2 text-purple-500" />
-                Operator SDK
+                <Code className="h-5 w-5 mr-2 text-purple-500" />
+                API Integration
               </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-gray-600 mb-4">
-                Framework for building operators with best practices.
+                Integrating custom resources with the Kubernetes API.
               </p>
               <ul className="text-sm space-y-1">
-                <li>• Code generation tools</li>
-                <li>• Testing frameworks</li>
-                <li>• Deployment automation</li>
-                <li>• Best practice templates</li>
+                <li>• API server registration</li>
+                <li>• Discovery and versioning</li>
+                <li>• Client library generation</li>
+                <li>• RBAC and permissions</li>
               </ul>
             </CardContent>
           </Card>
@@ -195,28 +195,28 @@ export default function OperatorsConceptsPage() {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center">
-                <Activity className="h-5 w-5 mr-2 text-orange-500" />
-                Lifecycle Management
+                <Zap className="h-5 w-5 mr-2 text-orange-500" />
+                Advanced Features
               </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-gray-600 mb-4">
-                Managing operator deployment and maintenance.
+                Advanced CRD features for complex use cases.
               </p>
               <ul className="text-sm space-y-1">
-                <li>• Deployment strategies</li>
-                <li>• Version management</li>
-                <li>• Monitoring and alerting</li>
-                <li>• Troubleshooting techniques</li>
+                <li>• Conversion webhooks</li>
+                <li>• Admission controllers</li>
+                <li>• Schema evolution</li>
+                <li>• Performance optimization</li>
               </ul>
             </CardContent>
           </Card>
         </div>
       </div>
 
-      {/* Operator Development Process */}
+      {/* CRD Development Workflow */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">Operator Development Process</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">CRD Development Workflow</h2>
         <div className="grid md:grid-cols-4 gap-6">
           <Card>
             <CardHeader>
@@ -224,45 +224,45 @@ export default function OperatorsConceptsPage() {
             </CardHeader>
             <CardContent className="text-center">
               <p className="text-sm text-gray-600 mb-4">
-                Design the operator architecture and resource model.
+                Design the schema and API structure for your custom resource.
               </p>
-              <Badge variant="outline">Architecture</Badge>
+              <Badge variant="outline">Schema Design</Badge>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader>
-              <CardTitle className="text-center text-lg">2. Develop</CardTitle>
+              <CardTitle className="text-center text-lg">2. Define</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
               <p className="text-sm text-gray-600 mb-4">
-                Implement the controller logic and reconciliation.
+                Create the CRD YAML definition with validation rules.
               </p>
-              <Badge variant="outline">Controller Code</Badge>
+              <Badge variant="outline">CRD YAML</Badge>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader>
-              <CardTitle className="text-center text-lg">3. Test</CardTitle>
+              <CardTitle className="text-center text-lg">3. Deploy</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
               <p className="text-sm text-gray-600 mb-4">
-                Test the operator with various scenarios and edge cases.
+                Deploy the CRD to your Kubernetes cluster.
               </p>
-              <Badge variant="outline">Testing</Badge>
+              <Badge variant="outline">kubectl apply</Badge>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader>
-              <CardTitle className="text-center text-lg">4. Deploy</CardTitle>
+              <CardTitle className="text-center text-lg">4. Use</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
               <p className="text-sm text-gray-600 mb-4">
-                Deploy and monitor the operator in production.
+                Create and manage custom resource instances.
               </p>
-              <Badge variant="outline">Production</Badge>
+              <Badge variant="outline">Custom Resources</Badge>
             </CardContent>
           </Card>
         </div>
@@ -272,13 +272,13 @@ export default function OperatorsConceptsPage() {
       <div className="bg-blue-50 rounded-2xl p-8 text-center">
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Ready to Continue?</h2>
         <p className="text-lg text-gray-600 mb-6">
-          Master Operator concepts, then explore real-world operators like Prometheus Operator.
+          Master CRDs and Custom Resources, then learn about Operator concepts and patterns.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button size="lg" asChild>
-            <Link href="/operators/prometheus-operator">
-              <PlayCircle className="mr-2 h-5 w-5" />
-              Next: Prometheus Operator
+            <Link href="/operators/concepts">
+              <BookOpen className="mr-2 h-5 w-5" />
+              Next: Operator Concepts
             </Link>
           </Button>
           <Button variant="outline" size="lg" asChild>

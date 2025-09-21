@@ -1,62 +1,62 @@
 import Link from 'next/link'
-import { ArrowRight, BookOpen, PlayCircle, Code, Settings, Clock, CheckCircle, Zap, Layers, Database, Activity } from 'lucide-react'
+import { ArrowRight, BookOpen, PlayCircle, Code, Settings, Clock, CheckCircle, Search, Database, Activity, Zap } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 
 const topics = [
   {
-    title: 'Operator Pattern',
-    description: 'Understanding the Kubernetes Operator pattern and its benefits',
-    icon: Zap,
+    title: 'Splunk Operator Overview',
+    description: 'Understanding the Splunk Operator and its capabilities',
+    icon: Search,
+    duration: '2-3 hours',
+    topics: ['Operator Architecture', 'Splunk Components', 'CRD Definitions', 'Configuration Management', 'Log Processing']
+  },
+  {
+    title: 'Splunk Enterprise Deployment',
+    description: 'Deploying Splunk Enterprise using the operator',
+    icon: Database,
     duration: '3-4 hours',
-    topics: ['Operator Architecture', 'Controller Pattern', 'Reconciliation Loop', 'Event-driven Design', 'State Management']
+    topics: ['Splunk Enterprise CRD', 'Indexer Clusters', 'Search Heads', 'Deployment Strategies', 'Scaling Configuration']
   },
   {
-    title: 'Controller Development',
-    description: 'Building controllers to manage custom resources',
-    icon: Code,
-    duration: '4-5 hours',
-    topics: ['Controller Framework', 'Event Handling', 'Reconciliation Logic', 'Error Handling', 'Testing Strategies']
-  },
-  {
-    title: 'Operator SDK',
-    description: 'Using the Operator SDK for rapid operator development',
-    icon: Settings,
-    duration: '3-4 hours',
-    topics: ['SDK Installation', 'Project Scaffolding', 'Code Generation', 'Testing Tools', 'Deployment']
-  },
-  {
-    title: 'Operator Lifecycle',
-    description: 'Managing operator deployment, updates, and maintenance',
+    title: 'Universal Forwarder',
+    description: 'Configuring and managing Splunk Universal Forwarders',
     icon: Activity,
     duration: '2-3 hours',
-    topics: ['Deployment Strategies', 'Version Management', 'Rolling Updates', 'Monitoring', 'Troubleshooting']
+    topics: ['Forwarder Configuration', 'Input Management', 'Output Configuration', 'Load Balancing', 'Security Setup']
+  },
+  {
+    title: 'Production Operations',
+    description: 'Managing Splunk in production environments',
+    icon: Settings,
+    duration: '3-4 hours',
+    topics: ['High Availability', 'Backup and Recovery', 'Performance Tuning', 'Security Hardening', 'Monitoring']
   }
 ]
 
 const prerequisites = [
-  'Understanding of CRDs and Custom Resources',
-  'Basic knowledge of Go programming',
-  'Experience with Kubernetes controllers',
-  'Familiarity with event-driven programming'
+  'Understanding of Splunk platform concepts',
+  'Basic knowledge of Kubernetes operators',
+  'Experience with log management systems',
+  'Familiarity with data processing pipelines'
 ]
 
-export default function OperatorsConceptsPage() {
+export default function OperatorsSplunkOperatorPage() {
   return (
     <div className="space-y-12">
       {/* Hero Section */}
       <div className="text-center py-6 md:py-12">
         <div className="max-w-4xl mx-auto">
           <Badge variant="outline" className="mb-4 text-sm">
-            ⚡ Operator Fundamentals
+            🔍 Log Management Operator
           </Badge>
           <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-            Operator Concepts
+            Splunk Operator
           </h1>
           <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
-            Master the Kubernetes Operator pattern and learn how to build intelligent 
-            controllers that manage complex applications automatically.
+            Learn how to deploy and manage Splunk Enterprise using the Splunk Operator. 
+            Master enterprise log management and analytics in Kubernetes environments.
           </p>
         </div>
       </div>
@@ -67,7 +67,7 @@ export default function OperatorsConceptsPage() {
         <Card className="max-w-4xl mx-auto">
           <CardHeader>
             <CardTitle>What You Should Know Before Starting</CardTitle>
-            <CardDescription>Essential knowledge for understanding Operator concepts</CardDescription>
+            <CardDescription>Essential knowledge for working with Splunk Operator</CardDescription>
           </CardHeader>
           <CardContent>
             <ul className="space-y-3">
@@ -135,19 +135,19 @@ export default function OperatorsConceptsPage() {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center">
-                <Zap className="h-5 w-5 mr-2 text-blue-500" />
-                Operator Pattern
+                <Search className="h-5 w-5 mr-2 text-blue-500" />
+                Splunk Operator
               </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-gray-600 mb-4">
-                A method of packaging, deploying, and managing Kubernetes applications.
+                Kubernetes operator for managing Splunk Enterprise deployments.
               </p>
               <ul className="text-sm space-y-1">
-                <li>• Application-specific controllers</li>
-                <li>• Domain knowledge encoding</li>
-                <li>• Automated operations</li>
-                <li>• Self-healing capabilities</li>
+                <li>• Automated Splunk deployment</li>
+                <li>• Configuration management</li>
+                <li>• Scaling and updates</li>
+                <li>• Health monitoring</li>
               </ul>
             </CardContent>
           </Card>
@@ -155,19 +155,19 @@ export default function OperatorsConceptsPage() {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center">
-                <Code className="h-5 w-5 mr-2 text-green-500" />
-                Controller Logic
+                <Database className="h-5 w-5 mr-2 text-green-500" />
+                Splunk Enterprise
               </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-gray-600 mb-4">
-                The core logic that watches and reconciles desired state.
+                Core Splunk platform for log processing and analytics.
               </p>
               <ul className="text-sm space-y-1">
-                <li>• Event-driven architecture</li>
-                <li>• Reconciliation loops</li>
-                <li>• State management</li>
-                <li>• Error handling</li>
+                <li>• Indexer clusters</li>
+                <li>• Search head clusters</li>
+                <li>• Data ingestion</li>
+                <li>• Search and analytics</li>
               </ul>
             </CardContent>
           </Card>
@@ -175,19 +175,19 @@ export default function OperatorsConceptsPage() {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center">
-                <Settings className="h-5 w-5 mr-2 text-purple-500" />
-                Operator SDK
+                <Activity className="h-5 w-5 mr-2 text-purple-500" />
+                Universal Forwarder
               </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-gray-600 mb-4">
-                Framework for building operators with best practices.
+                Lightweight agent for collecting and forwarding data.
               </p>
               <ul className="text-sm space-y-1">
-                <li>• Code generation tools</li>
-                <li>• Testing frameworks</li>
-                <li>• Deployment automation</li>
-                <li>• Best practice templates</li>
+                <li>• Data collection agents</li>
+                <li>• Input configuration</li>
+                <li>• Load balancing</li>
+                <li>• Security and encryption</li>
               </ul>
             </CardContent>
           </Card>
@@ -195,74 +195,62 @@ export default function OperatorsConceptsPage() {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center">
-                <Activity className="h-5 w-5 mr-2 text-orange-500" />
-                Lifecycle Management
+                <Settings className="h-5 w-5 mr-2 text-orange-500" />
+                Production Operations
               </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-gray-600 mb-4">
-                Managing operator deployment and maintenance.
+                Production-ready Splunk deployment and management.
               </p>
               <ul className="text-sm space-y-1">
-                <li>• Deployment strategies</li>
-                <li>• Version management</li>
-                <li>• Monitoring and alerting</li>
-                <li>• Troubleshooting techniques</li>
+                <li>• High availability setup</li>
+                <li>• Backup and recovery</li>
+                <li>• Performance optimization</li>
+                <li>• Security hardening</li>
               </ul>
             </CardContent>
           </Card>
         </div>
       </div>
 
-      {/* Operator Development Process */}
+      {/* Splunk Architecture Components */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">Operator Development Process</h2>
-        <div className="grid md:grid-cols-4 gap-6">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">Splunk Architecture Components</h2>
+        <div className="grid md:grid-cols-3 gap-6">
           <Card>
             <CardHeader>
-              <CardTitle className="text-center text-lg">1. Design</CardTitle>
+              <CardTitle className="text-center">Indexers</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
               <p className="text-sm text-gray-600 mb-4">
-                Design the operator architecture and resource model.
+                Process and store incoming data for search and analysis.
               </p>
-              <Badge variant="outline">Architecture</Badge>
+              <Badge variant="outline">Data Processing</Badge>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader>
-              <CardTitle className="text-center text-lg">2. Develop</CardTitle>
+              <CardTitle className="text-center">Search Heads</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
               <p className="text-sm text-gray-600 mb-4">
-                Implement the controller logic and reconciliation.
+                Provide search interface and coordinate distributed searches.
               </p>
-              <Badge variant="outline">Controller Code</Badge>
+              <Badge variant="outline">Search Interface</Badge>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader>
-              <CardTitle className="text-center text-lg">3. Test</CardTitle>
+              <CardTitle className="text-center">Universal Forwarders</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
               <p className="text-sm text-gray-600 mb-4">
-                Test the operator with various scenarios and edge cases.
+                Lightweight agents that collect and forward data to indexers.
               </p>
-              <Badge variant="outline">Testing</Badge>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-center text-lg">4. Deploy</CardTitle>
-            </CardHeader>
-            <CardContent className="text-center">
-              <p className="text-sm text-gray-600 mb-4">
-                Deploy and monitor the operator in production.
-              </p>
-              <Badge variant="outline">Production</Badge>
+              <Badge variant="outline">Data Collection</Badge>
             </CardContent>
           </Card>
         </div>
@@ -270,21 +258,22 @@ export default function OperatorsConceptsPage() {
 
       {/* Next Steps */}
       <div className="bg-blue-50 rounded-2xl p-8 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Ready to Continue?</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Operators Journey Complete!</h2>
         <p className="text-lg text-gray-600 mb-6">
-          Master Operator concepts, then explore real-world operators like Prometheus Operator.
+          Congratulations! You've mastered Kubernetes Operators from basics to advanced implementations. 
+          You're now ready to build and deploy operators in production environments.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button size="lg" asChild>
-            <Link href="/operators/prometheus-operator">
-              <PlayCircle className="mr-2 h-5 w-5" />
-              Next: Prometheus Operator
+            <Link href="/operators">
+              <BookOpen className="mr-2 h-5 w-5" />
+              Review Operators Overview
             </Link>
           </Button>
           <Button variant="outline" size="lg" asChild>
-            <Link href="/operators">
+            <Link href="/">
               <ArrowRight className="mr-2 h-5 w-5" />
-              Back to Operators Overview
+              Explore Other Paths
             </Link>
           </Button>
         </div>
