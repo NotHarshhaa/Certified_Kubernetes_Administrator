@@ -12,6 +12,11 @@ export const metadata: Metadata = {
   title: 'Kubernetes Learning Platform - Master CKA, Helm, Operators & Prometheus',
   description: 'Comprehensive Kubernetes learning platform covering CKA certification, Helm package management, Kubernetes Operators, and Prometheus monitoring with hands-on examples and tutorials.',
   keywords: ['Kubernetes', 'CKA', 'Helm', 'Operators', 'Prometheus', 'DevOps', 'Container Orchestration', 'Learning'],
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
+  },
 }
 
 export default function RootLayout({

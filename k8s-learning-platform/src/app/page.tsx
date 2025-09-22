@@ -85,16 +85,33 @@ export default function HomePage() {
   return (
     <div className="space-y-12">
       {/* Hero Section */}
-      <div className="text-center py-6 md:py-12">
-        <div className="max-w-4xl mx-auto">
-          <Badge variant="outline" className="mb-2 md:mb-4 text-xs md:text-sm">
+      <div className="text-center py-6 md:py-12 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 rounded-3xl mx-4 md:mx-8">
+        <div className="max-w-4xl mx-auto px-6 py-8 md:py-12">
+          {/* Logo Section */}
+          <div className="flex justify-center mb-6 md:mb-8">
+            <div className="relative">
+              <div className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-white/10 md:backdrop-blur-md rounded-2xl shadow-2xl flex items-center justify-center transform hover:scale-105 transition-transform duration-300 border border-white/20">
+                <img 
+                  src="/logo.png" 
+                  alt="Kubernetes Learning Platform Logo" 
+                  className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain"
+                  style={{ imageRendering: 'crisp-edges' }}
+                />
+              </div>
+              {/* Decorative elements */}
+              <div className="absolute -top-2 -right-2 w-6 h-6 bg-yellow-400 rounded-full animate-pulse shadow-lg"></div>
+              <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-green-400 rounded-full animate-bounce shadow-lg"></div>
+            </div>
+          </div>
+          
+          <Badge variant="outline" className="mb-2 md:mb-4 text-xs md:text-sm bg-white/10 border-white/20 text-white hover:bg-white/20">
             🚀 Master Kubernetes from Zero to Hero
           </Badge>
-          <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6">
+          <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6">
             Learn Certified Kubernetes Administrator
-            <span className="block text-blue-600">From Scratch</span>
+            <span className="block text-blue-300">From Scratch</span>
           </h1>
-          <p className="text-sm md:text-lg lg:text-xl text-muted-foreground mb-6 md:mb-8 leading-relaxed px-2">
+          <p className="text-sm md:text-lg lg:text-xl text-blue-100 mb-6 md:mb-8 leading-relaxed px-2">
             A comprehensive learning platform covering Kubernetes administration, Helm package management, 
             operators, and monitoring. Master K8s with hands-on examples, real-world projects, and expert guidance.
           </p>

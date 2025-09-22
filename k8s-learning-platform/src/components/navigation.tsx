@@ -29,11 +29,15 @@ export function Navigation({ onMobileMenuToggle, isMobileMenuOpen }: { onMobileM
               )}
             </Button>
             <Link href="/" className="flex items-center space-x-1 md:space-x-2">
-              <div className="h-6 w-6 md:h-8 md:w-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xs md:text-sm">K8s</span>
+              <div className="h-6 w-6 md:h-8 md:w-8 flex items-center justify-center">
+                <img 
+                  src="/logo.png" 
+                  alt="Kubernetes Learning Logo" 
+                  className="h-full w-full object-contain"
+                />
               </div>
               <div className="hidden md:block">
-                <h1 className="text-xl font-bold text-foreground">Kubernetes Learning</h1>
+                <h1 className="text-xl font-bold text-foreground">Kubernetes Learning Platform</h1>
                 <p className="text-sm text-muted-foreground">Master K8s from Zero to Hero</p>
               </div>
             </Link>
