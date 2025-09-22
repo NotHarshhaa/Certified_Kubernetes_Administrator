@@ -51,10 +51,10 @@ export default function HelmTemplatingPage() {
           <Badge variant="outline" className="mb-4 text-sm">
             🎨 Helm Templating
           </Badge>
-          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
             Templating
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
+          <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
             Master the art of Helm templating with Go templates. Learn to create dynamic, 
             reusable Kubernetes manifests with powerful templating techniques.
           </p>
@@ -63,7 +63,7 @@ export default function HelmTemplatingPage() {
 
       {/* Prerequisites */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">Prerequisites</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">Prerequisites</h2>
         <Card className="max-w-4xl mx-auto">
           <CardHeader>
             <CardTitle>What You Should Know Before Starting</CardTitle>
@@ -84,13 +84,13 @@ export default function HelmTemplatingPage() {
 
       {/* Learning Topics */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">Learning Topics</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">Learning Topics</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {topics.map((topic, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
               <CardHeader className="p-6">
                 <div className="flex items-center space-x-4 mb-4">
-                  <div className="p-3 rounded-lg bg-blue-500">
+                  <div className="p-3 rounded-lg bg-muted/500">
                     {(() => {
                       const IconComponent = topic.icon;
                       return <IconComponent className="h-6 w-6 text-white" />;
@@ -111,9 +111,9 @@ export default function HelmTemplatingPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="p-6 pt-0">
-                <div className="bg-gray-50 rounded-lg p-4">
+                <div className="bg-muted rounded-lg p-4">
                   <h4 className="font-semibold text-sm mb-2">Learning Objectives:</h4>
-                  <ul className="space-y-1 text-sm text-gray-700">
+                  <ul className="space-y-1 text-sm text-foreground">
                     {topic.topics.map((subtopic, topicIndex) => (
                       <li key={topicIndex} className="flex items-start">
                         <span className="text-blue-500 mr-2">•</span>
@@ -130,7 +130,7 @@ export default function HelmTemplatingPage() {
 
       {/* Key Concepts */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">Key Concepts</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">Key Concepts</h2>
         <div className="grid md:grid-cols-2 gap-6">
           <Card>
             <CardHeader>
@@ -140,7 +140,7 @@ export default function HelmTemplatingPage() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Go template syntax for creating dynamic Kubernetes manifests.
               </p>
               <ul className="text-sm space-y-1">
@@ -160,7 +160,7 @@ export default function HelmTemplatingPage() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Pre-defined objects available in Helm templates.
               </p>
               <ul className="text-sm space-y-1">
@@ -180,7 +180,7 @@ export default function HelmTemplatingPage() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Built-in functions for manipulating data in templates.
               </p>
               <ul className="text-sm space-y-1">
@@ -200,7 +200,7 @@ export default function HelmTemplatingPage() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Complex templating patterns for advanced use cases.
               </p>
               <ul className="text-sm space-y-1">
@@ -216,14 +216,14 @@ export default function HelmTemplatingPage() {
 
       {/* Template Examples */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">Common Template Patterns</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">Common Template Patterns</h2>
         <div className="grid md:grid-cols-3 gap-6">
           <Card>
             <CardHeader>
               <CardTitle className="text-center">Variable Substitution</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Using values to customize resource names and configurations.
               </p>
               <Badge variant="outline">.Values.name</Badge>
@@ -235,7 +235,7 @@ export default function HelmTemplatingPage() {
               <CardTitle className="text-center">Conditional Logic</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Creating conditional resources based on values or capabilities.
               </p>
               <Badge variant="outline">if/else</Badge>
@@ -247,7 +247,7 @@ export default function HelmTemplatingPage() {
               <CardTitle className="text-center">Loops and Iteration</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Iterating over lists to create multiple resources dynamically.
               </p>
               <Badge variant="outline">range</Badge>
@@ -257,9 +257,9 @@ export default function HelmTemplatingPage() {
       </div>
 
       {/* Next Steps */}
-      <div className="bg-blue-50 rounded-2xl p-8 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Ready to Continue?</h2>
-        <p className="text-lg text-gray-600 mb-6">
+      <div className="bg-muted/50 rounded-2xl p-8 text-center">
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Ready to Continue?</h2>
+        <p className="text-lg text-muted-foreground mb-6">
           Master templating techniques, then see them in action with the Online Boutique demo.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

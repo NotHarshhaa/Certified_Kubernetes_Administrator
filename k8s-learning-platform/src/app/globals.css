@@ -94,6 +94,22 @@
   background: #94a3b8;
 }
 
+.dark .sidebar-scroll {
+  scrollbar-color: #475569 #1e293b;
+}
+
+.dark .sidebar-scroll::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+.dark .sidebar-scroll::-webkit-scrollbar-thumb {
+  background: #475569;
+}
+
+.dark .sidebar-scroll::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
 /* Prevent body scroll when sidebar is open on mobile */
 body.sidebar-open {
   overflow: hidden;
@@ -118,15 +134,15 @@ body.sidebar-open {
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-gray-100;
+  @apply bg-gray-100 dark:bg-gray-800;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-300 rounded;
+  @apply bg-gray-300 dark:bg-gray-600 rounded;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-400;
+  @apply bg-gray-400 dark:bg-gray-500;
 }
 
 /* Syntax highlighting for code blocks */

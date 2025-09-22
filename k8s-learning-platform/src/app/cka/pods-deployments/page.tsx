@@ -51,10 +51,10 @@ export default function CKAPodsDeploymentsPage() {
           <Badge variant="outline" className="mb-4 text-sm">
             🚀 CKA Core Concepts
           </Badge>
-          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
             Pods & Deployments
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
+          <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
             Master the fundamental building blocks of Kubernetes applications. 
             Learn how to deploy, manage, and scale your applications effectively.
           </p>
@@ -63,7 +63,7 @@ export default function CKAPodsDeploymentsPage() {
 
       {/* Prerequisites */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">Prerequisites</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">Prerequisites</h2>
         <Card className="max-w-4xl mx-auto">
           <CardHeader>
             <CardTitle>What You Should Know Before Starting</CardTitle>
@@ -84,7 +84,7 @@ export default function CKAPodsDeploymentsPage() {
 
       {/* Learning Topics */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">Learning Topics</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">Learning Topics</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {topics.map((topic, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -108,9 +108,9 @@ export default function CKAPodsDeploymentsPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="p-6 pt-0">
-                <div className="bg-gray-50 rounded-lg p-4">
+                <div className="bg-muted rounded-lg p-4">
                   <h4 className="font-semibold text-sm mb-2">Learning Objectives:</h4>
-                  <ul className="space-y-1 text-sm text-gray-700">
+                  <ul className="space-y-1 text-sm text-foreground">
                     {topic.topics.map((subtopic, topicIndex) => (
                       <li key={topicIndex} className="flex items-start">
                         <span className="text-blue-500 mr-2">•</span>
@@ -127,7 +127,7 @@ export default function CKAPodsDeploymentsPage() {
 
       {/* Key Concepts */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">Key Concepts</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">Key Concepts</h2>
         <div className="grid md:grid-cols-3 gap-6">
           <Card>
             <CardHeader>
@@ -137,7 +137,7 @@ export default function CKAPodsDeploymentsPage() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 The smallest deployable unit in Kubernetes. Learn about pod lifecycle, 
                 container specs, and resource management.
               </p>
@@ -158,7 +158,7 @@ export default function CKAPodsDeploymentsPage() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Manage application deployments with rolling updates, rollbacks, 
                 and automatic scaling.
               </p>
@@ -179,7 +179,7 @@ export default function CKAPodsDeploymentsPage() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Deploy stateful applications with persistent storage and 
                 ordered deployment patterns.
               </p>
@@ -195,9 +195,9 @@ export default function CKAPodsDeploymentsPage() {
       </div>
 
       {/* Next Steps */}
-      <div className="bg-blue-50 rounded-2xl p-8 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Ready to Continue?</h2>
-        <p className="text-lg text-gray-600 mb-6">
+      <div className="bg-muted/50 rounded-2xl p-8 text-center">
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Ready to Continue?</h2>
+        <p className="text-lg text-muted-foreground mb-6">
           Master Pods and Deployments, then move on to Services and Networking concepts.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

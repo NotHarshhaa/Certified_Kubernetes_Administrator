@@ -51,10 +51,10 @@ export default function HelmHelmfilePage() {
           <Badge variant="outline" className="mb-4 text-sm">
             📋 Helmfile Management
           </Badge>
-          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
             Helmfile
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
+          <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
             Master Helmfile for declarative Helm deployments. Learn to manage multiple 
             releases, environments, and complex deployment scenarios with ease.
           </p>
@@ -63,7 +63,7 @@ export default function HelmHelmfilePage() {
 
       {/* Prerequisites */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">Prerequisites</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">Prerequisites</h2>
         <Card className="max-w-4xl mx-auto">
           <CardHeader>
             <CardTitle>What You Should Know Before Starting</CardTitle>
@@ -84,13 +84,13 @@ export default function HelmHelmfilePage() {
 
       {/* Learning Topics */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">Learning Topics</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">Learning Topics</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {topics.map((topic, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
               <CardHeader className="p-6">
                 <div className="flex items-center space-x-4 mb-4">
-                  <div className="p-3 rounded-lg bg-blue-500">
+                  <div className="p-3 rounded-lg bg-muted/500">
                     {(() => {
                       const IconComponent = topic.icon;
                       return <IconComponent className="h-6 w-6 text-white" />;
@@ -111,9 +111,9 @@ export default function HelmHelmfilePage() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="p-6 pt-0">
-                <div className="bg-gray-50 rounded-lg p-4">
+                <div className="bg-muted rounded-lg p-4">
                   <h4 className="font-semibold text-sm mb-2">Learning Objectives:</h4>
-                  <ul className="space-y-1 text-sm text-gray-700">
+                  <ul className="space-y-1 text-sm text-foreground">
                     {topic.topics.map((subtopic, topicIndex) => (
                       <li key={topicIndex} className="flex items-start">
                         <span className="text-blue-500 mr-2">•</span>
@@ -130,7 +130,7 @@ export default function HelmHelmfilePage() {
 
       {/* Key Concepts */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">Key Concepts</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">Key Concepts</h2>
         <div className="grid md:grid-cols-2 gap-6">
           <Card>
             <CardHeader>
@@ -140,7 +140,7 @@ export default function HelmHelmfilePage() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Declarative management of multiple Helm releases in a single file.
               </p>
               <ul className="text-sm space-y-1">
@@ -160,7 +160,7 @@ export default function HelmHelmfilePage() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Managing different environments with environment-specific configurations.
               </p>
               <ul className="text-sm space-y-1">
@@ -180,7 +180,7 @@ export default function HelmHelmfilePage() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Advanced Helmfile features for complex deployment scenarios.
               </p>
               <ul className="text-sm space-y-1">
@@ -200,7 +200,7 @@ export default function HelmHelmfilePage() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Integrating Helmfile with continuous deployment workflows.
               </p>
               <ul className="text-sm space-y-1">
@@ -216,14 +216,14 @@ export default function HelmHelmfilePage() {
 
       {/* Helmfile Workflow */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">Helmfile Workflow</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">Helmfile Workflow</h2>
         <div className="grid md:grid-cols-4 gap-6">
           <Card>
             <CardHeader>
               <CardTitle className="text-center text-lg">1. Define</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Define releases and their configurations in Helmfile.
               </p>
               <Badge variant="outline">helmfile.yaml</Badge>
@@ -235,7 +235,7 @@ export default function HelmHelmfilePage() {
               <CardTitle className="text-center text-lg">2. Sync</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Synchronize releases to match the desired state.
               </p>
               <Badge variant="outline">helmfile sync</Badge>
@@ -247,7 +247,7 @@ export default function HelmHelmfilePage() {
               <CardTitle className="text-center text-lg">3. Diff</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Compare current state with desired state.
               </p>
               <Badge variant="outline">helmfile diff</Badge>
@@ -259,7 +259,7 @@ export default function HelmHelmfilePage() {
               <CardTitle className="text-center text-lg">4. Apply</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Apply changes and manage release lifecycle.
               </p>
               <Badge variant="outline">helmfile apply</Badge>
@@ -269,9 +269,9 @@ export default function HelmHelmfilePage() {
       </div>
 
       {/* Next Steps */}
-      <div className="bg-blue-50 rounded-2xl p-8 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Helm Journey Complete!</h2>
-        <p className="text-lg text-gray-600 mb-6">
+      <div className="bg-muted/50 rounded-2xl p-8 text-center">
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Helm Journey Complete!</h2>
+        <p className="text-lg text-muted-foreground mb-6">
           Congratulations! You've mastered Helm from basics to advanced deployment management. 
           You're now ready to use Helm effectively in production environments.
         </p>

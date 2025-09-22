@@ -63,10 +63,10 @@ export default function CKAGettingStartedPage() {
           <Badge variant="outline" className="mb-4 text-sm">
             🎯 CKA Certification Path
           </Badge>
-          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
             Getting Started with CKA
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
+          <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
             Begin your journey to becoming a Certified Kubernetes Administrator. 
             This comprehensive path covers all the essential topics you need to master.
           </p>
@@ -75,7 +75,7 @@ export default function CKAGettingStartedPage() {
 
       {/* Prerequisites */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">Prerequisites</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">Prerequisites</h2>
         <Card className="max-w-4xl mx-auto">
           <CardHeader>
             <CardTitle>What You Should Know Before Starting</CardTitle>
@@ -96,7 +96,7 @@ export default function CKAGettingStartedPage() {
 
       {/* Learning Topics */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">Learning Topics</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">Learning Topics</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {topics.map((topic, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -124,9 +124,9 @@ export default function CKAGettingStartedPage() {
                   <h4 className="font-semibold text-sm mb-2">What you'll learn:</h4>
                   <ul className="space-y-1">
                     {topic.topics.map((subtopic, topicIndex) => (
-                      <li key={topicIndex} className="text-sm text-gray-600">
-                        • {subtopic}
-                      </li>
+                        <li key={topicIndex} className="text-sm text-muted-foreground">
+                          • {subtopic}
+                        </li>
                     ))}
                   </ul>
                 </div>
@@ -143,9 +143,9 @@ export default function CKAGettingStartedPage() {
       </div>
 
       {/* Next Steps */}
-      <div className="bg-blue-50 rounded-2xl p-8 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Ready to Start Learning?</h2>
-        <p className="text-lg text-gray-600 mb-6">
+      <div className="bg-muted/50 rounded-2xl p-8 text-center">
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Ready to Start Learning?</h2>
+        <p className="text-lg text-muted-foreground mb-6">
           Begin with Pods & Deployments and work your way through each topic systematically.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

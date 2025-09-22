@@ -107,10 +107,10 @@ export default function GrafanaPage() {
           <Badge variant="outline" className="mb-2 md:mb-4 text-xs md:text-sm">
             📊 Dashboard & Visualization
           </Badge>
-          <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6">
+          <h1 className="text-2xl md:text-4xl font-bold text-foreground mb-4 md:mb-6">
             Grafana Dashboards
           </h1>
-          <p className="text-sm md:text-xl text-gray-600 mb-6 md:mb-8 leading-relaxed px-2">
+          <p className="text-sm md:text-xl text-muted-foreground mb-6 md:mb-8 leading-relaxed px-2">
             Create comprehensive monitoring dashboards with Grafana. Learn to visualize metrics, 
             set up alerts, and build custom dashboards for your applications.
           </p>
@@ -119,13 +119,13 @@ export default function GrafanaPage() {
 
       {/* Dashboard Topics */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6 text-center">Dashboard Types</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6 text-center">Dashboard Types</h2>
         <div className="grid md:grid-cols-2 gap-4 md:gap-6">
           {dashboardTopics.map((topic, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
               <CardHeader className="p-4 md:p-6">
                 <div className="flex items-center space-x-3 mb-3">
-                  <div className="p-2 bg-blue-500 rounded-lg">
+                  <div className="p-2 bg-muted/500 rounded-lg">
                     <topic.icon className="h-5 w-5 text-white" />
                   </div>
                   <div className="flex-1">
@@ -137,11 +137,11 @@ export default function GrafanaPage() {
                 </div>
               </CardHeader>
               <CardContent className="p-4 md:p-6 pt-0">
-                <p className="text-gray-700 mb-4 text-sm md:text-base">
+                <p className="text-foreground mb-4 text-sm md:text-base">
                   {topic.content}
                 </p>
                 <div className="space-y-2 mb-4">
-                  <h4 className="font-medium text-gray-900 text-sm md:text-base">Key Features:</h4>
+                  <h4 className="font-medium text-foreground text-sm md:text-base">Key Features:</h4>
                   <div className="flex flex-wrap gap-1 md:gap-2">
                     {topic.features.map((feature, featureIndex) => (
                       <Badge key={featureIndex} variant="secondary" className="text-xs">
@@ -168,7 +168,7 @@ export default function GrafanaPage() {
 
       {/* Panel Types */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">Panel Types</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6">Panel Types</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {panelTypes.map((panel, index) => (
             <Card key={index} className="text-center hover:shadow-lg transition-shadow">
@@ -176,9 +176,9 @@ export default function GrafanaPage() {
                 <div className="p-3 bg-purple-500 rounded-lg mx-auto mb-4 w-fit">
                   <panel.icon className="h-5 w-5 md:h-6 md:w-6 text-white" />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2 text-sm md:text-base">{panel.type}</h3>
-                <p className="text-xs md:text-sm text-gray-600 mb-2">{panel.description}</p>
-                <p className="text-xs text-gray-500">Use case: {panel.useCase}</p>
+                <h3 className="font-semibold text-foreground mb-2 text-sm md:text-base">{panel.type}</h3>
+                <p className="text-xs md:text-sm text-muted-foreground mb-2">{panel.description}</p>
+                <p className="text-xs text-muted-foreground">Use case: {panel.useCase}</p>
               </CardContent>
             </Card>
           ))}
@@ -187,7 +187,7 @@ export default function GrafanaPage() {
 
       {/* Data Sources */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">Data Sources Configuration</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6">Data Sources Configuration</h2>
         <div className="grid md:grid-cols-2 gap-4 md:gap-6">
           {dataSources.map((source, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -209,11 +209,11 @@ export default function GrafanaPage() {
                   </div>
                   <div className="text-sm">
                     <span className="font-medium">Access:</span> 
-                    <span className="ml-2 text-gray-600">{source.configuration.access}</span>
+                    <span className="ml-2 text-muted-foreground">{source.configuration.access}</span>
                   </div>
                   <div className="text-sm">
                     <span className="font-medium">Authentication:</span> 
-                    <span className="ml-2 text-gray-600">{source.configuration.authentication}</span>
+                    <span className="ml-2 text-muted-foreground">{source.configuration.authentication}</span>
                   </div>
                 </div>
               </CardContent>
@@ -224,7 +224,7 @@ export default function GrafanaPage() {
 
       {/* Best Practices */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">Dashboard Best Practices</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6">Dashboard Best Practices</h2>
         <Card>
           <CardHeader>
             <CardTitle className="text-base md:text-lg">Design Guidelines</CardTitle>
@@ -237,7 +237,7 @@ export default function GrafanaPage() {
               {bestPractices.map((practice, index) => (
                 <li key={index} className="flex items-center space-x-3">
                   <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm md:text-base">{practice}</span>
+                  <span className="text-foreground text-sm md:text-base">{practice}</span>
                 </li>
               ))}
             </ul>
@@ -247,7 +247,7 @@ export default function GrafanaPage() {
 
       {/* Quick Setup Guide */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">Quick Setup Guide</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6">Quick Setup Guide</h2>
         <Card>
           <CardHeader>
             <CardTitle className="text-base md:text-lg">Access Grafana</CardTitle>
@@ -258,7 +258,7 @@ export default function GrafanaPage() {
           <CardContent>
             <div className="space-y-4">
               <div>
-                <h4 className="font-medium text-gray-900 mb-2 text-sm md:text-base">1. Port Forward to Grafana</h4>
+                <h4 className="font-medium text-foreground mb-2 text-sm md:text-base">1. Port Forward to Grafana</h4>
                 <div className="bg-gray-900 rounded-lg p-3">
                   <pre className="text-green-400 text-xs md:text-sm">
                     <span className="text-blue-400">$</span> kubectl port-forward svc/prometheus-grafana 3000:80 -n monitoring
@@ -266,17 +266,17 @@ export default function GrafanaPage() {
                 </div>
               </div>
               <div>
-                <h4 className="font-medium text-gray-900 mb-2 text-sm md:text-base">2. Access Grafana UI</h4>
+                <h4 className="font-medium text-foreground mb-2 text-sm md:text-base">2. Access Grafana UI</h4>
                 <div className="bg-gray-100 rounded-lg p-3">
-                  <p className="text-sm md:text-base text-gray-700">
+                  <p className="text-sm md:text-base text-foreground">
                     Open your browser and navigate to <code className="bg-gray-200 px-2 py-1 rounded">http://localhost:3000</code>
                   </p>
                 </div>
               </div>
               <div>
-                <h4 className="font-medium text-gray-900 mb-2 text-sm md:text-base">3. Login Credentials</h4>
+                <h4 className="font-medium text-foreground mb-2 text-sm md:text-base">3. Login Credentials</h4>
                 <div className="bg-gray-100 rounded-lg p-3">
-                  <p className="text-sm md:text-base text-gray-700">
+                  <p className="text-sm md:text-base text-foreground">
                     Username: <code className="bg-gray-200 px-2 py-1 rounded">admin</code><br/>
                     Password: <code className="bg-gray-200 px-2 py-1 rounded">prom-operator</code>
                   </p>
@@ -288,9 +288,9 @@ export default function GrafanaPage() {
       </div>
 
       {/* Next Steps */}
-      <div className="bg-blue-50 rounded-2xl p-6 md:p-8 text-center">
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">Ready to Create Alerts?</h2>
-        <p className="text-sm md:text-lg text-gray-600 mb-6">
+      <div className="bg-muted/50 rounded-2xl p-6 md:p-8 text-center">
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4">Ready to Create Alerts?</h2>
+        <p className="text-sm md:text-lg text-muted-foreground mb-6">
           Now that you have dashboards set up, learn how to configure alerting rules for proactive monitoring.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">

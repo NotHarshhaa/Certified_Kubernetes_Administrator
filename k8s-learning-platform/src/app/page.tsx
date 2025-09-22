@@ -90,11 +90,11 @@ export default function HomePage() {
           <Badge variant="outline" className="mb-2 md:mb-4 text-xs md:text-sm">
             🚀 Master Kubernetes from Zero to Hero
           </Badge>
-          <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
+          <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6">
             Learn Certified Kubernetes Administrator
             <span className="block text-blue-600">From Scratch</span>
           </h1>
-          <p className="text-sm md:text-lg lg:text-xl text-gray-600 mb-6 md:mb-8 leading-relaxed px-2">
+          <p className="text-sm md:text-lg lg:text-xl text-muted-foreground mb-6 md:mb-8 leading-relaxed px-2">
             A comprehensive learning platform covering Kubernetes administration, Helm package management, 
             operators, and monitoring. Master K8s with hands-on examples, real-world projects, and expert guidance.
           </p>
@@ -121,7 +121,7 @@ export default function HomePage() {
           <Card key={index} className="text-center">
             <CardContent className="pt-4 md:pt-6">
               <div className="text-xl md:text-3xl font-bold text-blue-600">{stat.value}</div>
-              <div className="text-xs md:text-sm text-gray-600">{stat.label}</div>
+              <div className="text-xs md:text-sm text-muted-foreground">{stat.label}</div>
             </CardContent>
           </Card>
         ))}
@@ -130,8 +130,8 @@ export default function HomePage() {
       {/* Features Section */}
       <div>
         <div className="text-center mb-6 md:mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2 md:mb-4">What You'll Learn</h2>
-          <p className="text-sm md:text-lg text-gray-600">Comprehensive coverage of Kubernetes ecosystem</p>
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2 md:mb-4">What You'll Learn</h2>
+          <p className="text-sm md:text-lg text-muted-foreground">Comprehensive coverage of Kubernetes ecosystem</p>
         </div>
         <div className="grid md:grid-cols-2 gap-4 md:gap-8">
           {features.map((feature, index) => (
@@ -169,8 +169,8 @@ export default function HomePage() {
       {/* Learning Path */}
       <div>
         <div className="text-center mb-6 md:mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2 md:mb-4">Your Learning Journey</h2>
-          <p className="text-sm md:text-lg text-gray-600">Structured path from beginner to Kubernetes expert</p>
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2 md:mb-4">Your Learning Journey</h2>
+          <p className="text-sm md:text-lg text-muted-foreground">Structured path from beginner to Kubernetes expert</p>
         </div>
         <div className="space-y-4 md:space-y-8">
           {learningPath.map((step, index) => (
@@ -184,13 +184,13 @@ export default function HomePage() {
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center justify-between mb-2">
-                      <h3 className="text-lg md:text-xl font-semibold text-gray-900">{step.title}</h3>
+                      <h3 className="text-lg md:text-xl font-semibold text-foreground">{step.title}</h3>
                       <Badge variant="outline" className="flex items-center text-xs">
                         <Clock className="mr-1 h-3 w-3" />
                         {step.duration}
                       </Badge>
                     </div>
-                    <p className="text-sm md:text-base text-gray-600 mb-3 md:mb-4">{step.description}</p>
+                    <p className="text-sm md:text-base text-muted-foreground mb-3 md:mb-4">{step.description}</p>
                     <div className="flex flex-wrap gap-1 md:gap-2">
                       {step.topics.map((topic, topicIndex) => (
                         <Badge key={topicIndex} variant="secondary" className="text-xs">
@@ -207,9 +207,9 @@ export default function HomePage() {
       </div>
 
       {/* Call to Action */}
-      <div className="bg-blue-50 rounded-2xl p-4 md:p-8 text-center">
-        <h2 className="text-xl md:text-3xl font-bold text-gray-900 mb-2 md:mb-4">Ready to Start Your Kubernetes Journey?</h2>
-        <p className="text-sm md:text-lg text-gray-600 mb-4 md:mb-6">
+      <div className="bg-muted/50 rounded-2xl p-4 md:p-8 text-center">
+        <h2 className="text-xl md:text-3xl font-bold text-foreground mb-2 md:mb-4">Ready to Start Your Kubernetes Journey?</h2>
+        <p className="text-sm md:text-lg text-muted-foreground mb-4 md:mb-6">
           Join thousands of developers and DevOps engineers who have mastered Kubernetes with our comprehensive guide.
         </p>
         <div className="flex flex-col sm:flex-row gap-2 md:gap-4 justify-center">
@@ -229,9 +229,9 @@ export default function HomePage() {
       </div>
 
       {/* About Author */}
-      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 md:p-8">
+      <div className="bg-gradient-to-r from-muted/50 to-muted/30 rounded-2xl p-6 md:p-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">About the Author</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">About the Author</h2>
           <div className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8">
             <div className="flex-shrink-0">
               <img
@@ -241,11 +241,11 @@ export default function HomePage() {
               />
             </div>
             <div className="flex-1 text-center md:text-left">
-              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">Harshhaa</h3>
-              <p className="text-sm md:text-base text-gray-600 mb-4">
+              <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">Harshhaa</h3>
+              <p className="text-sm md:text-base text-muted-foreground mb-4">
                 DevOps Engineer & Kubernetes Enthusiast
               </p>
-              <p className="text-sm md:text-base text-gray-700 mb-6 leading-relaxed">
+              <p className="text-sm md:text-base text-foreground mb-6 leading-relaxed">
                 Passionate about cloud-native technologies, container orchestration, and helping developers 
                 master Kubernetes. With hands-on experience in DevOps practices, I've created this comprehensive 
                 learning platform to share knowledge and make Kubernetes accessible to everyone.

@@ -10,7 +10,7 @@ const learningPaths = [
     description: 'Master Kubernetes administration from basics to advanced concepts',
     icon: BookOpen,
     href: '/cka',
-    color: 'bg-blue-500',
+    color: 'bg-muted/500',
     duration: '8-12 weeks',
     difficulty: 'Intermediate',
     topics: ['Pods & Deployments', 'Services & Networking', 'Storage & Volumes', 'Security & RBAC', 'Troubleshooting']
@@ -71,10 +71,10 @@ export default function GetStartedPage() {
           <Badge variant="outline" className="mb-4 text-sm">
             🚀 Start Your Kubernetes Journey
           </Badge>
-          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
             Get Started with Kubernetes Learning
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
+          <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
             Choose your learning path and master Kubernetes from beginner to expert level. 
             Our comprehensive curriculum covers everything you need to become a Kubernetes administrator.
           </p>
@@ -83,7 +83,7 @@ export default function GetStartedPage() {
 
       {/* Prerequisites */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">Prerequisites</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">Prerequisites</h2>
         <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
           <Card>
             <CardHeader>
@@ -122,7 +122,7 @@ export default function GetStartedPage() {
 
       {/* Learning Paths */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">Choose Your Learning Path</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">Choose Your Learning Path</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {learningPaths.map((path, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -172,9 +172,9 @@ export default function GetStartedPage() {
       </div>
 
       {/* Call to Action */}
-      <div className="bg-blue-50 rounded-2xl p-8 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Ready to Begin?</h2>
-        <p className="text-lg text-gray-600 mb-6">
+      <div className="bg-muted/50 rounded-2xl p-8 text-center">
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Ready to Begin?</h2>
+        <p className="text-lg text-muted-foreground mb-6">
           Start with the CKA certification path for a comprehensive learning experience, 
           or choose any path that matches your current skill level.
         </p>

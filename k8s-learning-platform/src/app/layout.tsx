@@ -4,6 +4,7 @@ import './globals.css'
 import { Navigation } from '@/components/navigation'
 import { Sidebar } from '@/components/sidebar'
 import MobileLayout from '@/components/mobile-layout'
+import { ThemeProvider } from '@/components/theme-provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,11 +20,16 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <MobileLayout>
-          {children}
-        </MobileLayout>
+        <ThemeProvider
+          defaultTheme="system"
+          storageKey="kubernetes-learning-theme"
+        >
+          <MobileLayout>
+            {children}
+          </MobileLayout>
+        </ThemeProvider>
       </body>
     </html>
   )

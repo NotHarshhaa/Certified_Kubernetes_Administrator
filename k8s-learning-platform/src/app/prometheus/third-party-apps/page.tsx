@@ -134,10 +134,10 @@ export default function ThirdPartyAppsPage() {
           <Badge variant="outline" className="mb-2 md:mb-4 text-xs md:text-sm">
             🔗 Third-party Application Monitoring
           </Badge>
-          <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6">
+          <h1 className="text-2xl md:text-4xl font-bold text-foreground mb-4 md:mb-6">
             Monitor External Applications
           </h1>
-          <p className="text-sm md:text-xl text-gray-600 mb-6 md:mb-8 leading-relaxed px-2">
+          <p className="text-sm md:text-xl text-muted-foreground mb-6 md:mb-8 leading-relaxed px-2">
             Learn to monitor third-party applications like Redis, MySQL, Nginx, and more using 
             Prometheus exporters. Set up comprehensive monitoring for your entire application stack.
           </p>
@@ -146,13 +146,13 @@ export default function ThirdPartyAppsPage() {
 
       {/* Popular Exporters */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6 text-center">Popular Exporters</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6 text-center">Popular Exporters</h2>
         <div className="grid md:grid-cols-2 gap-4 md:gap-6">
           {exporters.map((exporter, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
               <CardHeader className="p-4 md:p-6">
                 <div className="flex items-center space-x-3 mb-3">
-                  <div className="p-2 bg-green-500 rounded-lg">
+                  <div className="p-2 bg-muted/500 rounded-lg">
                     <exporter.icon className="h-5 w-5 text-white" />
                   </div>
                   <div className="flex-1">
@@ -164,12 +164,12 @@ export default function ThirdPartyAppsPage() {
                 </div>
               </CardHeader>
               <CardContent className="p-4 md:p-6 pt-0">
-                <p className="text-gray-700 mb-4 text-sm md:text-base">
+                <p className="text-foreground mb-4 text-sm md:text-base">
                   {exporter.content}
                 </p>
                 <div className="space-y-3">
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-2 text-sm md:text-base">Key Metrics:</h4>
+                    <h4 className="font-medium text-foreground mb-2 text-sm md:text-base">Key Metrics:</h4>
                     <div className="flex flex-wrap gap-1 md:gap-2">
                       {exporter.metrics.map((metric, metricIndex) => (
                         <Badge key={metricIndex} variant="secondary" className="text-xs">
@@ -185,7 +185,7 @@ export default function ThirdPartyAppsPage() {
                     </div>
                     <div>
                       <span className="font-medium">Port:</span>
-                      <span className="ml-1 text-gray-600">{exporter.port}</span>
+                      <span className="ml-1 text-muted-foreground">{exporter.port}</span>
                     </div>
                   </div>
                 </div>
@@ -197,13 +197,13 @@ export default function ThirdPartyAppsPage() {
 
       {/* Setup Process */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">Monitoring Setup Process</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6">Monitoring Setup Process</h2>
         <div className="grid md:grid-cols-2 gap-4 md:gap-6">
           {monitoringSetup.map((step, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
               <CardHeader className="p-4 md:p-6">
                 <div className="flex items-center space-x-3 mb-3">
-                  <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                  <div className="w-8 h-8 bg-muted/500 rounded-full flex items-center justify-center text-white font-bold text-sm">
                     {step.step}
                   </div>
                   <div className="flex-1">
@@ -215,7 +215,7 @@ export default function ThirdPartyAppsPage() {
                 </div>
               </CardHeader>
               <CardContent className="p-4 md:p-6 pt-0">
-                <p className="text-gray-700 mb-4 text-sm md:text-base">
+                <p className="text-foreground mb-4 text-sm md:text-base">
                   {step.content}
                 </p>
                 <div className="bg-gray-900 rounded-lg p-3">
@@ -238,7 +238,7 @@ export default function ThirdPartyAppsPage() {
 
       {/* Sample Applications */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">Sample Monitoring Setups</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6">Sample Monitoring Setups</h2>
         <div className="grid md:grid-cols-3 gap-4 md:gap-6">
           {sampleApplications.map((app, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -251,7 +251,7 @@ export default function ThirdPartyAppsPage() {
               <CardContent className="p-4 md:p-6 pt-0">
                 <div className="space-y-3">
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-2 text-sm md:text-base">Components:</h4>
+                    <h4 className="font-medium text-foreground mb-2 text-sm md:text-base">Components:</h4>
                     <div className="flex flex-wrap gap-1 md:gap-2">
                       {app.components.map((component, compIndex) => (
                         <Badge key={compIndex} variant="secondary" className="text-xs">
@@ -261,11 +261,11 @@ export default function ThirdPartyAppsPage() {
                     </div>
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-2 text-sm md:text-base">Dashboard ID:</h4>
+                    <h4 className="font-medium text-foreground mb-2 text-sm md:text-base">Dashboard ID:</h4>
                     <code className="bg-gray-100 px-2 py-1 rounded text-xs">{app.dashboardId}</code>
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-2 text-sm md:text-base">Alert Types:</h4>
+                    <h4 className="font-medium text-foreground mb-2 text-sm md:text-base">Alert Types:</h4>
                     <div className="flex flex-wrap gap-1 md:gap-2">
                       {app.alerts.map((alert, alertIndex) => (
                         <Badge key={alertIndex} variant="outline" className="text-xs">
@@ -283,7 +283,7 @@ export default function ThirdPartyAppsPage() {
 
       {/* Best Practices */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">Best Practices</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6">Best Practices</h2>
         <Card>
           <CardHeader>
             <CardTitle className="text-base md:text-lg">Monitoring Guidelines</CardTitle>
@@ -296,7 +296,7 @@ export default function ThirdPartyAppsPage() {
               {bestPractices.map((practice, index) => (
                 <li key={index} className="flex items-center space-x-3">
                   <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm md:text-base">{practice}</span>
+                  <span className="text-foreground text-sm md:text-base">{practice}</span>
                 </li>
               ))}
             </ul>
@@ -306,7 +306,7 @@ export default function ThirdPartyAppsPage() {
 
       {/* Quick Start Commands */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">Quick Start Commands</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6">Quick Start Commands</h2>
         <Card>
           <CardHeader>
             <CardTitle className="text-base md:text-lg">Common Exporter Deployments</CardTitle>
@@ -317,7 +317,7 @@ export default function ThirdPartyAppsPage() {
           <CardContent>
             <div className="space-y-4">
               <div>
-                <h4 className="font-medium text-gray-900 mb-2 text-sm md:text-base">Redis Exporter</h4>
+                <h4 className="font-medium text-foreground mb-2 text-sm md:text-base">Redis Exporter</h4>
                 <div className="bg-gray-900 rounded-lg p-3">
                   <pre className="text-green-400 text-xs md:text-sm">
                     <span className="text-blue-400">$</span> helm install redis-exporter prometheus-community/prometheus-redis-exporter \
@@ -326,7 +326,7 @@ export default function ThirdPartyAppsPage() {
                 </div>
               </div>
               <div>
-                <h4 className="font-medium text-gray-900 mb-2 text-sm md:text-base">MySQL Exporter</h4>
+                <h4 className="font-medium text-foreground mb-2 text-sm md:text-base">MySQL Exporter</h4>
                 <div className="bg-gray-900 rounded-lg p-3">
                   <pre className="text-green-400 text-xs md:text-sm">
                     <span className="text-blue-400">$</span> helm install mysql-exporter prometheus-community/prometheus-mysql-exporter \
@@ -335,7 +335,7 @@ export default function ThirdPartyAppsPage() {
                 </div>
               </div>
               <div>
-                <h4 className="font-medium text-gray-900 mb-2 text-sm md:text-base">Nginx Exporter</h4>
+                <h4 className="font-medium text-foreground mb-2 text-sm md:text-base">Nginx Exporter</h4>
                 <div className="bg-gray-900 rounded-lg p-3">
                   <pre className="text-green-400 text-xs md:text-sm">
                     <span className="text-blue-400">$</span> helm install nginx-exporter prometheus-community/prometheus-nginx-exporter \
@@ -349,9 +349,9 @@ export default function ThirdPartyAppsPage() {
       </div>
 
       {/* Next Steps */}
-      <div className="bg-green-50 rounded-2xl p-6 md:p-8 text-center">
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">Ready to Monitor Your Own Apps?</h2>
-        <p className="text-sm md:text-lg text-gray-600 mb-6">
+      <div className="bg-muted/50 rounded-2xl p-6 md:p-8 text-center">
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4">Ready to Monitor Your Own Apps?</h2>
+        <p className="text-sm md:text-lg text-muted-foreground mb-6">
           Now that you can monitor third-party applications, learn how to instrument your own applications with custom metrics.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">

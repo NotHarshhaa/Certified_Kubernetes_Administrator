@@ -98,10 +98,10 @@ export default function InstallationPage() {
           <Badge variant="outline" className="mb-2 md:mb-4 text-xs md:text-sm">
             🚀 Installation & Setup
           </Badge>
-          <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6">
+          <h1 className="text-2xl md:text-4xl font-bold text-foreground mb-4 md:mb-6">
             Prometheus Installation Guide
           </h1>
-          <p className="text-sm md:text-xl text-gray-600 mb-6 md:mb-8 leading-relaxed px-2">
+          <p className="text-sm md:text-xl text-muted-foreground mb-6 md:mb-8 leading-relaxed px-2">
             Deploy a complete Prometheus monitoring stack in Kubernetes using the Prometheus Operator. 
             Learn best practices for production-ready monitoring setup.
           </p>
@@ -110,7 +110,7 @@ export default function InstallationPage() {
 
       {/* Installation Steps */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6 text-center">Installation Steps</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6 text-center">Installation Steps</h2>
         <div className="grid md:grid-cols-2 gap-4 md:gap-6">
           {installationSteps.map((step, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -128,7 +128,7 @@ export default function InstallationPage() {
                 </div>
               </CardHeader>
               <CardContent className="p-4 md:p-6 pt-0">
-                <p className="text-gray-700 mb-4 text-sm md:text-base">
+                <p className="text-foreground mb-4 text-sm md:text-base">
                   {step.content}
                 </p>
                 <div className="bg-gray-900 rounded-lg p-3 overflow-x-auto">
@@ -148,7 +148,7 @@ export default function InstallationPage() {
 
       {/* Monitoring Components */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">Monitoring Stack Components</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6">Monitoring Stack Components</h2>
         <div className="grid md:grid-cols-2 gap-4 md:gap-6">
           {components.map((component, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -163,7 +163,7 @@ export default function InstallationPage() {
               </CardHeader>
               <CardContent className="p-4 md:p-6 pt-0">
                 <div className="space-y-2">
-                  <h4 className="font-medium text-gray-900 text-sm md:text-base">Key Features:</h4>
+                  <h4 className="font-medium text-foreground text-sm md:text-base">Key Features:</h4>
                   <div className="flex flex-wrap gap-1 md:gap-2">
                     {component.features.map((feature, featureIndex) => (
                       <Badge key={featureIndex} variant="secondary" className="text-xs">
@@ -180,7 +180,7 @@ export default function InstallationPage() {
 
       {/* Verification Steps */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">Verification Steps</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6">Verification Steps</h2>
         <Card>
           <CardHeader>
             <CardTitle className="text-base md:text-lg">Post-Installation Verification</CardTitle>
@@ -193,7 +193,7 @@ export default function InstallationPage() {
               {verificationSteps.map((step, index) => (
                 <li key={index} className="flex items-center space-x-3">
                   <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm md:text-base">{step}</span>
+                  <span className="text-foreground text-sm md:text-base">{step}</span>
                 </li>
               ))}
             </ul>
@@ -203,7 +203,7 @@ export default function InstallationPage() {
 
       {/* Quick Commands */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">Quick Commands</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6">Quick Commands</h2>
         <Card>
           <CardHeader>
             <CardTitle className="text-base md:text-lg">Essential kubectl Commands</CardTitle>
@@ -214,7 +214,7 @@ export default function InstallationPage() {
           <CardContent>
             <div className="space-y-4">
               <div>
-                <h4 className="font-medium text-gray-900 mb-2 text-sm md:text-base">Check Pod Status</h4>
+                <h4 className="font-medium text-foreground mb-2 text-sm md:text-base">Check Pod Status</h4>
                 <div className="bg-gray-900 rounded-lg p-3">
                   <pre className="text-green-400 text-xs md:text-sm">
                     <span className="text-blue-400">$</span> kubectl get pods -n monitoring
@@ -222,7 +222,7 @@ export default function InstallationPage() {
                 </div>
               </div>
               <div>
-                <h4 className="font-medium text-gray-900 mb-2 text-sm md:text-base">Access Prometheus UI</h4>
+                <h4 className="font-medium text-foreground mb-2 text-sm md:text-base">Access Prometheus UI</h4>
                 <div className="bg-gray-900 rounded-lg p-3">
                   <pre className="text-green-400 text-xs md:text-sm">
                     <span className="text-blue-400">$</span> kubectl port-forward svc/prometheus-kube-prometheus-prometheus 9090:9090 -n monitoring
@@ -230,7 +230,7 @@ export default function InstallationPage() {
                 </div>
               </div>
               <div>
-                <h4 className="font-medium text-gray-900 mb-2 text-sm md:text-base">Access Grafana UI</h4>
+                <h4 className="font-medium text-foreground mb-2 text-sm md:text-base">Access Grafana UI</h4>
                 <div className="bg-gray-900 rounded-lg p-3">
                   <pre className="text-green-400 text-xs md:text-sm">
                     <span className="text-blue-400">$</span> kubectl port-forward svc/prometheus-grafana 3000:80 -n monitoring
@@ -243,9 +243,9 @@ export default function InstallationPage() {
       </div>
 
       {/* Next Steps */}
-      <div className="bg-purple-50 rounded-2xl p-6 md:p-8 text-center">
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">Ready for Next Steps?</h2>
-        <p className="text-sm md:text-lg text-gray-600 mb-6">
+      <div className="bg-muted/50 rounded-2xl p-6 md:p-8 text-center">
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4">Ready for Next Steps?</h2>
+        <p className="text-sm md:text-lg text-muted-foreground mb-6">
           Now that Prometheus is installed, learn how to create comprehensive dashboards and configure alerting.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">

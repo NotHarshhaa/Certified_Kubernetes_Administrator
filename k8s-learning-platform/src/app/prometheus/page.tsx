@@ -75,7 +75,7 @@ const monitoringFeatures = [
     title: 'Metrics Collection',
     description: 'Collect metrics from applications, services, and infrastructure.',
     icon: Database,
-    color: 'bg-blue-500',
+    color: 'bg-muted/500',
   },
   {
     title: 'PromQL Querying',
@@ -160,10 +160,10 @@ export default function PrometheusPage() {
           <Badge variant="outline" className="mb-2 md:mb-4 text-xs md:text-sm">
             📊 Monitoring & Alerting Platform
           </Badge>
-          <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6">
+          <h1 className="text-2xl md:text-4xl font-bold text-foreground mb-4 md:mb-6">
             Get Started with Prometheus
           </h1>
-          <p className="text-sm md:text-xl text-gray-600 mb-6 md:mb-8 leading-relaxed px-2">
+          <p className="text-sm md:text-xl text-muted-foreground mb-6 md:mb-8 leading-relaxed px-2">
             Learn to monitor Kubernetes clusters and applications with Prometheus, Grafana, and Alertmanager. 
             Set up comprehensive observability and alerting systems from scratch.
           </p>
@@ -184,15 +184,15 @@ export default function PrometheusPage() {
 
       {/* Quick Start Guide */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6 text-center">Quick Start Guide</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6 text-center">Quick Start Guide</h2>
         <div className="grid md:grid-cols-4 gap-3 md:gap-6">
           <Card className="text-center hover:shadow-lg transition-shadow">
             <CardContent className="pt-4 md:pt-6">
-              <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-12 h-12 bg-muted/500 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-white font-bold text-lg">1</span>
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2 text-sm md:text-base">Install Prometheus</h3>
-              <p className="text-xs md:text-sm text-gray-600">Deploy Prometheus Operator using Helm</p>
+              <h3 className="font-semibold text-foreground mb-2 text-sm md:text-base">Install Prometheus</h3>
+              <p className="text-xs md:text-sm text-muted-foreground">Deploy Prometheus Operator using Helm</p>
               <Button size="sm" asChild className="mt-3 text-xs">
                 <Link href="/prometheus/installation">Start Installation</Link>
               </Button>
@@ -203,8 +203,8 @@ export default function PrometheusPage() {
               <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-white font-bold text-lg">2</span>
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2 text-sm md:text-base">Setup Dashboards</h3>
-              <p className="text-xs md:text-sm text-gray-600">Configure Grafana with pre-built dashboards</p>
+              <h3 className="font-semibold text-foreground mb-2 text-sm md:text-base">Setup Dashboards</h3>
+              <p className="text-xs md:text-sm text-muted-foreground">Configure Grafana with pre-built dashboards</p>
               <Button size="sm" asChild className="mt-3 text-xs">
                 <Link href="/prometheus/grafana">Setup Grafana</Link>
               </Button>
@@ -215,8 +215,8 @@ export default function PrometheusPage() {
               <div className="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-white font-bold text-lg">3</span>
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2 text-sm md:text-base">Configure Alerts</h3>
-              <p className="text-xs md:text-sm text-gray-600">Set up alert rules and notifications</p>
+              <h3 className="font-semibold text-foreground mb-2 text-sm md:text-base">Configure Alerts</h3>
+              <p className="text-xs md:text-sm text-muted-foreground">Set up alert rules and notifications</p>
               <Button size="sm" asChild className="mt-3 text-xs">
                 <Link href="/prometheus/alert-rules">Setup Alerts</Link>
               </Button>
@@ -227,8 +227,8 @@ export default function PrometheusPage() {
               <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-white font-bold text-lg">4</span>
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2 text-sm md:text-base">Monitor Apps</h3>
-              <p className="text-xs md:text-sm text-gray-600">Add custom metrics to your applications</p>
+              <h3 className="font-semibold text-foreground mb-2 text-sm md:text-base">Monitor Apps</h3>
+              <p className="text-xs md:text-sm text-muted-foreground">Add custom metrics to your applications</p>
               <Button size="sm" asChild className="mt-3 text-xs">
                 <Link href="/prometheus/custom-apps">Monitor Apps</Link>
               </Button>
@@ -239,7 +239,7 @@ export default function PrometheusPage() {
 
       {/* Monitoring Features */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6 text-center">Prometheus Features</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6 text-center">Prometheus Features</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {monitoringFeatures.map((feature, index) => (
             <Card key={index} className="text-center hover:shadow-lg transition-shadow">
@@ -247,8 +247,8 @@ export default function PrometheusPage() {
                 <div className={`p-3 rounded-lg ${feature.color} mx-auto mb-4 w-fit`}>
                   <feature.icon className="h-5 w-5 md:h-6 md:w-6 text-white" />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2 text-sm md:text-base">{feature.title}</h3>
-                <p className="text-xs md:text-sm text-gray-600">{feature.description}</p>
+                <h3 className="font-semibold text-foreground mb-2 text-sm md:text-base">{feature.title}</h3>
+                <p className="text-xs md:text-sm text-muted-foreground">{feature.description}</p>
               </CardContent>
             </Card>
           ))}
@@ -257,7 +257,7 @@ export default function PrometheusPage() {
 
       {/* Monitoring Stack */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">Monitoring Stack Components</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6">Monitoring Stack Components</h2>
         <div className="grid md:grid-cols-2 gap-4 md:gap-6">
           {monitoringStack.map((component, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -271,7 +271,7 @@ export default function PrometheusPage() {
               </CardHeader>
               <CardContent className="p-4 md:p-6 pt-0">
                 <div className="space-y-2">
-                  <h4 className="font-medium text-gray-900 text-sm md:text-base">Key Features:</h4>
+                  <h4 className="font-medium text-foreground text-sm md:text-base">Key Features:</h4>
                   <div className="flex flex-wrap gap-1 md:gap-2">
                     {component.features.map((feature, featureIndex) => (
                       <Badge key={featureIndex} variant="secondary" className="text-xs">
@@ -288,7 +288,7 @@ export default function PrometheusPage() {
 
       {/* Metrics Types */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">Prometheus Metrics Types</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6">Prometheus Metrics Types</h2>
         <div className="grid md:grid-cols-2 gap-4 md:gap-6">
           {metricsTypes.map((metric, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -302,12 +302,12 @@ export default function PrometheusPage() {
               <CardContent className="p-4 md:p-6 pt-0">
                 <div className="space-y-3">
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-1 text-sm md:text-base">Example:</h4>
+                    <h4 className="font-medium text-foreground mb-1 text-sm md:text-base">Example:</h4>
                     <code className="bg-gray-100 px-2 py-1 rounded text-xs md:text-sm">{metric.example}</code>
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-1 text-sm md:text-base">Use Cases:</h4>
-                    <p className="text-xs md:text-sm text-gray-600">{metric.useCase}</p>
+                    <h4 className="font-medium text-foreground mb-1 text-sm md:text-base">Use Cases:</h4>
+                    <p className="text-xs md:text-sm text-muted-foreground">{metric.useCase}</p>
                   </div>
                 </div>
               </CardContent>
@@ -318,7 +318,7 @@ export default function PrometheusPage() {
 
       {/* Learning Path */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">Learning Path</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6">Learning Path</h2>
         <div className="grid md:grid-cols-2 gap-4 md:gap-6">
           {prometheusTopics.map((topic, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -369,37 +369,37 @@ export default function PrometheusPage() {
       </div>
 
       {/* Key Benefits */}
-      <div className="bg-purple-50 rounded-2xl p-6 md:p-8">
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6 text-center">Why Use Prometheus?</h2>
+      <div className="bg-muted/50 rounded-2xl p-6 md:p-8">
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6 text-center">Why Use Prometheus?</h2>
         <div className="grid md:grid-cols-3 gap-4 md:gap-6">
           <div className="text-center">
             <div className="w-10 h-10 md:w-12 md:h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
               <Database className="h-5 w-5 md:h-6 md:w-6 text-white" />
             </div>
-            <h3 className="font-semibold text-gray-900 mb-2 text-sm md:text-base">Time-Series Database</h3>
-            <p className="text-xs md:text-sm text-gray-600">Efficient storage and querying of time-series data</p>
+            <h3 className="font-semibold text-foreground mb-2 text-sm md:text-base">Time-Series Database</h3>
+            <p className="text-xs md:text-sm text-muted-foreground">Efficient storage and querying of time-series data</p>
           </div>
           <div className="text-center">
             <div className="w-10 h-10 md:w-12 md:h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
               <Code className="h-5 w-5 md:h-6 md:w-6 text-white" />
             </div>
-            <h3 className="font-semibold text-gray-900 mb-2 text-sm md:text-base">Powerful Querying</h3>
-            <p className="text-xs md:text-sm text-gray-600">PromQL for complex metric analysis</p>
+            <h3 className="font-semibold text-foreground mb-2 text-sm md:text-base">Powerful Querying</h3>
+            <p className="text-xs md:text-sm text-muted-foreground">PromQL for complex metric analysis</p>
           </div>
           <div className="text-center">
             <div className="w-10 h-10 md:w-12 md:h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
               <Bell className="h-5 w-5 md:h-6 md:w-6 text-white" />
             </div>
-            <h3 className="font-semibold text-gray-900 mb-2 text-sm md:text-base">Advanced Alerting</h3>
-            <p className="text-xs md:text-sm text-gray-600">Sophisticated alerting and notification system</p>
+            <h3 className="font-semibold text-foreground mb-2 text-sm md:text-base">Advanced Alerting</h3>
+            <p className="text-xs md:text-sm text-muted-foreground">Sophisticated alerting and notification system</p>
           </div>
         </div>
       </div>
 
       {/* Call to Action */}
-      <div className="bg-blue-50 rounded-2xl p-6 md:p-8 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Ready to Monitor with Prometheus?</h2>
-        <p className="text-sm md:text-lg text-gray-600 mb-6">
+      <div className="bg-muted/50 rounded-2xl p-6 md:p-8 text-center">
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Ready to Monitor with Prometheus?</h2>
+        <p className="text-sm md:text-lg text-muted-foreground mb-6">
           Build comprehensive monitoring and alerting systems for your Kubernetes clusters and applications.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">

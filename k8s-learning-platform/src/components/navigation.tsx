@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Search, Menu, Github, ExternalLink, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import { ThemeToggle } from '@/components/theme-toggle'
 
 export function Navigation({ onMobileMenuToggle, isMobileMenuOpen }: { onMobileMenuToggle?: () => void; isMobileMenuOpen?: boolean }) {
   const handleMobileMenuToggle = () => {
@@ -11,7 +12,7 @@ export function Navigation({ onMobileMenuToggle, isMobileMenuOpen }: { onMobileM
   }
 
   return (
-    <nav className="bg-white shadow-sm border-b border-gray-200">
+    <nav className="bg-background shadow-sm border-b border-border">
       <div className="px-3 md:px-6 py-2 md:py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2 md:space-x-4">
@@ -32,8 +33,8 @@ export function Navigation({ onMobileMenuToggle, isMobileMenuOpen }: { onMobileM
                 <span className="text-white font-bold text-xs md:text-sm">K8s</span>
               </div>
               <div className="hidden md:block">
-                <h1 className="text-xl font-bold text-gray-900">Kubernetes Learning</h1>
-                <p className="text-sm text-gray-500">Master K8s from Zero to Hero</p>
+                <h1 className="text-xl font-bold text-foreground">Kubernetes Learning</h1>
+                <p className="text-sm text-muted-foreground">Master K8s from Zero to Hero</p>
               </div>
             </Link>
           </div>
@@ -47,6 +48,7 @@ export function Navigation({ onMobileMenuToggle, isMobileMenuOpen }: { onMobileM
             </div>
             
             <div className="flex items-center space-x-1 md:space-x-2">
+              <ThemeToggle />
               <Button variant="outline" size="sm" className="hidden md:flex text-xs">
                 <Search className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2" />
                 Search

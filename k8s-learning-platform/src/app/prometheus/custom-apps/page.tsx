@@ -144,10 +144,10 @@ export default function CustomAppsPage() {
           <Badge variant="outline" className="mb-2 md:mb-4 text-xs md:text-sm">
             💻 Custom Application Instrumentation
           </Badge>
-          <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6">
+          <h1 className="text-2xl md:text-4xl font-bold text-foreground mb-4 md:mb-6">
             Instrument Your Applications
           </h1>
-          <p className="text-sm md:text-xl text-gray-600 mb-6 md:mb-8 leading-relaxed px-2">
+          <p className="text-sm md:text-xl text-muted-foreground mb-6 md:mb-8 leading-relaxed px-2">
             Learn to add custom metrics to your applications using Prometheus client libraries. 
             Monitor business logic, performance, and user behavior with comprehensive instrumentation.
           </p>
@@ -156,13 +156,13 @@ export default function CustomAppsPage() {
 
       {/* Client Libraries */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6 text-center">Prometheus Client Libraries</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6 text-center">Prometheus Client Libraries</h2>
         <div className="grid md:grid-cols-2 gap-4 md:gap-6">
           {clientLibraries.map((library, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
               <CardHeader className="p-4 md:p-6">
                 <div className="flex items-center space-x-3 mb-3">
-                  <div className="p-2 bg-blue-500 rounded-lg">
+                  <div className="p-2 bg-muted/500 rounded-lg">
                     <library.icon className="h-5 w-5 text-white" />
                   </div>
                   <div className="flex-1">
@@ -174,12 +174,12 @@ export default function CustomAppsPage() {
                 </div>
               </CardHeader>
               <CardContent className="p-4 md:p-6 pt-0">
-                <p className="text-gray-700 mb-4 text-sm md:text-base">
+                <p className="text-foreground mb-4 text-sm md:text-base">
                   {library.content}
                 </p>
                 <div className="space-y-3">
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-2 text-sm md:text-base">Features:</h4>
+                    <h4 className="font-medium text-foreground mb-2 text-sm md:text-base">Features:</h4>
                     <div className="flex flex-wrap gap-1 md:gap-2">
                       {library.features.map((feature, featureIndex) => (
                         <Badge key={featureIndex} variant="secondary" className="text-xs">
@@ -189,7 +189,7 @@ export default function CustomAppsPage() {
                     </div>
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-2 text-sm md:text-base">Example:</h4>
+                    <h4 className="font-medium text-foreground mb-2 text-sm md:text-base">Example:</h4>
                     <div className="bg-gray-900 rounded-lg p-3">
                       <pre className="text-green-400 text-xs md:text-sm overflow-x-auto">
                         {library.example}
@@ -205,7 +205,7 @@ export default function CustomAppsPage() {
 
       {/* Metric Types */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">Prometheus Metric Types</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6">Prometheus Metric Types</h2>
         <div className="grid md:grid-cols-2 gap-4 md:gap-6">
           {metricTypes.map((metric, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -221,17 +221,17 @@ export default function CustomAppsPage() {
               <CardContent className="p-4 md:p-6 pt-0">
                 <div className="space-y-3">
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-1 text-sm md:text-base">Use Cases:</h4>
-                    <p className="text-gray-600 text-sm md:text-base">{metric.useCase}</p>
+                    <h4 className="font-medium text-foreground mb-1 text-sm md:text-base">Use Cases:</h4>
+                    <p className="text-muted-foreground text-sm md:text-base">{metric.useCase}</p>
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-1 text-sm md:text-base">Example:</h4>
+                    <h4 className="font-medium text-foreground mb-1 text-sm md:text-base">Example:</h4>
                     <div className="bg-gray-100 rounded p-2">
-                      <code className="text-xs md:text-sm text-gray-800">{metric.example}</code>
+                      <code className="text-xs md:text-sm text-foreground">{metric.example}</code>
                     </div>
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-1 text-sm md:text-base">Characteristics:</h4>
+                    <h4 className="font-medium text-foreground mb-1 text-sm md:text-base">Characteristics:</h4>
                     <div className="flex flex-wrap gap-1 md:gap-2">
                       {metric.characteristics.map((char, charIndex) => (
                         <Badge key={charIndex} variant="outline" className="text-xs">
@@ -249,13 +249,13 @@ export default function CustomAppsPage() {
 
       {/* Instrumentation Steps */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">Instrumentation Process</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6">Instrumentation Process</h2>
         <div className="grid md:grid-cols-2 gap-4 md:gap-6">
           {instrumentationSteps.map((step, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
               <CardHeader className="p-4 md:p-6">
                 <div className="flex items-center space-x-3 mb-3">
-                  <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                  <div className="w-8 h-8 bg-muted/500 rounded-full flex items-center justify-center text-white font-bold text-sm">
                     {step.step}
                   </div>
                   <div className="flex-1">
@@ -267,7 +267,7 @@ export default function CustomAppsPage() {
                 </div>
               </CardHeader>
               <CardContent className="p-4 md:p-6 pt-0">
-                <p className="text-gray-700 mb-4 text-sm md:text-base">
+                <p className="text-foreground mb-4 text-sm md:text-base">
                   {step.content}
                 </p>
                 <div className="bg-gray-900 rounded-lg p-3">
@@ -292,7 +292,7 @@ export default function CustomAppsPage() {
 
       {/* Sample Applications */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">Sample Instrumented Applications</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6">Sample Instrumented Applications</h2>
         <div className="grid md:grid-cols-3 gap-4 md:gap-6">
           {sampleApplications.map((app, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -305,7 +305,7 @@ export default function CustomAppsPage() {
               <CardContent className="p-4 md:p-6 pt-0">
                 <div className="space-y-3">
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-2 text-sm md:text-base">Metrics:</h4>
+                    <h4 className="font-medium text-foreground mb-2 text-sm md:text-base">Metrics:</h4>
                     <div className="flex flex-wrap gap-1 md:gap-2">
                       {app.metrics.map((metric, metricIndex) => (
                         <Badge key={metricIndex} variant="secondary" className="text-xs">
@@ -315,11 +315,11 @@ export default function CustomAppsPage() {
                     </div>
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-1 text-sm md:text-base">Dashboard:</h4>
-                    <p className="text-gray-600 text-sm">{app.dashboard}</p>
+                    <h4 className="font-medium text-foreground mb-1 text-sm md:text-base">Dashboard:</h4>
+                    <p className="text-muted-foreground text-sm">{app.dashboard}</p>
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-2 text-sm md:text-base">Alerts:</h4>
+                    <h4 className="font-medium text-foreground mb-2 text-sm md:text-base">Alerts:</h4>
                     <div className="flex flex-wrap gap-1 md:gap-2">
                       {app.alerts.map((alert, alertIndex) => (
                         <Badge key={alertIndex} variant="outline" className="text-xs">
@@ -337,7 +337,7 @@ export default function CustomAppsPage() {
 
       {/* Best Practices */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">Best Practices</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6">Best Practices</h2>
         <Card>
           <CardHeader>
             <CardTitle className="text-base md:text-lg">Instrumentation Guidelines</CardTitle>
@@ -350,7 +350,7 @@ export default function CustomAppsPage() {
               {bestPractices.map((practice, index) => (
                 <li key={index} className="flex items-center space-x-3">
                   <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm md:text-base">{practice}</span>
+                  <span className="text-foreground text-sm md:text-base">{practice}</span>
                 </li>
               ))}
             </ul>
@@ -360,7 +360,7 @@ export default function CustomAppsPage() {
 
       {/* Quick Start Guide */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">Quick Start Example</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6">Quick Start Example</h2>
         <Card>
           <CardHeader>
             <CardTitle className="text-base md:text-lg">Node.js Express App</CardTitle>
@@ -436,9 +436,9 @@ app.listen(3000, () => {
       </div>
 
       {/* Next Steps */}
-      <div className="bg-purple-50 rounded-2xl p-6 md:p-8 text-center">
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">Congratulations!</h2>
-        <p className="text-sm md:text-lg text-gray-600 mb-6">
+      <div className="bg-muted/50 rounded-2xl p-6 md:p-8 text-center">
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4">Congratulations!</h2>
+        <p className="text-sm md:text-lg text-muted-foreground mb-6">
           You've learned how to instrument applications with Prometheus. You now have a complete monitoring stack 
           from installation to custom application metrics.
         </p>

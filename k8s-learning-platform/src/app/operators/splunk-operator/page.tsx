@@ -51,10 +51,10 @@ export default function OperatorsSplunkOperatorPage() {
           <Badge variant="outline" className="mb-4 text-sm">
             🔍 Log Management Operator
           </Badge>
-          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
             Splunk Operator
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
+          <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
             Learn how to deploy and manage Splunk Enterprise using the Splunk Operator. 
             Master enterprise log management and analytics in Kubernetes environments.
           </p>
@@ -63,7 +63,7 @@ export default function OperatorsSplunkOperatorPage() {
 
       {/* Prerequisites */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">Prerequisites</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">Prerequisites</h2>
         <Card className="max-w-4xl mx-auto">
           <CardHeader>
             <CardTitle>What You Should Know Before Starting</CardTitle>
@@ -84,13 +84,13 @@ export default function OperatorsSplunkOperatorPage() {
 
       {/* Learning Topics */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">Learning Topics</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">Learning Topics</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {topics.map((topic, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
               <CardHeader className="p-6">
                 <div className="flex items-center space-x-4 mb-4">
-                  <div className="p-3 rounded-lg bg-blue-500">
+                  <div className="p-3 rounded-lg bg-muted/500">
                     {(() => {
                       const IconComponent = topic.icon;
                       return <IconComponent className="h-6 w-6 text-white" />;
@@ -111,9 +111,9 @@ export default function OperatorsSplunkOperatorPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="p-6 pt-0">
-                <div className="bg-gray-50 rounded-lg p-4">
+                <div className="bg-muted rounded-lg p-4">
                   <h4 className="font-semibold text-sm mb-2">Learning Objectives:</h4>
-                  <ul className="space-y-1 text-sm text-gray-700">
+                  <ul className="space-y-1 text-sm text-foreground">
                     {topic.topics.map((subtopic, topicIndex) => (
                       <li key={topicIndex} className="flex items-start">
                         <span className="text-blue-500 mr-2">•</span>
@@ -130,7 +130,7 @@ export default function OperatorsSplunkOperatorPage() {
 
       {/* Key Concepts */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">Key Concepts</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">Key Concepts</h2>
         <div className="grid md:grid-cols-2 gap-6">
           <Card>
             <CardHeader>
@@ -140,7 +140,7 @@ export default function OperatorsSplunkOperatorPage() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Kubernetes operator for managing Splunk Enterprise deployments.
               </p>
               <ul className="text-sm space-y-1">
@@ -160,7 +160,7 @@ export default function OperatorsSplunkOperatorPage() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Core Splunk platform for log processing and analytics.
               </p>
               <ul className="text-sm space-y-1">
@@ -180,7 +180,7 @@ export default function OperatorsSplunkOperatorPage() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Lightweight agent for collecting and forwarding data.
               </p>
               <ul className="text-sm space-y-1">
@@ -200,7 +200,7 @@ export default function OperatorsSplunkOperatorPage() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Production-ready Splunk deployment and management.
               </p>
               <ul className="text-sm space-y-1">
@@ -216,14 +216,14 @@ export default function OperatorsSplunkOperatorPage() {
 
       {/* Splunk Architecture Components */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">Splunk Architecture Components</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">Splunk Architecture Components</h2>
         <div className="grid md:grid-cols-3 gap-6">
           <Card>
             <CardHeader>
               <CardTitle className="text-center">Indexers</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Process and store incoming data for search and analysis.
               </p>
               <Badge variant="outline">Data Processing</Badge>
@@ -235,7 +235,7 @@ export default function OperatorsSplunkOperatorPage() {
               <CardTitle className="text-center">Search Heads</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Provide search interface and coordinate distributed searches.
               </p>
               <Badge variant="outline">Search Interface</Badge>
@@ -247,7 +247,7 @@ export default function OperatorsSplunkOperatorPage() {
               <CardTitle className="text-center">Universal Forwarders</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Lightweight agents that collect and forward data to indexers.
               </p>
               <Badge variant="outline">Data Collection</Badge>
@@ -257,9 +257,9 @@ export default function OperatorsSplunkOperatorPage() {
       </div>
 
       {/* Next Steps */}
-      <div className="bg-blue-50 rounded-2xl p-8 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Operators Journey Complete!</h2>
-        <p className="text-lg text-gray-600 mb-6">
+      <div className="bg-muted/50 rounded-2xl p-8 text-center">
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Operators Journey Complete!</h2>
+        <p className="text-lg text-muted-foreground mb-6">
           Congratulations! You've mastered Kubernetes Operators from basics to advanced implementations. 
           You're now ready to build and deploy operators in production environments.
         </p>

@@ -127,14 +127,14 @@ export function Sidebar({ isMobileOpen, onMobileClose }: { isMobileOpen?: boolea
         isMobileOpen ? "fixed inset-y-0 left-0 w-80 md:relative md:inset-auto" : "hidden md:flex",
         isCollapsed && !isMobileOpen ? "w-16" : "w-80"
       )}>
-      <div className="flex-1 flex flex-col min-h-0 bg-white border-r border-gray-200 h-full">
+      <div className="flex-1 flex flex-col min-h-0 bg-background border-r border-border h-full">
         <div className="flex-1 flex flex-col pt-3 md:pt-5 pb-2 md:pb-4 overflow-y-auto sidebar-scroll max-h-full">
           <div className={cn(
             "flex items-center flex-shrink-0 mb-2 md:mb-4",
             (isCollapsed && !isMobileOpen) ? "justify-center px-2" : "justify-between px-3 md:px-4"
           )}>
             {!(isCollapsed && !isMobileOpen) && (
-              <h2 className="text-sm md:text-lg font-semibold text-gray-900">Learning Path</h2>
+              <h2 className="text-sm md:text-lg font-semibold text-foreground">Learning Path</h2>
             )}
             <Button
               variant="ghost"
@@ -146,7 +146,7 @@ export function Sidebar({ isMobileOpen, onMobileClose }: { isMobileOpen?: boolea
                   setIsCollapsed(!isCollapsed)
                 }
               }}
-              className="h-8 w-8 hover:bg-gray-100 flex-shrink-0"
+              className="h-8 w-8 hover:bg-muted flex-shrink-0"
             >
               {(isCollapsed && !isMobileOpen) ? (
                 <ChevronRightIcon className="h-4 w-4" />
@@ -166,8 +166,8 @@ export function Sidebar({ isMobileOpen, onMobileClose }: { isMobileOpen?: boolea
                   className={cn(
                     'group flex items-center py-1.5 md:py-2 text-xs md:text-sm font-medium rounded-md transition-colors',
                     isActive(item)
-                      ? 'bg-blue-100 text-blue-900'
-                      : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
+                      ? 'bg-primary/10 text-primary'
+                      : 'text-muted-foreground hover:bg-muted hover:text-foreground',
                     (isCollapsed && !isMobileOpen) ? 'justify-center px-2' : 'px-1 md:px-2'
                   )}
                   title={(isCollapsed && !isMobileOpen) ? item.name : undefined}
@@ -175,7 +175,7 @@ export function Sidebar({ isMobileOpen, onMobileClose }: { isMobileOpen?: boolea
                   <item.icon
                     className={cn(
                       'flex-shrink-0 h-4 w-4 md:h-5 md:w-5',
-                      isActive(item) ? 'text-blue-500' : 'text-gray-400 group-hover:text-gray-500',
+                      isActive(item) ? 'text-primary' : 'text-muted-foreground group-hover:text-foreground',
                       (isCollapsed && !isMobileOpen) ? '' : 'mr-2 md:mr-3'
                     )}
                   />
@@ -188,7 +188,7 @@ export function Sidebar({ isMobileOpen, onMobileClose }: { isMobileOpen?: boolea
                         </Badge>
                       </div>
                       {item.description && (
-                        <p className="text-xs text-gray-500 mt-0.5 hidden md:block">{item.description}</p>
+                        <p className="text-xs text-muted-foreground mt-0.5 hidden md:block">{item.description}</p>
                       )}
                     </div>
                   )}
@@ -203,8 +203,8 @@ export function Sidebar({ isMobileOpen, onMobileClose }: { isMobileOpen?: boolea
                         className={cn(
                           'group flex items-center px-1 md:px-2 py-1 md:py-2 text-xs md:text-sm rounded-md transition-colors',
                           pathname === child.href
-                            ? 'bg-blue-50 text-blue-700'
-                            : 'text-gray-500 hover:bg-gray-50 hover:text-gray-700'
+                            ? 'bg-primary/5 text-primary'
+                            : 'text-muted-foreground hover:bg-muted hover:text-foreground'
                         )}
                       >
                         <child.icon className="mr-2 md:mr-3 h-3 w-3 md:h-4 md:w-4 flex-shrink-0" />
@@ -219,11 +219,11 @@ export function Sidebar({ isMobileOpen, onMobileClose }: { isMobileOpen?: boolea
         </div>
         
         {!isCollapsed && (
-          <div className="flex-shrink-0 flex border-t border-gray-200 p-2 md:p-4">
+          <div className="flex-shrink-0 flex border-t border-border p-2 md:p-4">
             <div className="flex items-center">
               <div className="ml-2 md:ml-3">
-                <p className="text-xs md:text-sm font-medium text-gray-700">Made with ❤️</p>
-                <p className="text-xs text-gray-500 hidden md:block">for the K8s community</p>
+                <p className="text-xs md:text-sm font-medium text-foreground">Made with ❤️</p>
+                <p className="text-xs text-muted-foreground hidden md:block">for the K8s community</p>
               </div>
             </div>
           </div>

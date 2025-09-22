@@ -60,10 +60,10 @@ export default function CKATroubleshootingPage() {
           <Badge variant="outline" className="mb-4 text-sm">
             🔧 CKA Troubleshooting
           </Badge>
-          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
             Troubleshooting
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
+          <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
             Master the art of diagnosing and fixing Kubernetes issues. 
             Learn systematic troubleshooting approaches and common problem patterns.
           </p>
@@ -72,7 +72,7 @@ export default function CKATroubleshootingPage() {
 
       {/* Prerequisites */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">Prerequisites</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">Prerequisites</h2>
         <Card className="max-w-4xl mx-auto">
           <CardHeader>
             <CardTitle>What You Should Know Before Starting</CardTitle>
@@ -93,13 +93,13 @@ export default function CKATroubleshootingPage() {
 
       {/* Learning Topics */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">Learning Topics</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">Learning Topics</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {topics.map((topic, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
               <CardHeader className="p-6">
                 <div className="flex items-center space-x-4 mb-4">
-                  <div className="p-3 rounded-lg bg-blue-500">
+                  <div className="p-3 rounded-lg bg-muted/500">
                     <topic.icon className="h-6 w-6 text-white" />
                   </div>
                   <div className="flex-1">
@@ -117,9 +117,9 @@ export default function CKATroubleshootingPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="p-6 pt-0">
-                <div className="bg-gray-50 rounded-lg p-4">
+                <div className="bg-muted rounded-lg p-4">
                   <h4 className="font-semibold text-sm mb-2">Learning Objectives:</h4>
-                  <ul className="space-y-1 text-sm text-gray-700">
+                  <ul className="space-y-1 text-sm text-foreground">
                     {topic.topics.map((subtopic, topicIndex) => (
                       <li key={topicIndex} className="flex items-start">
                         <span className="text-blue-500 mr-2">•</span>
@@ -136,7 +136,7 @@ export default function CKATroubleshootingPage() {
 
       {/* Troubleshooting Methodology */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">Troubleshooting Methodology</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">Troubleshooting Methodology</h2>
         <Card className="max-w-4xl mx-auto">
           <CardHeader>
             <CardTitle>Systematic Approach to Problem Solving</CardTitle>
@@ -185,7 +185,7 @@ export default function CKATroubleshootingPage() {
 
       {/* Key Concepts */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">Key Concepts</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">Key Concepts</h2>
         <div className="grid md:grid-cols-2 gap-6">
           <Card>
             <CardHeader>
@@ -195,7 +195,7 @@ export default function CKATroubleshootingPage() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Essential kubectl commands for gathering information and diagnosing issues.
               </p>
               <ul className="text-sm space-y-1">
@@ -215,7 +215,7 @@ export default function CKATroubleshootingPage() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Understanding and analyzing logs from various Kubernetes components.
               </p>
               <ul className="text-sm space-y-1">
@@ -235,7 +235,7 @@ export default function CKATroubleshootingPage() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Frequently encountered problems and their typical solutions.
               </p>
               <ul className="text-sm space-y-1">
@@ -255,7 +255,7 @@ export default function CKATroubleshootingPage() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Monitoring and maintaining overall cluster health and performance.
               </p>
               <ul className="text-sm space-y-1">
@@ -271,14 +271,14 @@ export default function CKATroubleshootingPage() {
 
       {/* Practice Scenarios */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">Practice Scenarios</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">Practice Scenarios</h2>
         <div className="grid md:grid-cols-3 gap-6">
           <Card>
             <CardHeader>
               <CardTitle className="text-center">Pod Won't Start</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Diagnose why a pod is stuck in Pending or CrashLoopBackOff state.
               </p>
               <Badge variant="outline">Beginner</Badge>
@@ -290,7 +290,7 @@ export default function CKATroubleshootingPage() {
               <CardTitle className="text-center">Service Not Accessible</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Troubleshoot why a service is not reachable from outside the cluster.
               </p>
               <Badge variant="outline">Intermediate</Badge>
@@ -302,7 +302,7 @@ export default function CKATroubleshootingPage() {
               <CardTitle className="text-center">Cluster Component Failure</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Investigate and resolve issues with core cluster components.
               </p>
               <Badge variant="outline">Advanced</Badge>
@@ -312,9 +312,9 @@ export default function CKATroubleshootingPage() {
       </div>
 
       {/* Next Steps */}
-      <div className="bg-blue-50 rounded-2xl p-8 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">CKA Journey Complete!</h2>
-        <p className="text-lg text-gray-600 mb-6">
+      <div className="bg-muted/50 rounded-2xl p-8 text-center">
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">CKA Journey Complete!</h2>
+        <p className="text-lg text-muted-foreground mb-6">
           Congratulations! You've covered all the essential topics for the CKA certification. 
           You're now ready to take the exam and become a Certified Kubernetes Administrator.
         </p>

@@ -48,10 +48,10 @@ export default function HelmIntroductionPage() {
           <Badge variant="outline" className="mb-4 text-sm">
             📦 Helm Package Manager
           </Badge>
-          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
             Introduction to Helm
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
+          <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
             Learn how to use Helm, the package manager for Kubernetes, to simplify application deployment and management.
           </p>
         </div>
@@ -59,13 +59,13 @@ export default function HelmIntroductionPage() {
 
       {/* Topics */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">What You'll Learn</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">What You'll Learn</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {topics.map((topic, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
               <CardHeader className="p-6">
                 <div className="flex items-center space-x-4 mb-4">
-                  <div className="p-3 rounded-lg bg-green-500">
+                  <div className="p-3 rounded-lg bg-muted/500">
                     {(() => {
                       const IconComponent = topic.icon;
                       return <IconComponent className="h-6 w-6 text-white" />;
@@ -86,9 +86,9 @@ export default function HelmIntroductionPage() {
                     {topic.duration}
                   </Badge>
                 </div>
-                <div className="bg-gray-50 rounded-lg p-4 mb-4">
+                <div className="bg-muted rounded-lg p-4 mb-4">
                   <h4 className="font-semibold text-sm mb-2">Learning Objectives:</h4>
-                  <ul className="space-y-1 text-sm text-gray-700">
+                  <ul className="space-y-1 text-sm text-foreground">
                     {topic.topics.map((subtopic, topicIndex) => (
                       <li key={topicIndex} className="flex items-start">
                         <span className="text-blue-500 mr-2">•</span>
@@ -110,9 +110,9 @@ export default function HelmIntroductionPage() {
       </div>
 
       {/* Next Steps */}
-      <div className="bg-green-50 rounded-2xl p-8 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Ready to Learn Helm?</h2>
-        <p className="text-lg text-gray-600 mb-6">
+      <div className="bg-muted/50 rounded-2xl p-8 text-center">
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Ready to Learn Helm?</h2>
+        <p className="text-lg text-muted-foreground mb-6">
           Start with the basics and work your way up to advanced Helm concepts and practices.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

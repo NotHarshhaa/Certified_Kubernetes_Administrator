@@ -48,7 +48,7 @@ const operatorFeatures = [
     title: 'API Extension',
     description: 'Extend Kubernetes API with custom resources and controllers.',
     icon: Zap,
-    color: 'bg-blue-500',
+    color: 'bg-muted/500',
   },
   {
     title: 'State Management',
@@ -126,10 +126,10 @@ export default function OperatorsPage() {
           <Badge variant="outline" className="mb-4">
             ⚙️ Extend Kubernetes API
           </Badge>
-          <h1 className="text-4xl font-bold text-gray-900 mb-6">
+          <h1 className="text-4xl font-bold text-foreground mb-6">
             Master Kubernetes Operators
           </h1>
-          <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+          <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
             Learn to extend Kubernetes functionality with operators, custom resources, and controllers. 
             Automate complex application lifecycle management.
           </p>
@@ -150,7 +150,7 @@ export default function OperatorsPage() {
 
       {/* Operator Features */}
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">What are Operators?</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-6 text-center">What are Operators?</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {operatorFeatures.map((feature, index) => (
             <Card key={index} className="text-center hover:shadow-lg transition-shadow">
@@ -158,8 +158,8 @@ export default function OperatorsPage() {
                 <div className={`p-3 rounded-lg ${feature.color} mx-auto mb-4 w-fit`}>
                   <feature.icon className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">{feature.title}</h3>
-                <p className="text-sm text-gray-600">{feature.description}</p>
+                <h3 className="font-semibold text-foreground mb-2">{feature.title}</h3>
+                <p className="text-sm text-muted-foreground">{feature.description}</p>
               </CardContent>
             </Card>
           ))}
@@ -168,7 +168,7 @@ export default function OperatorsPage() {
 
       {/* Application Types */}
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Application Types & Operator Usage</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-6">Application Types & Operator Usage</h2>
         <div className="space-y-4">
           {operatorTypes.map((type, index) => (
             <Card key={index}>
@@ -176,7 +176,7 @@ export default function OperatorsPage() {
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <div className="flex items-center space-x-3 mb-2">
-                      <h3 className="text-lg font-semibold text-gray-900">{type.type}</h3>
+                      <h3 className="text-lg font-semibold text-foreground">{type.type}</h3>
                       <Badge 
                         variant={type.complexity === 'Low' ? 'default' : 
                                 type.complexity === 'Medium' ? 'secondary' : 'destructive'}
@@ -184,13 +184,13 @@ export default function OperatorsPage() {
                         {type.complexity}
                       </Badge>
                     </div>
-                    <p className="text-gray-600 mb-2">{type.description}</p>
+                    <p className="text-muted-foreground mb-2">{type.description}</p>
                     <div className="flex flex-wrap gap-2 mb-2">
                       <Badge variant="outline" className="text-xs">Examples: {type.example}</Badge>
                     </div>
                     <div className="flex items-center space-x-2">
                       <AlertTriangle className="h-4 w-4 text-orange-500" />
-                      <span className="text-sm text-gray-600">{type.operatorNeeded}</span>
+                      <span className="text-sm text-muted-foreground">{type.operatorNeeded}</span>
                     </div>
                   </div>
                 </div>
@@ -202,7 +202,7 @@ export default function OperatorsPage() {
 
       {/* Use Cases */}
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Common Operator Use Cases</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-6">Common Operator Use Cases</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {useCases.map((useCase, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -215,7 +215,7 @@ export default function OperatorsPage() {
               </CardHeader>
               <CardContent>
                 <div className="space-y-2">
-                  <h4 className="font-medium text-gray-900">Popular Operators:</h4>
+                  <h4 className="font-medium text-foreground">Popular Operators:</h4>
                   <div className="flex flex-wrap gap-2">
                     {useCase.examples.map((example, exampleIndex) => (
                       <Badge key={exampleIndex} variant="secondary" className="text-xs">
@@ -232,7 +232,7 @@ export default function OperatorsPage() {
 
       {/* Learning Path */}
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Learning Path</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-6">Learning Path</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {operatorTopics.map((topic, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -284,36 +284,36 @@ export default function OperatorsPage() {
 
       {/* Key Benefits */}
       <div className="bg-yellow-50 rounded-2xl p-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Why Use Operators?</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-6 text-center">Why Use Operators?</h2>
         <div className="grid md:grid-cols-3 gap-6">
           <div className="text-center">
             <div className="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
               <Zap className="h-6 w-6 text-white" />
             </div>
-            <h3 className="font-semibold text-gray-900 mb-2">Automation</h3>
-            <p className="text-sm text-gray-600">Automate complex operational tasks</p>
+            <h3 className="font-semibold text-foreground mb-2">Automation</h3>
+            <p className="text-sm text-muted-foreground">Automate complex operational tasks</p>
           </div>
           <div className="text-center">
             <div className="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
               <Settings className="h-6 w-6 text-white" />
             </div>
-            <h3 className="font-semibold text-gray-900 mb-2">Domain Knowledge</h3>
-            <p className="text-sm text-gray-600">Encode expert knowledge into software</p>
+            <h3 className="font-semibold text-foreground mb-2">Domain Knowledge</h3>
+            <p className="text-sm text-muted-foreground">Encode expert knowledge into software</p>
           </div>
           <div className="text-center">
             <div className="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
               <Monitor className="h-6 w-6 text-white" />
             </div>
-            <h3 className="font-semibold text-gray-900 mb-2">Self-Healing</h3>
-            <p className="text-sm text-gray-600">Automatically recover from failures</p>
+            <h3 className="font-semibold text-foreground mb-2">Self-Healing</h3>
+            <p className="text-sm text-muted-foreground">Automatically recover from failures</p>
           </div>
         </div>
       </div>
 
       {/* Call to Action */}
-      <div className="bg-blue-50 rounded-2xl p-8 text-center">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">Ready to Build Operators?</h2>
-        <p className="text-lg text-gray-600 mb-6">
+      <div className="bg-muted/50 rounded-2xl p-8 text-center">
+        <h2 className="text-3xl font-bold text-foreground mb-4">Ready to Build Operators?</h2>
+        <p className="text-lg text-muted-foreground mb-6">
           Learn to extend Kubernetes with custom resources and operators for complex application management.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

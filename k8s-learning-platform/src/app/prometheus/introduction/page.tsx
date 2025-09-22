@@ -40,10 +40,10 @@ export default function PrometheusIntroductionPage() {
           <Badge variant="outline" className="mb-4 text-sm">
             📊 Prometheus Monitoring
           </Badge>
-          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
             Introduction to Prometheus
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
+          <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
             Learn how to set up comprehensive monitoring and alerting with Prometheus, Grafana, and Alertmanager.
           </p>
         </div>
@@ -51,13 +51,13 @@ export default function PrometheusIntroductionPage() {
 
       {/* Topics */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">Core Concepts</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">Core Concepts</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {topics.map((topic, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
               <CardHeader className="p-6">
                 <div className="flex items-center space-x-4 mb-4">
-                  <div className="p-3 rounded-lg bg-purple-500">
+                  <div className="p-3 rounded-lg bg-muted/500">
                     <topic.icon className="h-6 w-6 text-white" />
                   </div>
                   <div className="flex-1">
@@ -69,7 +69,7 @@ export default function PrometheusIntroductionPage() {
                 </div>
               </CardHeader>
               <CardContent className="p-6 pt-0">
-                <p className="text-gray-700 mb-4">
+                <p className="text-muted-foreground mb-4">
                   {topic.content}
                 </p>
                 <Button asChild className="w-full">
@@ -85,9 +85,9 @@ export default function PrometheusIntroductionPage() {
       </div>
 
       {/* Next Steps */}
-      <div className="bg-purple-50 rounded-2xl p-8 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Ready to Monitor?</h2>
-        <p className="text-lg text-gray-600 mb-6">
+      <div className="bg-muted/50 rounded-2xl p-8 text-center">
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Ready to Monitor?</h2>
+        <p className="text-lg text-muted-foreground mb-6">
           Start with the basics and build a comprehensive monitoring solution for your Kubernetes cluster.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

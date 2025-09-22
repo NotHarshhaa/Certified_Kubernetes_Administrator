@@ -134,10 +134,10 @@ export default function AlertRulesPage() {
           <Badge variant="outline" className="mb-2 md:mb-4 text-xs md:text-sm">
             🚨 Alert Rules Configuration
           </Badge>
-          <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6">
+          <h1 className="text-2xl md:text-4xl font-bold text-foreground mb-4 md:mb-6">
             Prometheus Alert Rules
           </h1>
-          <p className="text-sm md:text-xl text-gray-600 mb-6 md:mb-8 leading-relaxed px-2">
+          <p className="text-sm md:text-xl text-muted-foreground mb-6 md:mb-8 leading-relaxed px-2">
             Learn to create effective alert rules using PromQL. Configure proactive monitoring 
             to catch issues before they impact your applications and infrastructure.
           </p>
@@ -146,7 +146,7 @@ export default function AlertRulesPage() {
 
       {/* Alert Rule Examples */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6 text-center">Common Alert Rules</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6 text-center">Common Alert Rules</h2>
         <div className="grid md:grid-cols-2 gap-4 md:gap-6">
           {alertRuleTypes.map((rule, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -170,12 +170,12 @@ export default function AlertRulesPage() {
                 </div>
               </CardHeader>
               <CardContent className="p-4 md:p-6 pt-0">
-                <p className="text-gray-700 mb-4 text-sm md:text-base">
+                <p className="text-foreground mb-4 text-sm md:text-base">
                   {rule.content}
                 </p>
                 <div className="space-y-3">
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-2 text-sm md:text-base">PromQL Query:</h4>
+                    <h4 className="font-medium text-foreground mb-2 text-sm md:text-base">PromQL Query:</h4>
                     <div className="bg-gray-900 rounded-lg p-3">
                       <pre className="text-green-400 text-xs md:text-sm overflow-x-auto">
                         {rule.promql}
@@ -185,11 +185,11 @@ export default function AlertRulesPage() {
                   <div className="grid grid-cols-2 gap-2">
                     <div>
                       <span className="font-medium text-sm">For:</span>
-                      <span className="ml-2 text-sm text-gray-600">{rule.for}</span>
+                      <span className="ml-2 text-sm text-muted-foreground">{rule.for}</span>
                     </div>
                     <div>
                       <span className="font-medium text-sm">Severity:</span>
-                      <span className="ml-2 text-sm text-gray-600">{rule.severity}</span>
+                      <span className="ml-2 text-sm text-muted-foreground">{rule.severity}</span>
                     </div>
                   </div>
                 </div>
@@ -201,7 +201,7 @@ export default function AlertRulesPage() {
 
       {/* Alert Rule Structure */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">Alert Rule Structure</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6">Alert Rule Structure</h2>
         <Card>
           <CardHeader>
             <CardTitle className="text-base md:text-lg">PrometheusRule Components</CardTitle>
@@ -214,14 +214,14 @@ export default function AlertRulesPage() {
               {alertRuleStructure.map((component, index) => (
                 <div key={index} className="border rounded-lg p-4">
                   <div className="flex items-center justify-between mb-2">
-                    <h4 className="font-medium text-gray-900 text-sm md:text-base">{component.component}</h4>
+                    <h4 className="font-medium text-foreground text-sm md:text-base">{component.component}</h4>
                     <Badge variant={component.required ? 'default' : 'outline'} className="text-xs">
                       {component.required ? 'Required' : 'Optional'}
                     </Badge>
                   </div>
-                  <p className="text-gray-600 text-sm md:text-base mb-2">{component.description}</p>
+                  <p className="text-muted-foreground text-sm md:text-base mb-2">{component.description}</p>
                   <div className="bg-gray-100 rounded p-2">
-                    <code className="text-xs md:text-sm text-gray-800">{component.example}</code>
+                    <code className="text-xs md:text-sm text-foreground">{component.example}</code>
                   </div>
                 </div>
               ))}
@@ -232,7 +232,7 @@ export default function AlertRulesPage() {
 
       {/* PromQL Examples */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">PromQL Examples</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6">PromQL Examples</h2>
         <div className="grid md:grid-cols-2 gap-4 md:gap-6">
           {promqlExamples.map((example, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -256,7 +256,7 @@ export default function AlertRulesPage() {
 
       {/* Best Practices */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">Best Practices</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6">Best Practices</h2>
         <Card>
           <CardHeader>
             <CardTitle className="text-base md:text-lg">Alert Rule Guidelines</CardTitle>
@@ -269,7 +269,7 @@ export default function AlertRulesPage() {
               {bestPractices.map((practice, index) => (
                 <li key={index} className="flex items-center space-x-3">
                   <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm md:text-base">{practice}</span>
+                  <span className="text-foreground text-sm md:text-base">{practice}</span>
                 </li>
               ))}
             </ul>
@@ -279,7 +279,7 @@ export default function AlertRulesPage() {
 
       {/* Sample PrometheusRule */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">Sample PrometheusRule</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6">Sample PrometheusRule</h2>
         <Card>
           <CardHeader>
             <CardTitle className="text-base md:text-lg">Complete Example</CardTitle>
@@ -326,8 +326,8 @@ spec:
 
       {/* Next Steps */}
       <div className="bg-red-50 rounded-2xl p-6 md:p-8 text-center">
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">Ready to Configure Notifications?</h2>
-        <p className="text-sm md:text-lg text-gray-600 mb-6">
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4">Ready to Configure Notifications?</h2>
+        <p className="text-sm md:text-lg text-muted-foreground mb-6">
           Now that you have alert rules configured, learn how to set up Alertmanager for routing and notifications.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">

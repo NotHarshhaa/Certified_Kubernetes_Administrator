@@ -101,10 +101,10 @@ export default function CKAPage() {
           <Badge variant="outline" className="mb-2 md:mb-4 text-xs md:text-sm">
             🎯 Certified Kubernetes Administrator
           </Badge>
-          <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6">
+          <h1 className="text-2xl md:text-4xl font-bold text-foreground mb-4 md:mb-6">
             Master Kubernetes Administration
           </h1>
-          <p className="text-sm md:text-xl text-gray-600 mb-6 md:mb-8 leading-relaxed px-2">
+          <p className="text-sm md:text-xl text-muted-foreground mb-6 md:mb-8 leading-relaxed px-2">
             Comprehensive guide to becoming a Certified Kubernetes Administrator (CKA). 
             Learn from basics to advanced concepts with hands-on labs and real-world scenarios.
           </p>
@@ -125,14 +125,14 @@ export default function CKAPage() {
 
       {/* Exam Information */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6 text-center">CKA Exam Overview</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6 text-center">CKA Exam Overview</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
           {examInfo.map((info, index) => (
             <Card key={index} className="text-center">
               <CardContent className="pt-4 md:pt-6">
                 <info.icon className="h-6 w-6 md:h-8 md:w-8 text-blue-600 mx-auto mb-2" />
-                <div className="text-lg md:text-2xl font-bold text-gray-900">{info.value}</div>
-                <div className="text-xs md:text-sm text-gray-600">{info.title}</div>
+                <div className="text-lg md:text-2xl font-bold text-foreground">{info.value}</div>
+                <div className="text-xs md:text-sm text-muted-foreground">{info.title}</div>
               </CardContent>
             </Card>
           ))}
@@ -141,7 +141,7 @@ export default function CKAPage() {
 
       {/* Learning Path */}
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Learning Path</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-6">Learning Path</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {ckaTopics.map((topic, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -193,7 +193,7 @@ export default function CKAPage() {
 
       {/* Prerequisites */}
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Prerequisites</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-6">Prerequisites</h2>
         <Card>
           <CardHeader>
             <CardTitle>What You Should Know Before Starting</CardTitle>
@@ -206,7 +206,7 @@ export default function CKAPage() {
               {prerequisites.map((prereq, index) => (
                 <li key={index} className="flex items-center space-x-3">
                   <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-gray-700">{prereq}</span>
+                  <span className="text-foreground">{prereq}</span>
                 </li>
               ))}
             </ul>
@@ -215,9 +215,9 @@ export default function CKAPage() {
       </div>
 
       {/* Call to Action */}
-      <div className="bg-blue-50 rounded-2xl p-8 text-center">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">Ready to Become CKA Certified?</h2>
-        <p className="text-lg text-gray-600 mb-6">
+      <div className="bg-muted/50 rounded-2xl p-8 text-center">
+        <h2 className="text-3xl font-bold text-foreground mb-4">Ready to Become CKA Certified?</h2>
+        <p className="text-lg text-muted-foreground mb-6">
           Join thousands of professionals who have successfully passed the CKA exam with our comprehensive learning materials.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

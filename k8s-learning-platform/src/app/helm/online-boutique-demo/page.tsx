@@ -51,10 +51,10 @@ export default function HelmOnlineBoutiqueDemoPage() {
           <Badge variant="outline" className="mb-4 text-sm">
             🛒 Helm Demo Application
           </Badge>
-          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
             Online Boutique Demo
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
+          <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
             Learn Helm through a real-world microservices application. Deploy and manage 
             the Google Online Boutique using Helm charts and advanced templating techniques.
           </p>
@@ -63,7 +63,7 @@ export default function HelmOnlineBoutiqueDemoPage() {
 
       {/* Prerequisites */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">Prerequisites</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">Prerequisites</h2>
         <Card className="max-w-4xl mx-auto">
           <CardHeader>
             <CardTitle>What You Should Know Before Starting</CardTitle>
@@ -84,13 +84,13 @@ export default function HelmOnlineBoutiqueDemoPage() {
 
       {/* Learning Topics */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">Learning Topics</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">Learning Topics</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {topics.map((topic, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
               <CardHeader className="p-6">
                 <div className="flex items-center space-x-4 mb-4">
-                  <div className="p-3 rounded-lg bg-blue-500">
+                  <div className="p-3 rounded-lg bg-muted/500">
                     {(() => {
                       const IconComponent = topic.icon;
                       return <IconComponent className="h-6 w-6 text-white" />;
@@ -111,9 +111,9 @@ export default function HelmOnlineBoutiqueDemoPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="p-6 pt-0">
-                <div className="bg-gray-50 rounded-lg p-4">
+                <div className="bg-muted rounded-lg p-4">
                   <h4 className="font-semibold text-sm mb-2">Learning Objectives:</h4>
-                  <ul className="space-y-1 text-sm text-gray-700">
+                  <ul className="space-y-1 text-sm text-foreground">
                     {topic.topics.map((subtopic, topicIndex) => (
                       <li key={topicIndex} className="flex items-start">
                         <span className="text-blue-500 mr-2">•</span>
@@ -130,7 +130,7 @@ export default function HelmOnlineBoutiqueDemoPage() {
 
       {/* Application Architecture */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">Application Architecture</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">Application Architecture</h2>
         <div className="grid md:grid-cols-2 gap-6">
           <Card>
             <CardHeader>
@@ -140,7 +140,7 @@ export default function HelmOnlineBoutiqueDemoPage() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 User-facing services that handle web traffic and user interactions.
               </p>
               <ul className="text-sm space-y-1">
@@ -160,7 +160,7 @@ export default function HelmOnlineBoutiqueDemoPage() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Core business logic and data management services.
               </p>
               <ul className="text-sm space-y-1">
@@ -180,7 +180,7 @@ export default function HelmOnlineBoutiqueDemoPage() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Database and storage services for persistent data.
               </p>
               <ul className="text-sm space-y-1">
@@ -200,7 +200,7 @@ export default function HelmOnlineBoutiqueDemoPage() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Monitoring, logging, and tracing services.
               </p>
               <ul className="text-sm space-y-1">
@@ -216,14 +216,14 @@ export default function HelmOnlineBoutiqueDemoPage() {
 
       {/* Deployment Scenarios */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">Deployment Scenarios</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">Deployment Scenarios</h2>
         <div className="grid md:grid-cols-3 gap-6">
           <Card>
             <CardHeader>
               <CardTitle className="text-center">Development</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Local development with minimal resources and simplified configuration.
               </p>
               <Badge variant="outline">Minimal Resources</Badge>
@@ -235,7 +235,7 @@ export default function HelmOnlineBoutiqueDemoPage() {
               <CardTitle className="text-center">Staging</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Pre-production environment with production-like configuration.
               </p>
               <Badge variant="outline">Production-like</Badge>
@@ -247,7 +247,7 @@ export default function HelmOnlineBoutiqueDemoPage() {
               <CardTitle className="text-center">Production</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 High-availability production deployment with monitoring and security.
               </p>
               <Badge variant="outline">High Availability</Badge>
@@ -257,9 +257,9 @@ export default function HelmOnlineBoutiqueDemoPage() {
       </div>
 
       {/* Next Steps */}
-      <div className="bg-blue-50 rounded-2xl p-8 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Ready to Continue?</h2>
-        <p className="text-lg text-gray-600 mb-6">
+      <div className="bg-muted/50 rounded-2xl p-8 text-center">
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Ready to Continue?</h2>
+        <p className="text-lg text-muted-foreground mb-6">
           Master the Online Boutique demo, then learn about Helmfile for advanced chart management.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

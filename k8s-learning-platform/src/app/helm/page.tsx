@@ -57,13 +57,13 @@ const helmFeatures = [
     title: 'Package Management',
     description: 'Bundle Kubernetes applications into reusable packages called charts.',
     icon: Package,
-    color: 'bg-blue-500',
+    color: 'bg-muted/500',
   },
   {
     title: 'Templating Engine',
     description: 'Use Go templating to create dynamic Kubernetes manifests.',
     icon: Code,
-    color: 'bg-green-500',
+    color: 'bg-muted/500',
   },
   {
     title: 'Release Management',
@@ -105,10 +105,10 @@ export default function HelmPage() {
           <Badge variant="outline" className="mb-4">
             📦 The Kubernetes Package Manager
           </Badge>
-          <h1 className="text-4xl font-bold text-gray-900 mb-6">
+          <h1 className="text-4xl font-bold text-foreground mb-6">
             Master Helm Package Management
           </h1>
-          <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+          <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
             Learn to package, deploy, and manage Kubernetes applications with Helm. 
             From basic charts to advanced templating and GitOps workflows.
           </p>
@@ -129,7 +129,7 @@ export default function HelmPage() {
 
       {/* Helm Features */}
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Why Use Helm?</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-6 text-center">Why Use Helm?</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {helmFeatures.map((feature, index) => (
             <Card key={index} className="text-center hover:shadow-lg transition-shadow">
@@ -137,8 +137,8 @@ export default function HelmPage() {
                 <div className={`p-3 rounded-lg ${feature.color} mx-auto mb-4 w-fit`}>
                   <feature.icon className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">{feature.title}</h3>
-                <p className="text-sm text-gray-600">{feature.description}</p>
+                <h3 className="font-semibold text-foreground mb-2">{feature.title}</h3>
+                <p className="text-sm text-muted-foreground">{feature.description}</p>
               </CardContent>
             </Card>
           ))}
@@ -147,7 +147,7 @@ export default function HelmPage() {
 
       {/* Learning Path */}
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Learning Path</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-6">Learning Path</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {helmTopics.map((topic, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -199,7 +199,7 @@ export default function HelmPage() {
 
       {/* Hands-on Demos */}
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Hands-on Demos</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-6">Hands-on Demos</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {demos.map((demo, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -243,37 +243,37 @@ export default function HelmPage() {
       </div>
 
       {/* Key Benefits */}
-      <div className="bg-green-50 rounded-2xl p-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Key Benefits of Helm</h2>
+      <div className="bg-muted/50 rounded-2xl p-8">
+        <h2 className="text-2xl font-bold text-foreground mb-6 text-center">Key Benefits of Helm</h2>
         <div className="grid md:grid-cols-3 gap-6">
           <div className="text-center">
-            <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-12 h-12 bg-muted/500 rounded-full flex items-center justify-center mx-auto mb-4">
               <Zap className="h-6 w-6 text-white" />
             </div>
-            <h3 className="font-semibold text-gray-900 mb-2">Simplified Deployment</h3>
-            <p className="text-sm text-gray-600">Deploy complex applications with a single command</p>
+            <h3 className="font-semibold text-foreground mb-2">Simplified Deployment</h3>
+            <p className="text-sm text-muted-foreground">Deploy complex applications with a single command</p>
           </div>
           <div className="text-center">
-            <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-12 h-12 bg-muted/500 rounded-full flex items-center justify-center mx-auto mb-4">
               <Globe className="h-6 w-6 text-white" />
             </div>
-            <h3 className="font-semibold text-gray-900 mb-2">Environment Management</h3>
-            <p className="text-sm text-gray-600">Manage different environments with ease</p>
+            <h3 className="font-semibold text-foreground mb-2">Environment Management</h3>
+            <p className="text-sm text-muted-foreground">Manage different environments with ease</p>
           </div>
           <div className="text-center">
-            <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-12 h-12 bg-muted/500 rounded-full flex items-center justify-center mx-auto mb-4">
               <Package className="h-6 w-6 text-white" />
             </div>
-            <h3 className="font-semibold text-gray-900 mb-2">Reusable Packages</h3>
-            <p className="text-sm text-gray-600">Create and share application packages</p>
+            <h3 className="font-semibold text-foreground mb-2">Reusable Packages</h3>
+            <p className="text-sm text-muted-foreground">Create and share application packages</p>
           </div>
         </div>
       </div>
 
       {/* Call to Action */}
-      <div className="bg-blue-50 rounded-2xl p-8 text-center">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">Ready to Master Helm?</h2>
-        <p className="text-lg text-gray-600 mb-6">
+      <div className="bg-muted/50 rounded-2xl p-8 text-center">
+        <h2 className="text-3xl font-bold text-foreground mb-4">Ready to Master Helm?</h2>
+        <p className="text-lg text-muted-foreground mb-6">
           Start your journey to becoming a Helm expert with our comprehensive tutorials and hands-on demos.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
