@@ -153,47 +153,102 @@ const metricsTypes = [
 
 export default function PrometheusPage() {
   return (
-    <div className="space-y-12">
+    <div className="space-y-8 md:space-y-12">
       {/* Hero Section */}
-      <div className="text-center py-12">
+      <div className="text-center py-6 md:py-12">
         <div className="max-w-4xl mx-auto">
-          <Badge variant="outline" className="mb-4">
+          <Badge variant="outline" className="mb-2 md:mb-4 text-xs md:text-sm">
             📊 Monitoring & Alerting Platform
           </Badge>
-          <h1 className="text-4xl font-bold text-gray-900 mb-6">
-            Master Prometheus Monitoring
+          <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6">
+            Get Started with Prometheus
           </h1>
-          <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+          <p className="text-sm md:text-xl text-gray-600 mb-6 md:mb-8 leading-relaxed px-2">
             Learn to monitor Kubernetes clusters and applications with Prometheus, Grafana, and Alertmanager. 
-            Set up comprehensive observability and alerting systems.
+            Set up comprehensive observability and alerting systems from scratch.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" asChild>
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
+            <Button size="lg" asChild className="text-sm md:text-base">
               <Link href="/prometheus/introduction">
-                Start Learning
-                <ArrowRight className="ml-2 h-5 w-5" />
+                Get Started
+                <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
               </Link>
             </Button>
-            <Button variant="outline" size="lg">
-              <PlayCircle className="mr-2 h-5 w-5" />
+            <Button variant="outline" size="lg" className="text-sm md:text-base">
+              <PlayCircle className="mr-2 h-4 w-4 md:h-5 md:w-5" />
               Watch Demo
             </Button>
           </div>
         </div>
       </div>
 
+      {/* Quick Start Guide */}
+      <div>
+        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6 text-center">Quick Start Guide</h2>
+        <div className="grid md:grid-cols-4 gap-3 md:gap-6">
+          <Card className="text-center hover:shadow-lg transition-shadow">
+            <CardContent className="pt-4 md:pt-6">
+              <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-white font-bold text-lg">1</span>
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2 text-sm md:text-base">Install Prometheus</h3>
+              <p className="text-xs md:text-sm text-gray-600">Deploy Prometheus Operator using Helm</p>
+              <Button size="sm" asChild className="mt-3 text-xs">
+                <Link href="/prometheus/installation">Start Installation</Link>
+              </Button>
+            </CardContent>
+          </Card>
+          <Card className="text-center hover:shadow-lg transition-shadow">
+            <CardContent className="pt-4 md:pt-6">
+              <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-white font-bold text-lg">2</span>
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2 text-sm md:text-base">Setup Dashboards</h3>
+              <p className="text-xs md:text-sm text-gray-600">Configure Grafana with pre-built dashboards</p>
+              <Button size="sm" asChild className="mt-3 text-xs">
+                <Link href="/prometheus/grafana">Setup Grafana</Link>
+              </Button>
+            </CardContent>
+          </Card>
+          <Card className="text-center hover:shadow-lg transition-shadow">
+            <CardContent className="pt-4 md:pt-6">
+              <div className="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-white font-bold text-lg">3</span>
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2 text-sm md:text-base">Configure Alerts</h3>
+              <p className="text-xs md:text-sm text-gray-600">Set up alert rules and notifications</p>
+              <Button size="sm" asChild className="mt-3 text-xs">
+                <Link href="/prometheus/alert-rules">Setup Alerts</Link>
+              </Button>
+            </CardContent>
+          </Card>
+          <Card className="text-center hover:shadow-lg transition-shadow">
+            <CardContent className="pt-4 md:pt-6">
+              <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-white font-bold text-lg">4</span>
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2 text-sm md:text-base">Monitor Apps</h3>
+              <p className="text-xs md:text-sm text-gray-600">Add custom metrics to your applications</p>
+              <Button size="sm" asChild className="mt-3 text-xs">
+                <Link href="/prometheus/custom-apps">Monitor Apps</Link>
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+
       {/* Monitoring Features */}
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Prometheus Features</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6 text-center">Prometheus Features</h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {monitoringFeatures.map((feature, index) => (
             <Card key={index} className="text-center hover:shadow-lg transition-shadow">
-              <CardContent className="pt-6">
+              <CardContent className="pt-4 md:pt-6">
                 <div className={`p-3 rounded-lg ${feature.color} mx-auto mb-4 w-fit`}>
-                  <feature.icon className="h-6 w-6 text-white" />
+                  <feature.icon className="h-5 w-5 md:h-6 md:w-6 text-white" />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">{feature.title}</h3>
-                <p className="text-sm text-gray-600">{feature.description}</p>
+                <h3 className="font-semibold text-gray-900 mb-2 text-sm md:text-base">{feature.title}</h3>
+                <p className="text-xs md:text-sm text-gray-600">{feature.description}</p>
               </CardContent>
             </Card>
           ))}
@@ -202,22 +257,22 @@ export default function PrometheusPage() {
 
       {/* Monitoring Stack */}
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Monitoring Stack Components</h2>
-        <div className="grid md:grid-cols-2 gap-6">
+        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">Monitoring Stack Components</h2>
+        <div className="grid md:grid-cols-2 gap-4 md:gap-6">
           {monitoringStack.map((component, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center space-x-2">
+              <CardHeader className="p-4 md:p-6">
+                <CardTitle className="flex items-center space-x-2 text-base md:text-lg">
                   <Monitor className="h-5 w-5 text-blue-600" />
                   <span>{component.component}</span>
                 </CardTitle>
-                <CardDescription>{component.description}</CardDescription>
-                <Badge variant="outline">{component.role}</Badge>
+                <CardDescription className="text-sm md:text-base">{component.description}</CardDescription>
+                <Badge variant="outline" className="w-fit">{component.role}</Badge>
               </CardHeader>
-              <CardContent>
+              <CardContent className="p-4 md:p-6 pt-0">
                 <div className="space-y-2">
-                  <h4 className="font-medium text-gray-900">Key Features:</h4>
-                  <div className="flex flex-wrap gap-2">
+                  <h4 className="font-medium text-gray-900 text-sm md:text-base">Key Features:</h4>
+                  <div className="flex flex-wrap gap-1 md:gap-2">
                     {component.features.map((feature, featureIndex) => (
                       <Badge key={featureIndex} variant="secondary" className="text-xs">
                         {feature}
@@ -233,26 +288,26 @@ export default function PrometheusPage() {
 
       {/* Metrics Types */}
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Prometheus Metrics Types</h2>
-        <div className="grid md:grid-cols-2 gap-6">
+        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">Prometheus Metrics Types</h2>
+        <div className="grid md:grid-cols-2 gap-4 md:gap-6">
           {metricsTypes.map((metric, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center space-x-2">
+              <CardHeader className="p-4 md:p-6">
+                <CardTitle className="flex items-center space-x-2 text-base md:text-lg">
                   <BarChart3 className="h-5 w-5 text-green-600" />
                   <span>{metric.type}</span>
                 </CardTitle>
-                <CardDescription>{metric.description}</CardDescription>
+                <CardDescription className="text-sm md:text-base">{metric.description}</CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="p-4 md:p-6 pt-0">
                 <div className="space-y-3">
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-1">Example:</h4>
-                    <code className="bg-gray-100 px-2 py-1 rounded text-sm">{metric.example}</code>
+                    <h4 className="font-medium text-gray-900 mb-1 text-sm md:text-base">Example:</h4>
+                    <code className="bg-gray-100 px-2 py-1 rounded text-xs md:text-sm">{metric.example}</code>
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-1">Use Cases:</h4>
-                    <p className="text-sm text-gray-600">{metric.useCase}</p>
+                    <h4 className="font-medium text-gray-900 mb-1 text-sm md:text-base">Use Cases:</h4>
+                    <p className="text-xs md:text-sm text-gray-600">{metric.useCase}</p>
                   </div>
                 </div>
               </CardContent>
@@ -263,17 +318,17 @@ export default function PrometheusPage() {
 
       {/* Learning Path */}
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Learning Path</h2>
-        <div className="grid md:grid-cols-2 gap-6">
+        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">Learning Path</h2>
+        <div className="grid md:grid-cols-2 gap-4 md:gap-6">
           {prometheusTopics.map((topic, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="flex items-start space-x-4">
+              <CardHeader className="p-4 md:p-6">
+                <div className="flex items-start space-x-3 md:space-x-4">
                   <div className="p-2 bg-purple-100 rounded-lg">
-                    <topic.icon className="h-6 w-6 text-purple-600" />
+                    <topic.icon className="h-5 w-5 md:h-6 md:w-6 text-purple-600" />
                   </div>
                   <div className="flex-1">
-                    <CardTitle className="text-lg">{topic.title}</CardTitle>
+                    <CardTitle className="text-base md:text-lg">{topic.title}</CardTitle>
                     <div className="flex items-center space-x-2 mt-2">
                       <Badge variant="outline" className="text-xs">
                         <Clock className="mr-1 h-3 w-3" />
@@ -290,21 +345,21 @@ export default function PrometheusPage() {
                   </div>
                 </div>
               </CardHeader>
-              <CardContent>
-                <CardDescription className="mb-4">
+              <CardContent className="p-4 md:p-6 pt-0">
+                <CardDescription className="mb-4 text-sm md:text-base">
                   {topic.description}
                 </CardDescription>
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-1 md:gap-2 mb-4">
                   {topic.topics.map((subtopic, subtopicIndex) => (
                     <Badge key={subtopicIndex} variant="secondary" className="text-xs">
                       {subtopic}
                     </Badge>
                   ))}
                 </div>
-                <Button asChild>
+                <Button asChild size="sm" className="text-xs md:text-sm">
                   <Link href={topic.href}>
                     Start Topic
-                    <ArrowRight className="ml-2 h-4 w-4" />
+                    <ArrowRight className="ml-2 h-3 w-3 md:h-4 md:w-4" />
                   </Link>
                 </Button>
               </CardContent>
@@ -314,48 +369,48 @@ export default function PrometheusPage() {
       </div>
 
       {/* Key Benefits */}
-      <div className="bg-purple-50 rounded-2xl p-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Why Use Prometheus?</h2>
-        <div className="grid md:grid-cols-3 gap-6">
+      <div className="bg-purple-50 rounded-2xl p-6 md:p-8">
+        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6 text-center">Why Use Prometheus?</h2>
+        <div className="grid md:grid-cols-3 gap-4 md:gap-6">
           <div className="text-center">
-            <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Database className="h-6 w-6 text-white" />
+            <div className="w-10 h-10 md:w-12 md:h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
+              <Database className="h-5 w-5 md:h-6 md:w-6 text-white" />
             </div>
-            <h3 className="font-semibold text-gray-900 mb-2">Time-Series Database</h3>
-            <p className="text-sm text-gray-600">Efficient storage and querying of time-series data</p>
+            <h3 className="font-semibold text-gray-900 mb-2 text-sm md:text-base">Time-Series Database</h3>
+            <p className="text-xs md:text-sm text-gray-600">Efficient storage and querying of time-series data</p>
           </div>
           <div className="text-center">
-            <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Code className="h-6 w-6 text-white" />
+            <div className="w-10 h-10 md:w-12 md:h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
+              <Code className="h-5 w-5 md:h-6 md:w-6 text-white" />
             </div>
-            <h3 className="font-semibold text-gray-900 mb-2">Powerful Querying</h3>
-            <p className="text-sm text-gray-600">PromQL for complex metric analysis</p>
+            <h3 className="font-semibold text-gray-900 mb-2 text-sm md:text-base">Powerful Querying</h3>
+            <p className="text-xs md:text-sm text-gray-600">PromQL for complex metric analysis</p>
           </div>
           <div className="text-center">
-            <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Bell className="h-6 w-6 text-white" />
+            <div className="w-10 h-10 md:w-12 md:h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
+              <Bell className="h-5 w-5 md:h-6 md:w-6 text-white" />
             </div>
-            <h3 className="font-semibold text-gray-900 mb-2">Advanced Alerting</h3>
-            <p className="text-sm text-gray-600">Sophisticated alerting and notification system</p>
+            <h3 className="font-semibold text-gray-900 mb-2 text-sm md:text-base">Advanced Alerting</h3>
+            <p className="text-xs md:text-sm text-gray-600">Sophisticated alerting and notification system</p>
           </div>
         </div>
       </div>
 
       {/* Call to Action */}
-      <div className="bg-blue-50 rounded-2xl p-8 text-center">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">Ready to Monitor with Prometheus?</h2>
-        <p className="text-lg text-gray-600 mb-6">
+      <div className="bg-blue-50 rounded-2xl p-6 md:p-8 text-center">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Ready to Monitor with Prometheus?</h2>
+        <p className="text-sm md:text-lg text-gray-600 mb-6">
           Build comprehensive monitoring and alerting systems for your Kubernetes clusters and applications.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button size="lg" asChild>
+        <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
+          <Button size="lg" asChild className="text-sm md:text-base">
             <Link href="/prometheus/introduction">
-              <Monitor className="mr-2 h-5 w-5" />
+              <Monitor className="mr-2 h-4 w-4 md:h-5 md:w-5" />
               Start Learning
             </Link>
           </Button>
-          <Button variant="outline" size="lg">
-            <BarChart3 className="mr-2 h-5 w-5" />
+          <Button variant="outline" size="lg" className="text-sm md:text-base">
+            <BarChart3 className="mr-2 h-4 w-4 md:h-5 md:w-5" />
             View Dashboards
           </Button>
         </div>
