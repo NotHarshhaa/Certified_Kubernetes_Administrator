@@ -1,15 +1,42 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Search, Menu, Github, ExternalLink, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { ThemeToggle } from '@/components/theme-toggle'
+import { SearchModal } from '@/components/search-modal'
 
 export function Navigation({ onMobileMenuToggle, isMobileMenuOpen }: { onMobileMenuToggle?: () => void; isMobileMenuOpen?: boolean }) {
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
+
   const handleMobileMenuToggle = () => {
     onMobileMenuToggle?.()
   }
+
+  const handleSearchToggle = () => {
+    setIsSearchOpen(!isSearchOpen)
+  }
+
+  // Global keyboard shortcut for search
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Open search with Ctrl+K or Cmd+K
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault()
+        setIsSearchOpen(true)
+      }
+      // Open search with /
+      if (e.key === '/' && !isSearchOpen) {
+        e.preventDefault()
+        setIsSearchOpen(true)
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [isSearchOpen])
 
   return (
     <nav className="bg-background shadow-sm border-b border-border">
@@ -53,9 +80,15 @@ export function Navigation({ onMobileMenuToggle, isMobileMenuOpen }: { onMobileM
             
             <div className="flex items-center space-x-1 md:space-x-2">
               <ThemeToggle />
-              <Button variant="outline" size="sm" className="hidden md:flex text-xs">
+              <Button 
+                variant="outline" 
+                size="sm" 
+                onClick={handleSearchToggle}
+                className="text-xs"
+              >
                 <Search className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2" />
-                Search
+                <span className="hidden md:inline">Search</span>
+                <kbd className="hidden md:inline ml-2 px-1.5 py-0.5 text-xs bg-muted rounded border">⌘K</kbd>
               </Button>
               <Button variant="outline" size="sm" asChild className="text-xs px-2 md:px-3">
                 <Link href="https://github.com/NotHarshhaa/Certified_Kubernetes_Administrator" target="_blank">
@@ -73,6 +106,12 @@ export function Navigation({ onMobileMenuToggle, isMobileMenuOpen }: { onMobileM
           </div>
         </div>
       </div>
+      
+      {/* Search Modal */}
+      <SearchModal 
+        isOpen={isSearchOpen} 
+        onClose={() => setIsSearchOpen(false)} 
+      />
     </nav>
   )
 }
