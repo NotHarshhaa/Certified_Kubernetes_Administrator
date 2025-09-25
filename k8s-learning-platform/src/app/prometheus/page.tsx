@@ -1,8 +1,9 @@
 import Link from 'next/link'
-import { ArrowRight, Monitor, Code, PlayCircle, FileText, Settings, Clock, AlertTriangle, BarChart3, Bell, Database } from 'lucide-react'
+import { ArrowRight, Monitor, Code, PlayCircle, FileText, Settings, Clock, AlertTriangle, BarChart3, Bell, Database, Sparkles, Layers, Activity, Rocket } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { cn } from '@/lib/utils'
 
 const prometheusTopics = [
   {
@@ -153,83 +154,148 @@ const metricsTypes = [
 
 export default function PrometheusPage() {
   return (
-    <div className="space-y-8 md:space-y-12">
+    <div className="space-y-8 md:space-y-10">
       {/* Hero Section */}
-      <div className="text-center py-6 md:py-12">
-        <div className="max-w-4xl mx-auto">
-          <Badge variant="outline" className="mb-2 md:mb-4 text-xs md:text-sm">
-            📊 Monitoring & Alerting Platform
-          </Badge>
-          <h1 className="text-2xl md:text-4xl font-bold text-foreground mb-4 md:mb-6">
-            Get Started with Prometheus
-          </h1>
-          <p className="text-sm md:text-xl text-muted-foreground mb-6 md:mb-8 leading-relaxed px-2">
-            Learn to monitor Kubernetes clusters and applications with Prometheus, Grafana, and Alertmanager. 
-            Set up comprehensive observability and alerting systems from scratch.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
-            <Button size="lg" asChild className="text-sm md:text-base">
-              <Link href="/prometheus/introduction">
-                Get Started
-                <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
-              </Link>
-            </Button>
-            <Button variant="outline" size="lg" className="text-sm md:text-base">
-              <PlayCircle className="mr-2 h-4 w-4 md:h-5 md:w-5" />
-              Watch Demo
-            </Button>
+      <div className="relative overflow-hidden">
+        {/* Background with glass morphism */}
+        <div className="absolute inset-0 from-cyan-500/10 via-blue-500/10 to-purple-500/10" />
+        <div className="relative bg-gradient-to-br from-cyan-50 via-blue-50 to-purple-50 dark:from-cyan-950/50 dark:via-blue-950/50 dark:to-purple-950/50 rounded-2xl mx-4 md:mx-8 shadow-lg dark:shadow-xl border border-cyan-200/50 dark:border-cyan-800/20">
+          <div className="text-center py-6 md:py-8 px-6">
+            {/* Logo Section */}
+            <div className="flex justify-center mb-6 md:mb-6">
+              <div className="relative group">
+                <div className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl shadow-xl flex items-center justify-center transform group-hover:scale-105 transition-all duration-500 group-hover:shadow-2xl">
+                  <Monitor className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-white" />
+                </div>
+                {/* Animated decorative elements */}
+                <div className="absolute -top-2 -right-2 w-5 h-5 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center animate-pulse shadow-lg">
+                  <Sparkles className="w-3 h-3 text-white" />
+                </div>
+                <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full flex items-center justify-center animate-bounce shadow-lg">
+                  <Activity className="w-2 h-2 text-white" />
+                </div>
+                <div className="absolute top-1/2 -right-4 w-3 h-3 bg-gradient-to-r from-pink-400 to-rose-500 rounded-full animate-ping" />
+                <div className="absolute top-1/2 -left-4 w-3 h-3 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full animate-ping" style={{ animationDelay: '1s' }} />
+              </div>
+            </div>
+            
+            <Badge variant="outline" className="mb-3 md:mb-4 text-xs md:text-sm bg-gradient-to-r from-cyan-500/10 to-blue-600/10 border-cyan-500/20 text-cyan-700 dark:text-cyan-300 hover:shadow-md transition-all duration-300">
+              <span className="inline-flex items-center gap-1">
+                <Rocket className="w-4 h-4 mr-1 text-cyan-500" />
+                Monitoring & Alerting Platform
+              </span>
+            </Badge>
+            
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-5">
+              <span className="bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
+                Get Started with
+              </span>
+              <span className="block bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent">
+                Prometheus
+              </span>
+            </h1>
+            
+            <p className="text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300 mb-6 md:mb-7 leading-relaxed max-w-3xl mx-auto">
+              Learn to monitor Kubernetes clusters and applications with Prometheus, Grafana, and Alertmanager. 
+              Set up comprehensive observability and alerting systems from scratch.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
+              <Button 
+                size="lg" 
+                asChild 
+                className="text-sm md:text-base px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              >
+                <Link href="/prometheus/introduction">
+                  Get Started
+                  <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
+                </Link>
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg" 
+                asChild 
+                className="text-sm md:text-base px-6 md:px-8 py-3 md:py-4 bg-white/50 dark:bg-gray-900/50 border-gray-200 dark:border-gray-800 hover:bg-white dark:hover:bg-gray-800 hover:shadow-lg transition-all duration-300 hover:scale-105"
+              >
+                <Link href="/get-started">
+                  <PlayCircle className="mr-2 h-4 w-4 md:h-5 md:w-5" />
+                  Watch Demo
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Quick Start Guide */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6 text-center">Quick Start Guide</h2>
+        <div className="text-center mb-4 md:mb-6">
+          <h2 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent mb-2 md:mb-3">
+            Quick Start Guide
+          </h2>
+          <p className="text-sm md:text-base text-gray-600 dark:text-gray-400">Get up and running with Prometheus in 4 simple steps</p>
+        </div>
         <div className="grid md:grid-cols-4 gap-3 md:gap-6">
-          <Card className="text-center hover:shadow-lg transition-shadow">
-            <CardContent className="pt-4 md:pt-6">
-              <div className="w-12 h-12 bg-muted/500 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-white font-bold text-lg">1</span>
+          <Card className="text-center bg-white dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200/60 dark:border-gray-800/20 hover:shadow-lg transition-all duration-300 hover:scale-105">
+            <CardContent className="pt-3 md:pt-6 pb-3 md:pb-6">
+              <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4 shadow-lg">
+                <span className="text-white font-bold text-lg md:text-xl">1</span>
               </div>
-              <h3 className="font-semibold text-foreground mb-2 text-sm md:text-base">Install Prometheus</h3>
-              <p className="text-xs md:text-sm text-muted-foreground">Deploy Prometheus Operator using Helm</p>
-              <Button size="sm" asChild className="mt-3 text-xs">
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-2 text-sm md:text-base">Install Prometheus</h3>
+              <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 mb-3">Deploy Prometheus Operator using Helm</p>
+              <Button 
+                size="sm" 
+                asChild 
+                className="text-xs bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              >
                 <Link href="/prometheus/installation">Start Installation</Link>
               </Button>
             </CardContent>
           </Card>
-          <Card className="text-center hover:shadow-lg transition-shadow">
-            <CardContent className="pt-4 md:pt-6">
-              <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-white font-bold text-lg">2</span>
+          <Card className="text-center bg-white dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200/60 dark:border-gray-800/20 hover:shadow-lg transition-all duration-300 hover:scale-105">
+            <CardContent className="pt-3 md:pt-6 pb-3 md:pb-6">
+              <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4 shadow-lg">
+                <span className="text-white font-bold text-lg md:text-xl">2</span>
               </div>
-              <h3 className="font-semibold text-foreground mb-2 text-sm md:text-base">Setup Dashboards</h3>
-              <p className="text-xs md:text-sm text-muted-foreground">Configure Grafana with pre-built dashboards</p>
-              <Button size="sm" asChild className="mt-3 text-xs">
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-2 text-sm md:text-base">Setup Dashboards</h3>
+              <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 mb-3">Configure Grafana with pre-built dashboards</p>
+              <Button 
+                size="sm" 
+                asChild 
+                className="text-xs bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              >
                 <Link href="/prometheus/grafana">Setup Grafana</Link>
               </Button>
             </CardContent>
           </Card>
-          <Card className="text-center hover:shadow-lg transition-shadow">
-            <CardContent className="pt-4 md:pt-6">
-              <div className="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-white font-bold text-lg">3</span>
+          <Card className="text-center bg-white dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200/60 dark:border-gray-800/20 hover:shadow-lg transition-all duration-300 hover:scale-105">
+            <CardContent className="pt-3 md:pt-6 pb-3 md:pb-6">
+              <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4 shadow-lg">
+                <span className="text-white font-bold text-lg md:text-xl">3</span>
               </div>
-              <h3 className="font-semibold text-foreground mb-2 text-sm md:text-base">Configure Alerts</h3>
-              <p className="text-xs md:text-sm text-muted-foreground">Set up alert rules and notifications</p>
-              <Button size="sm" asChild className="mt-3 text-xs">
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-2 text-sm md:text-base">Configure Alerts</h3>
+              <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 mb-3">Set up alert rules and notifications</p>
+              <Button 
+                size="sm" 
+                asChild 
+                className="text-xs bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              >
                 <Link href="/prometheus/alert-rules">Setup Alerts</Link>
               </Button>
             </CardContent>
           </Card>
-          <Card className="text-center hover:shadow-lg transition-shadow">
-            <CardContent className="pt-4 md:pt-6">
-              <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-white font-bold text-lg">4</span>
+          <Card className="text-center bg-white dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200/60 dark:border-gray-800/20 hover:shadow-lg transition-all duration-300 hover:scale-105">
+            <CardContent className="pt-3 md:pt-6 pb-3 md:pb-6">
+              <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4 shadow-lg">
+                <span className="text-white font-bold text-lg md:text-xl">4</span>
               </div>
-              <h3 className="font-semibold text-foreground mb-2 text-sm md:text-base">Monitor Apps</h3>
-              <p className="text-xs md:text-sm text-muted-foreground">Add custom metrics to your applications</p>
-              <Button size="sm" asChild className="mt-3 text-xs">
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-2 text-sm md:text-base">Monitor Apps</h3>
+              <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 mb-3">Add custom metrics to your applications</p>
+              <Button 
+                size="sm" 
+                asChild 
+                className="text-xs bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              >
                 <Link href="/prometheus/custom-apps">Monitor Apps</Link>
               </Button>
             </CardContent>
@@ -239,16 +305,21 @@ export default function PrometheusPage() {
 
       {/* Monitoring Features */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6 text-center">Prometheus Features</h2>
+        <div className="text-center mb-4 md:mb-6">
+          <h2 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent mb-2 md:mb-3">
+            Prometheus Features
+          </h2>
+          <p className="text-sm md:text-base text-gray-600 dark:text-gray-400">Core capabilities that make Prometheus powerful</p>
+        </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {monitoringFeatures.map((feature, index) => (
-            <Card key={index} className="text-center hover:shadow-lg transition-shadow">
-              <CardContent className="pt-4 md:pt-6">
-                <div className={`p-3 rounded-lg ${feature.color} mx-auto mb-4 w-fit`}>
-                  <feature.icon className="h-5 w-5 md:h-6 md:w-6 text-white" />
+            <Card key={index} className="text-center bg-white dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200/60 dark:border-gray-800/20 hover:shadow-lg transition-all duration-300 hover:scale-105">
+              <CardContent className="pt-5 md:pt-6 pb-5 md:pb-6">
+                <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4 shadow-lg">
+                  <feature.icon className="h-6 w-6 md:h-8 md:w-8 text-white" />
                 </div>
-                <h3 className="font-semibold text-foreground mb-2 text-sm md:text-base">{feature.title}</h3>
-                <p className="text-xs md:text-sm text-muted-foreground">{feature.description}</p>
+                <h3 className="font-semibold text-gray-900 dark:text-white mb-2 text-sm md:text-base">{feature.title}</h3>
+                <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400">{feature.description}</p>
               </CardContent>
             </Card>
           ))}
@@ -257,21 +328,28 @@ export default function PrometheusPage() {
 
       {/* Monitoring Stack */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6">Monitoring Stack Components</h2>
+        <div className="text-center mb-4 md:mb-6">
+          <h2 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent mb-2 md:mb-3">
+            Monitoring Stack Components
+          </h2>
+          <p className="text-sm md:text-base text-gray-600 dark:text-gray-400">Essential components of a complete monitoring solution</p>
+        </div>
         <div className="grid md:grid-cols-2 gap-4 md:gap-6">
           {monitoringStack.map((component, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardHeader className="p-4 md:p-6">
-                <CardTitle className="flex items-center space-x-2 text-base md:text-lg">
-                  <Monitor className="h-5 w-5 text-blue-600" />
+            <Card key={index} className="group bg-white dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200/60 dark:border-gray-800/20 hover:shadow-xl transition-all duration-500 hover:scale-[1.02]">
+              <CardHeader className="relative p-4 md:p-6">
+                <CardTitle className="flex items-center space-x-2 text-base md:text-lg font-bold text-gray-900 dark:text-white">
+                  <div className="w-8 h-8 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center">
+                    <Monitor className="h-4 w-4 text-white" />
+                  </div>
                   <span>{component.component}</span>
                 </CardTitle>
-                <CardDescription className="text-sm md:text-base">{component.description}</CardDescription>
-                <Badge variant="outline" className="w-fit">{component.role}</Badge>
+                <CardDescription className="text-sm md:text-base text-gray-600 dark:text-gray-400">{component.description}</CardDescription>
+                <Badge variant="outline" className="w-fit text-xs">{component.role}</Badge>
               </CardHeader>
-              <CardContent className="p-4 md:p-6 pt-0">
+              <CardContent className="relative p-4 md:p-6 pt-0">
                 <div className="space-y-2">
-                  <h4 className="font-medium text-foreground text-sm md:text-base">Key Features:</h4>
+                  <h4 className="font-medium text-gray-900 dark:text-white text-sm md:text-base">Key Features:</h4>
                   <div className="flex flex-wrap gap-1 md:gap-2">
                     {component.features.map((feature, featureIndex) => (
                       <Badge key={featureIndex} variant="secondary" className="text-xs">
@@ -288,26 +366,33 @@ export default function PrometheusPage() {
 
       {/* Metrics Types */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6">Prometheus Metrics Types</h2>
+        <div className="text-center mb-4 md:mb-6">
+          <h2 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent mb-2 md:mb-3">
+            Prometheus Metrics Types
+          </h2>
+          <p className="text-sm md:text-base text-gray-600 dark:text-gray-400">Understanding different types of metrics in Prometheus</p>
+        </div>
         <div className="grid md:grid-cols-2 gap-4 md:gap-6">
           {metricsTypes.map((metric, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardHeader className="p-4 md:p-6">
-                <CardTitle className="flex items-center space-x-2 text-base md:text-lg">
-                  <BarChart3 className="h-5 w-5 text-green-600" />
+            <Card key={index} className="group bg-white dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200/60 dark:border-gray-800/20 hover:shadow-xl transition-all duration-500 hover:scale-[1.02]">
+              <CardHeader className="relative p-4 md:p-6">
+                <CardTitle className="flex items-center space-x-2 text-base md:text-lg font-bold text-gray-900 dark:text-white">
+                  <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center">
+                    <BarChart3 className="h-4 w-4 text-white" />
+                  </div>
                   <span>{metric.type}</span>
                 </CardTitle>
-                <CardDescription className="text-sm md:text-base">{metric.description}</CardDescription>
+                <CardDescription className="text-sm md:text-base text-gray-600 dark:text-gray-400">{metric.description}</CardDescription>
               </CardHeader>
-              <CardContent className="p-4 md:p-6 pt-0">
+              <CardContent className="relative p-4 md:p-6 pt-0">
                 <div className="space-y-3">
                   <div>
-                    <h4 className="font-medium text-foreground mb-1 text-sm md:text-base">Example:</h4>
-                    <code className="bg-gray-100 px-2 py-1 rounded text-xs md:text-sm">{metric.example}</code>
+                    <h4 className="font-medium text-gray-900 dark:text-white mb-1 text-sm md:text-base">Example:</h4>
+                    <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs md:text-sm text-gray-800 dark:text-gray-200">{metric.example}</code>
                   </div>
                   <div>
-                    <h4 className="font-medium text-foreground mb-1 text-sm md:text-base">Use Cases:</h4>
-                    <p className="text-xs md:text-sm text-muted-foreground">{metric.useCase}</p>
+                    <h4 className="font-medium text-gray-900 dark:text-white mb-1 text-sm md:text-base">Use Cases:</h4>
+                    <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400">{metric.useCase}</p>
                   </div>
                 </div>
               </CardContent>
@@ -318,18 +403,23 @@ export default function PrometheusPage() {
 
       {/* Learning Path */}
       <div>
-        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6">Learning Path</h2>
+        <div className="text-center mb-4 md:mb-6">
+          <h2 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent mb-2 md:mb-3">
+            Learning Path
+          </h2>
+          <p className="text-sm md:text-base text-gray-600 dark:text-gray-400">Master Prometheus from basics to advanced monitoring</p>
+        </div>
         <div className="grid md:grid-cols-2 gap-4 md:gap-6">
           {prometheusTopics.map((topic, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardHeader className="p-4 md:p-6">
+            <Card key={index} className="group bg-white dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200/60 dark:border-gray-800/20 hover:shadow-xl transition-all duration-500 hover:scale-[1.02]">
+              <CardHeader className="relative p-4 md:p-6">
                 <div className="flex items-start space-x-3 md:space-x-4">
-                  <div className="p-2 bg-purple-100 rounded-lg">
-                    <topic.icon className="h-5 w-5 md:h-6 md:w-6 text-purple-600" />
+                  <div className="p-2 md:p-3 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl shadow-lg transition-all duration-300 group-hover:scale-110">
+                    <topic.icon className="h-5 w-5 md:h-6 md:w-6 text-white" />
                   </div>
                   <div className="flex-1">
-                    <CardTitle className="text-base md:text-lg">{topic.title}</CardTitle>
-                    <div className="flex items-center space-x-2 mt-2">
+                    <CardTitle className="text-base md:text-lg font-bold text-gray-900 dark:text-white mb-2">{topic.title}</CardTitle>
+                    <div className="flex items-center space-x-2">
                       <Badge variant="outline" className="text-xs">
                         <Clock className="mr-1 h-3 w-3" />
                         {topic.duration}
@@ -345,8 +435,8 @@ export default function PrometheusPage() {
                   </div>
                 </div>
               </CardHeader>
-              <CardContent className="p-4 md:p-6 pt-0">
-                <CardDescription className="mb-4 text-sm md:text-base">
+              <CardContent className="relative p-4 md:p-6 pt-0">
+                <CardDescription className="mb-4 text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
                   {topic.description}
                 </CardDescription>
                 <div className="flex flex-wrap gap-1 md:gap-2 mb-4">
@@ -356,7 +446,11 @@ export default function PrometheusPage() {
                     </Badge>
                   ))}
                 </div>
-                <Button asChild size="sm" className="text-xs md:text-sm">
+                <Button 
+                  asChild 
+                  size="sm" 
+                  className="text-xs md:text-sm bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                >
                   <Link href={topic.href}>
                     Start Topic
                     <ArrowRight className="ml-2 h-3 w-3 md:h-4 md:w-4" />
@@ -369,50 +463,68 @@ export default function PrometheusPage() {
       </div>
 
       {/* Key Benefits */}
-      <div className="bg-muted/50 rounded-2xl p-6 md:p-8">
-        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6 text-center">Why Use Prometheus?</h2>
-        <div className="grid md:grid-cols-3 gap-4 md:gap-6">
-          <div className="text-center">
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
-              <Database className="h-5 w-5 md:h-6 md:w-6 text-white" />
+      <div className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-blue-500/5 to-purple-500/5" />
+        <div className="relative bg-white dark:bg-gray-950/60 backdrop-blur-xl rounded-lg p-4 md:p-8 border border-gray-200/60 dark:border-gray-800/20 shadow-lg dark:shadow-2xl">
+          <h2 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent mb-4 md:mb-6 text-center">
+            Why Use Prometheus?
+          </h2>
+          <div className="grid md:grid-cols-3 gap-4 md:gap-6">
+            <div className="text-center">
+              <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4 shadow-lg">
+                <Database className="h-6 w-6 md:h-8 md:w-8 text-white" />
+              </div>
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-2 text-sm md:text-base">Time-Series Database</h3>
+              <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400">Efficient storage and querying of time-series data</p>
             </div>
-            <h3 className="font-semibold text-foreground mb-2 text-sm md:text-base">Time-Series Database</h3>
-            <p className="text-xs md:text-sm text-muted-foreground">Efficient storage and querying of time-series data</p>
-          </div>
-          <div className="text-center">
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
-              <Code className="h-5 w-5 md:h-6 md:w-6 text-white" />
+            <div className="text-center">
+              <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4 shadow-lg">
+                <Code className="h-6 w-6 md:h-8 md:w-8 text-white" />
+              </div>
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-2 text-sm md:text-base">Powerful Querying</h3>
+              <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400">PromQL for complex metric analysis</p>
             </div>
-            <h3 className="font-semibold text-foreground mb-2 text-sm md:text-base">Powerful Querying</h3>
-            <p className="text-xs md:text-sm text-muted-foreground">PromQL for complex metric analysis</p>
-          </div>
-          <div className="text-center">
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
-              <Bell className="h-5 w-5 md:h-6 md:w-6 text-white" />
+            <div className="text-center">
+              <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4 shadow-lg">
+                <Bell className="h-6 w-6 md:h-8 md:w-8 text-white" />
+              </div>
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-2 text-sm md:text-base">Advanced Alerting</h3>
+              <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400">Sophisticated alerting and notification system</p>
             </div>
-            <h3 className="font-semibold text-foreground mb-2 text-sm md:text-base">Advanced Alerting</h3>
-            <p className="text-xs md:text-sm text-muted-foreground">Sophisticated alerting and notification system</p>
           </div>
         </div>
       </div>
 
       {/* Call to Action */}
-      <div className="bg-muted/50 rounded-2xl p-6 md:p-8 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Ready to Monitor with Prometheus?</h2>
-        <p className="text-sm md:text-lg text-muted-foreground mb-6">
-          Build comprehensive monitoring and alerting systems for your Kubernetes clusters and applications.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
-          <Button size="lg" asChild className="text-sm md:text-base">
-            <Link href="/prometheus/introduction">
-              <Monitor className="mr-2 h-4 w-4 md:h-5 md:w-5" />
-              Start Learning
-            </Link>
-          </Button>
-          <Button variant="outline" size="lg" className="text-sm md:text-base">
-            <BarChart3 className="mr-2 h-4 w-4 md:h-5 md:w-5" />
-            View Dashboards
-          </Button>
+      <div className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-blue-500/5 to-purple-500/5" />
+        <div className="relative bg-white dark:bg-gray-950/60 backdrop-blur-xl rounded-lg p-4 md:p-8 text-center border border-gray-200/60 dark:border-gray-800/20 shadow-lg dark:shadow-2xl">
+          <h2 className="text-xl md:text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent mb-2 md:mb-4">
+            Ready to Monitor with Prometheus?
+          </h2>
+          <p className="text-sm md:text-lg text-gray-600 dark:text-gray-400 mb-4 md:mb-8 max-w-3xl mx-auto leading-relaxed">
+            Build comprehensive monitoring and alerting systems for your Kubernetes clusters and applications.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-6 justify-center">
+            <Button 
+              size="lg" 
+              asChild 
+              className="text-sm md:text-lg px-6 md:px-10 py-3 md:py-5 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+            >
+              <Link href="/prometheus/introduction">
+                <Monitor className="mr-2 h-4 w-4 md:h-5 md:w-5" />
+                Start Learning
+              </Link>
+            </Button>
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="text-sm md:text-lg px-6 md:px-10 py-3 md:py-5 bg-white/50 dark:bg-gray-900/50 border-gray-200 dark:border-gray-800 hover:bg-white dark:hover:bg-gray-800 hover:shadow-lg transition-all duration-300 hover:scale-105"
+            >
+              <BarChart3 className="mr-2 h-4 w-4 md:h-5 md:w-5" />
+              View Dashboards
+            </Button>
+          </div>
         </div>
       </div>
     </div>
