@@ -74,6 +74,15 @@
         <li><a href="#Helmfile-Wrap-UP">Wrap UP</a></li>
     </ul>
   </li>
+  <li>
+     Helm Best Practices and Common Workflows
+    <ul>
+        <li><a href="#Helm-Best-Practices">Best Practices for Helm Charts</a></li>
+        <li><a href="#Helm-Best-Practices-Testing">Chart Testing Best Practices</a></li>
+        <li><a href="#Helm-Best-Practices-Security">Helm Security Best Practices</a></li>
+        <li><a href="#Helm-Common-Workflows">Common Helm Workflows</a></li>
+    </ul>
+  </li>
 </ol>
 </details>
 </div>
@@ -95,6 +104,27 @@ Helm charts:
 * Create your own Helm Charts with Helm
 * Push them to Helm repository (Or any other repository out there)
 * Download and use existing ones
+* Store in OCI-compatible registries (Docker registry) since Helm 3
+
+Helm is currently in version 3, with Helm v4 in alpha stage (as of 2024). Helm v3 removed the Tiller component that was present in Helm v2, making it more secure and easier to use. Helm v4 (expected to be released in late 2025) will further improve performance, security, and usability with new features like enhanced plugin support and improved dependency management.
+
+Key improvements in Helm 3:
+* Improved security model - removed Tiller dependency
+* Release information stored as Kubernetes Secrets
+* Better validation of chart values
+* Support for OCI (Docker Registry) as chart repository
+* Improved dependency management with JSON schema validation
+* Three-way strategic merge for upgrades
+* Library charts for sharing templates
+* Signed charts for enhanced security
+* Helm push command for OCI registries
+
+Current industry best practices include:
+* Using semantic versioning for charts
+* Storing charts in Git repositories and OCI registries
+* Implementing GitOps workflows with tools like ArgoCD/Flux
+* Validating charts with schema validation
+* Creating comprehensive documentation
 
 Helm has some interesting features that makes it awesome, such as:
 
@@ -263,13 +293,24 @@ Let's say we have a
 
 <div id="intro-Release-Management">
 
-### Helm version 2 vs. 3
+### Helm version 2 vs. 3 vs. 4 (Coming Soon)
 
 * Helm 3 was released [November 13, 2019](https://helm.sh/blog/helm-3-released)
-* Charts remaster compatible between Helm 2 and Helm 3
+* Helm 4 is in alpha stage as of 2024, with expected release in late 2025
+* Charts are mostly compatible between Helm 2 and Helm 3
+* Charts created with Helm 3 should be forward-compatible with Helm 4
+* No longer using Tiller in version 3 and beyond
+* Helm 4 focuses on improved performance, security, and usability
 * The CLI is very similar (with minor changes to some commands)
 * The master difference is that Helm 2 uses `tiller`, a server-side component
 * Helm 3 doesn't use `tiller` at all, making it simpler (yay!)
+* Major Helm 3 commands:
+  * `helm install`: Install a chart
+  * `helm upgrade`: Upgrade a release
+  * `helm rollback`: Roll back to a previous release
+  * `helm uninstall`: Uninstall a release (replaced `delete` in Helm 2)
+  * `helm template`: Locally render templates
+  * `helm push`: Push chart to OCI-based registry
 
 * Helm version 2 comes in two parts:
     * CLIENT (Helm CLI)
@@ -300,12 +341,38 @@ Let's say we have a
 
 ---
 
-### Helm version 3
+### Helm version 3 and beyond
 
 * Helm solves the security concerns by deleting Tiller in Helm 3
+* Helm 3 features:
+  * OCI support (Docker Registry) for storing charts
+  * Improved security model with scoped permissions
+  * Library chart support for reusable chart components
+  * JSON Schema validation for chart values
+  * Three-way strategic merge for upgrades
+  * Release information stored as Kubernetes Secrets
+  * Push command for OCI-based registries
+  * Improved plugin management
+  * Better dependency resolution
+  * Name-based versioning for managing duplicate releases
+  * Simplified chart repository indexing
+  
+* Helm 4 (coming soon) features:
+  * Enhanced plugin architecture
+  * Improved dependency management
+  * Better templating capabilities
+  * Richer chart metadata
+  * Enhanced performance optimizations
+  * Expanded OCI support
+  * Improved validation and testing capabilities
+  * Better GitOps integration
+  * Streamlined chart testing framework
+  * Enhanced security features
+
 * Removal of Tiller:
     * Replaces `client/server` with `client/library` architecture (Helm binary only)
     * Security is now on per-user basis (delegated to Kubernetes user cluster security)
+    * Uses Kubernetes primitives for storing release information
     * Releases are now stored as in-cluster secrets and the release object metadata has changed
     * Releases are persisted on a release namespace basis and not in the Tiller namespace anymore
 * [And so many more!](https://helm.sh/docs/topics/v2_v3_migration)
@@ -1702,14 +1769,301 @@ There is only one final question: Where to host the Helm charts?
 
 ---
 
-Where to host the Helm charts?
+# Helm Best Practices and Common Workflows
 
-✅ Host it in a Git Repository
+## Best Practices for Helm Charts
 
-2 Options:
+<div id="Helm-Best-Practices">
+
+When developing and working with Helm charts, following these best practices will help ensure your charts are maintainable, reusable, and secure:
+
+### 1. Structure and Organization
+
+* **Follow the Standard Chart Layout**: Use `helm create` to generate a standard chart structure
+* **Separate Configuration from Templates**: Put all configurable values in `values.yaml`
+* **Use Appropriate Labels**: Follow Kubernetes recommended labeling for better resource management
+* **Utilize Helpers and Named Templates**: Create reusable template components in the `_helpers.tpl` file
+* **Document Your Chart**: Maintain comprehensive README.md and NOTES.txt files
+
+### 2. Chart Development
+
+* **Version Control Your Charts**: Use semantic versioning for your chart versions
+* **Validate Charts Before Release**: Use `helm lint` and `helm template` for validation
+* **Test Charts Thoroughly**: Implement chart tests in the `templates/tests/` directory
+* **Include Schema Validation**: Use JSONSchema in `values.schema.json` to validate chart values
+* **Keep Dependencies Updated**: Regularly review and update chart dependencies
+
+### 3. Security Best Practices
+
+* **Set Appropriate Resource Limits**: Always define resource requests and limits
+* **Implement Network Policies**: Restrict network traffic between pods
+* **Follow Least Privilege Principle**: Use appropriate RBAC settings
+* **Secure Sensitive Data**: Use Kubernetes Secrets for passwords and credentials
+* **Scan Images for Vulnerabilities**: Use tools like Trivy or Clair to scan container images
+
+### 4. Deployment Strategies
+
+* **Use Immutable Images**: Tag images with specific versions rather than using `latest` tags
+* **Implement Readiness/Liveness Probes**: Ensure proper application health monitoring
+* **Configure Pod Disruption Budgets**: Maintain availability during cluster operations
+* **Use Update Strategies**: Configure appropriate deployment strategies (RollingUpdate, Recreate)
+* **Implement Pre/Post Hooks**: Utilize Helm hooks for deployment lifecycle management
+
+</div>
+
+## Chart Testing Best Practices
+
+<div id="Helm-Best-Practices-Testing">
+
+Testing is a critical aspect of Helm chart development. A well-tested chart ensures reliability and predictability across different environments.
+
+### Types of Helm Chart Tests
+
+1. **Static Testing**
+   * **Linting**: Use `helm lint` to check for syntax errors and best practices
+   * **Template Validation**: Use `helm template` to validate the rendered YAML
+   * **Schema Validation**: Validate values against `values.schema.json`
+   * **YAML Validation**: Check for valid Kubernetes resources with tools like `kubeval`
+
+2. **Unit Testing**
+   * **Chart Unit Tests**: Write tests for individual templates
+   * **Template Logic Testing**: Test complex template functions
+   * **Go Tests**: For more complex validation logic
+
+3. **Integration Testing**
+   * **Test Hooks**: Use Helm's test hooks to validate chart functionality
+   * **Chart Testing (ct)**: Use the [chart-testing](https://github.com/helm/chart-testing) tool
+   * **End-to-End Tests**: Deploy to a test cluster and verify functionality
+
+### Implementing Test Hooks
+
+Test hooks allow you to define tests within your chart that can be run after deployment:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ .Release.Name }}-test"
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: test
+      image: busybox
+      command: ['wget', '{{ .Release.Name }}-service:{{ .Values.service.port }}']
+  restartPolicy: Never
+```
+
+Run these tests using:
+
+```shell
+helm test RELEASE_NAME
+```
+
+### Continuous Integration for Charts
+
+1. **Setup CI Pipeline for Charts**
+   * Run linting and validation on every commit
+   * Deploy to test environment and run tests
+   * Package and publish charts only when tests pass
+
+2. **Test Matrix**
+   * Test against multiple Kubernetes versions
+   * Test with different sets of values
+   * Test upgrades from previous versions
+
+3. **Tools to Consider**
+   * Chart Testing (ct)
+   * Conftest
+   * Helm-unittest
+   * Kubeconform
+   * Pluto (for deprecation checking)
+
+</div>
+
+## Helm Security Best Practices
+
+<div id="Helm-Best-Practices-Security">
+
+Securing your Helm charts and deployments is crucial for maintaining a robust Kubernetes environment. Here are important security practices for working with Helm:
+
+### 1. Chart Security
+
+* **Verify Chart Sources**: Only use charts from trusted repositories or sources
+* **Sign and Verify Charts**: Use Helm's provenance and integrity verification
+* **Inspect Chart Content**: Review templates before installation
+* **Use Version Pinning**: Specify exact versions rather than using latest tags
+* **Regular Auditing**: Periodically audit installed charts for vulnerabilities
+
+### 2. Container Security
+
+* **Use Minimal Base Images**: Prefer distroless or alpine-based images
+* **Specify Non-Root Users**: Add `securityContext` with non-root user configurations
+* **Set Read-Only File Systems**: Configure read-only root filesystems when possible
+* **Scan Images**: Implement image scanning in your CI/CD pipeline
+* **Set Resource Limits**: Prevent resource exhaustion attacks
+
+### 3. RBAC and Authentication
+
+* **Follow Least Privilege Principle**: Use minimal RBAC permissions
+* **Use ServiceAccounts**: Create dedicated ServiceAccounts for each release
+* **Scope Permissions**: Limit permissions to specific namespaces
+* **Restrict Access to Helm**: Control who can deploy Helm charts
+* **Secure Helm Secrets**: Protect sensitive values like passwords and tokens
+
+### 4. Network Security
+
+* **Implement Network Policies**: Restrict pod-to-pod communication
+* **Use TLS**: Enable TLS for all services
+* **Secure Ingress**: Configure proper TLS termination and authentication
+* **Internal Service Communication**: Use mutual TLS (mTLS) between services
+* **API Security**: Protect APIs with proper authentication and authorization
+
+### 5. Secrets Management
+
+* **Don't Store Secrets in Values Files**: Use external secrets management
+* **Use Secret Management Tools**: Integrate with tools like Vault, Sealed Secrets, or cloud provider solutions
+* **Encrypt Helm Values**: Use tools like SOPS or helm-secrets plugin
+* **Rotate Secrets**: Implement secret rotation policies
+* **Audit Secret Access**: Monitor and audit access to secrets
+
+### Example: Using Bitnami Sealed Secrets
+
+```yaml
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: mysecret
+  namespace: default
+spec:
+  encryptedData:
+    secret-key: AgBy3i4OJSWK+PiTySYZZA9rO43cGDEq...
+```
+
+</div>
+
+## Common Helm Workflows
+
+<div id="Helm-Common-Workflows">
+
+Here are some common workflows when working with Helm in production environments:
+
+### GitOps-based Workflows
+
+```
+┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│  Git Repo   │────>│  CI/CD Tool │────>│  Kubernetes │
+│  (Charts)   │     │ (ArgoCD/Flux)│     │  Cluster   │
+└─────────────┘     └─────────────┘     └─────────────┘
+```
+
+1. Store Helm charts in a Git repository
+2. Use GitOps tools like ArgoCD or Flux to monitor the repo
+3. Automatic deployment when changes are detected
+4. Drift detection and reconciliation
+
+### Helm Repository Workflow
+
+```
+┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│  Chart Dev  │────>│  Chart Repo │────>│  Kubernetes │
+│ Environment │     │  (ChartMus) │     │  Cluster    │
+└─────────────┘     └─────────────┘     └─────────────┘
+```
+
+1. Develop and package charts
+2. Push charts to a repository (Artifactory, Harbor, ChartMuseum)
+3. Pull and install charts from the repository
+4. Version control and promote charts between environments
+
+### CI/CD Pipeline Integration
+
+```
+┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│  Source     │────>│  CI Pipeline │────>│  CD Pipeline│
+│  Code       │     │  (Build)     │     │  (Deploy)   │
+└─────────────┘     └─────────────┘     └─────────────┘
+```
+
+1. Chart templates in source repository
+2. CI pipeline lints, tests and packages charts
+3. CD pipeline deploys to target environments
+4. Automated rollbacks on failure
+5. Integration with test frameworks like Helm Test and Chart Testing
+
+Popular CI/CD tools for Helm:
+* GitHub Actions
+* Jenkins
+* GitLab CI
+* CircleCI
+* ArgoCD
+* Flux CD
+
+### Helm Operator Pattern
+
+```
+┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│  Custom     │────>│  Helm       │────>│  Kubernetes │
+│  Resources  │     │  Operator   │     │  Resources  │
+└─────────────┘     └─────────────┘     └─────────────┘
+```
+
+1. Define Custom Resources (CRs) for your applications
+2. Helm Operator watches for CR changes
+3. Operator translates CRs to Helm releases
+4. Kubernetes-native management of Helm releases
+
+### Multi-Environment Deployment
+
+```
+┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│  Base       │────>│ Environment │────>│  Kubernetes │
+│  Chart      │     │ Values Files│     │  Clusters   │
+└─────────────┘     └─────────────┘     └─────────────┘
+```
+
+1. Maintain a single chart with environment-agnostic templates
+2. Create values files for each environment (dev, staging, prod)
+3. Deploy to environments using appropriate values files
+4. Promote releases through environments
+
+---
+
+
+## Where to host the Helm charts?
+
+Modern options for hosting Helm charts include:
+
+✅ **Git Repository** - Source control with version history
+✅ **OCI Registry** - Docker registry with OCI support (Docker Hub, GHCR, ECR, ACR)
+✅ **Chart Repository** - Traditional Helm repositories (ChartMuseum, Nexus)
+✅ **Artifact Hub** - Publish and discover charts
+✅ **Cloud Provider Solutions** - AWS ECR, Azure ACR, GCP Artifact Registry
+
+### Primary Options:
 
 1) **WITH** your application code
 2) **SEPARATE** Git Repository for Helm Charts
+
+---
+
+## What's Next
+
+To continue learning about Helm and Kubernetes package management, check out these resources:
+
+* **Official Documentation**: [Helm Docs](https://helm.sh/docs/)
+* **Helm Hub**: [Artifact Hub](https://artifacthub.io/) for discovering charts
+* **Helm GitHub**: [helm/helm](https://github.com/helm/helm) repository
+* **Community**: Join the [Helm Slack channel](https://kubernetes.slack.com/messages/helm-users)
+* **Books**: 
+  * "Helm: The Kubernetes Package Manager" 
+  * "Mastering Helm: Creating and Deploying Kubernetes Applications"
+* **Advanced Topics**: 
+  * [Helm Operator](https://fluxcd.io/flux/components/helm/)
+  * [Umbrella Charts](https://helm.sh/docs/topics/charts/#complex-charts-with-many-dependencies)
+  * [Chart Hooks](https://helm.sh/docs/topics/charts_hooks/)
+  
+Remember that Helm is constantly evolving, with Helm v4 on the horizon. Stay updated by following the [Helm Blog](https://helm.sh/blog/) for the latest developments.
 
 </div> <!-- Wrap UP -->
 <p align="right">(<a href="#top">back to top</a>)</p>
