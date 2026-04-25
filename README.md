@@ -12,6 +12,7 @@
     <img src="Helm/images/logo.svg" alt="Helm Logo" width="120">
     <img src="Operators/images/logo.png" alt="Operators Logo" width="120">
     <img src="Prometheus/images/logo.svg" alt="Prometheus Logo" width="120">
+    <img src="EKS/images/amazon_eks-icon.svg" alt="EKS Logo" width="120">
   </a>
 </div>  
 
@@ -45,6 +46,7 @@ This repository is **well-structured** for easy navigation. Each section contain
 - 📦 **Helm/** → [📖 Helm Guide](Helm/README.md)  
 - 📦 **Operators/** → [📖 Kubernetes Operators](Operators/README.md)  
 - 📦 **Prometheus/** → [📖 Kubernetes Monitoring with Prometheus](Prometheus/README.md)  
+- 📦 **EKS/** → [📖 AWS EKS Tutorial](EKS/README.md)  
 - 📜 **LICENSE** → MIT License  
 - 📜 **README.md** → *You're here!*  
 
@@ -86,7 +88,7 @@ This guide is structured to help you **learn in the right order**. Follow the se
 | 2️⃣  | **Helm - Package Manager**       | [Learn Helm](https://github.com/NotHarshhaa/Certified_Kubernetes_Administrator/tree/master/Helm) | [helm.sh](https://helm.sh) | Master **Kubernetes package management** with Helm 📦 |
 | 3️⃣  | **Kubernetes Operators**  | [Operators Guide](https://github.com/NotHarshhaa/Certified_Kubernetes_Administrator/tree/master/Operators) | [kubernetes.io](https://kubernetes.io/docs/concepts/extend-kubernetes/operator) | Learn **custom Kubernetes extensions** with Operators ⚙️ |
 | 4️⃣  | **Monitoring with Prometheus** | [Monitoring with Prometheus](https://github.com/NotHarshhaa/Certified_Kubernetes_Administrator/tree/master/Prometheus) | [prometheus.io](https://prometheus.io) | Monitor & visualize your cluster with **Prometheus & Grafana** 📊 |
-| 5️⃣  | **AWS EKS (Coming Soon!)**    | 🚧 Coming Soon... | [AWS EKS](https://aws.amazon.com/eks) | Learn **Kubernetes on AWS** with Amazon EKS 🌐 |
+| 5️⃣  | **AWS EKS**    | [Learn AWS EKS](https://github.com/NotHarshhaa/Certified_Kubernetes_Administrator/tree/master/EKS) | [AWS EKS](https://aws.amazon.com/eks) | Learn **Kubernetes on AWS** with Amazon EKS 🌐 |
 
 ---
 
@@ -98,9 +100,7 @@ This guide is structured to help you **learn in the right order**. Follow the se
 ✔️ Helm – Kubernetes Package Manager  
 ✔️ Operators – Extending Kubernetes API  
 ✔️ Prometheus – Kubernetes Monitoring  
-
-🔜 **[Upcoming]**  
-🚀 Kubernetes on AWS (EKS) – **Coming Soon!**  
+✔️ AWS EKS – Kubernetes on AWS  
 
 ---
 
