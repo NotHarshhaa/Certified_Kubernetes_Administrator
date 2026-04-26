@@ -8,7 +8,7 @@
 <h3 align="center">CKA Codes</h3>
 
   <p align="center">
-    The code review and content of CKA exam...
+    Comprehensive code review and study content for the CKA exam...
   </p>
 </div>
 <br>
@@ -305,7 +305,7 @@
             <ul>
               <li><a href="#Create-ConfigMap-component-ENV">Create ConfigMap component</a></li>
               <li><a href="#Create-Secret-component-ENV">Create Secret component</a></li>
-              <li><a href="#Pass-ata-to-Pod-using-Evironment-Variables">Pass Data to Pod using Evironment Variables</a></li>
+              <li><a href="#Pass-ata-to-Pod-using-Evironment-Variables">Pass Data to Pod using Environment Variables</a></li>
             </ul>
         </li>
         <li><a href="#Demo-Pass-as-File-as-Volume">Demo: Pass as File as Volume</a>
@@ -480,10 +480,10 @@
     <ul>
       <li><a href="#Manage-multiple-clusters-with-Contexts-Kube-Contexts">Kube Contexts</a>
         <ul>
-          <li><a href="#Manage-multiple-clusters-with-Contexts-What-is-a-Contexts">What is a Contexts?</a>
-          <li><a href="#Manage-multiple-clusters-with-Contexts-Current-Contexts">Current-Contexts</a>
-          <li><a href="#Manage-multiple-clusters-with-Contexts-Add-a-Contexts">Add a Contexts</a>
-          <li><a href="#Manage-multiple-clusters-with-Contexts-Namespaces-in-Contexts">Namespaces in Contexts</a>
+          <li><a href="#Manage-multiple-clusters-with-Contexts-What-is-a-Contexts">What is a Context?</a></li>
+          <li><a href="#Manage-multiple-clusters-with-Contexts-Current-Contexts">Current Contexts</a></li>
+          <li><a href="#Manage-multiple-clusters-with-Contexts-Add-a-Contexts">Add a Context</a></li>
+          <li><a href="#Manage-multiple-clusters-with-Contexts-Namespaces-in-Contexts">Namespaces in Contexts</a></li>
         </ul>
       </li>
     </ul>
@@ -508,11 +508,11 @@
        </li>
       <li><a href="#Secure-cluster-Network-Policies-Demo-Configure-Network-Policies">Demo: Configure Network Policies</a>
         <ul>
-            <li><a href="#Demo-Configure-Network-Policies-Create-3-Deployments">Create 3 Deployments</a>
-            <li><a href="#Demo-Configure-Network-Policies-All-Ingress-Egress-allowed">Check Default behavior: All Ingress & Egress allowed</a>
-            <li><a href="#Demo-Configure-Network-Policies-Create-Frontend-Network-Policy">Create Frontend Network Policy</a>
-            <li><a href="#Demo-Configure-Network-Policies-Create-DB-Network-Policy">Create DB Network Policy</a>
-            <li><a href="#Demo-Configure-Network-Policies-Apply-Policies">Apply Policies</a>
+            <li><a href="#Demo-Configure-Network-Policies-Create-3-Deployments">Create 3 Deployments</a></li>
+            <li><a href="#Demo-Configure-Network-Policies-All-Ingress-Egress-allowed">Check Default behavior: All Ingress & Egress allowed</a></li>
+            <li><a href="#Demo-Configure-Network-Policies-Create-Frontend-Network-Policy">Create Frontend Network Policy</a></li>
+            <li><a href="#Demo-Configure-Network-Policies-Create-DB-Network-Policy">Create DB Network Policy</a></li>
+            <li><a href="#Demo-Configure-Network-Policies-Apply-Policies">Apply Policies</a></li>
         </ul>
       </li>
     </ul>
@@ -539,8 +539,7 @@
                 <li><a href="#Pod-Communication">Pod Communication</a></li>
                 <li><a href="#CoreDNS">CoreDNS</a></li>
               </ul>
-            </li>
-          <li><a href="#Pro-Tips-for-working-with-Kubectl">Pro Tips for working with Kubectl</a>
+            <li><a href="#Pro-Tips-for-working-with-Kubectl">Pro Tips for working with Kubectl</a>
             <ul>
                 <li><a href="#kubectl-Shorthand-alias">kubectl: Shorthand alias</a></li>
                 <li><a href="#Creating-K8s-Manifest-Files">Creating K8s Manifest Files</a></li>
@@ -569,7 +568,7 @@ Need for a container orchestration tool
 
 * Trend from **Monolith** to **Microservice**
 * Increase usage of containers
-* Deman for a proper way of managing those hundreds of containers
+* Demand for a proper way of managing those hundreds of containers
 
 </div> <!-- What Problems Kubernetes solves -->
 
@@ -583,7 +582,7 @@ Need for a container orchestration tool
 
 </div> <!-- What features orchestration tools offer -->
 
-# Kubernets Architecture
+# Kubernetes Architecture
 
 ## Node Processes
 
@@ -606,9 +605,9 @@ Worker Machine in K8s Cluster
 So, how do you interact with this cluster?
 
 * How to:
-    * Scheduler Pods?
+    * Schedule Pods?
     * Monitor?
-    * re-scheduled/Re-start Pod
+    * Re-schedule/Restart Pods?
     * Join a new Worker?
     * etc
 * **Managing processes are done by Master Nodes (The Control Plane)**
@@ -705,7 +704,7 @@ Which one to use?
 * Only on `Control Plane`
     * Api Server (Pod)
     * Scheduler (Pod)
-    * Controller Manger (Pod)
+    * Controller Manager (Pod)
     * ETCD (Pod)
 
 </div> <!-- What we need to install -->
@@ -719,7 +718,7 @@ Which one to use?
     * Send a request to `API Server`
     * `Scheduler` decides where to place Pod
     * Pod data stored in `etcd` store
-* How to schedule the Master Pods then? (The Egg and Chicken Problem!)
+* How to schedule the Master Pods then? (The Chicken and Egg Problem!)
 
 ---
 
@@ -810,7 +809,7 @@ But it is complex and time consuming, when doing it manually
 * Providing fast paths for creating K8s cluster
 * Performs the actions necessary to get a minimum viable cluster
 * It cares only about bootstrapping, not about provisioning machines
-* [mastertained by Kubernetes](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/)
+* [maintained by Kubernetes](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/)
 
 </div> <!-- Kubeadm -->
 
@@ -925,7 +924,7 @@ This is how we prepare our bare-metal servers...
   echo "deb [signed-by=/etc/apt/trusted.gpg.d/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial master" | sudo tee /etc/apt/sources.list.d/kubernetes.list
   ```
 
-NOTE-1: Kubelet, Kubeadm and Kubectl MOST be ALL in SAME VERSION...
+NOTE-1: Kubelet, Kubeadm and Kubectl MUST be ALL in SAME VERSION...
 <br />
 NOTE-2: For seeing all available versions, use:
 
@@ -944,7 +943,7 @@ Use the `apt-cache madison kubeadm` to get started.
 
 <div id="kubeadm-init">
 
-<h5>kubeadm init phrase</h5>
+<h5>kubeadm init phases</h5>
 <ol>
   <li>preflight</li>
     <ul>Checks to validate the system state making any changes</ul>
@@ -967,7 +966,7 @@ Use the `apt-cache madison kubeadm` to get started.
 # Working with kubectl
 
 <div id="working-with-kubectl">
-And now we should be able to working with `kubectl` command line...
+And now we should be able to work with `kubectl` command line...
 </div>
 
 ## Important Directories to check
@@ -997,9 +996,9 @@ But it's not an efficient way. So we have two options:
 2) `KUBECONFIG` environment variable
 3) File located in `$HOME/.kube/config` folder
 
-Option `1` is not efficient because everytime you should pass this flag...<br />
-Option `2` is not efficient too because its only works in the current session...<br />
-But the option number `3` is awesome and actually a bets practise...
+Option `1` is not efficient because you should pass this flag every time...<br />
+Option `2` is not efficient either because it only works in the current session...<br />
+But option number `3` is excellent and actually a best practice...
 
 * Create `.kube` folder
   ```shell
@@ -1028,7 +1027,7 @@ But the option number `3` is awesome and actually a bets practise...
 # Kubernetes Networking
 
 <div id="">
-Lets Talk about networking and communication in K8S
+Let's talk about networking and communication in K8S
 </div>
 
 ## K8s Namespaces
@@ -1048,7 +1047,7 @@ What is a Namespace?
 
 4 Namespaces per Default:
 
-1) `kube-syatem`
+1) `kube-system`
 2) `kube-public`
 3) `kube-node-lease`
 4) `default`
@@ -1110,7 +1109,7 @@ Some other note
     kubectl api-resources --namespaced=false
     ```
 
-</div> <!-- Why use Namespaces? -->
+</div> <!-- Why use Namespaces?-->
 
 ### kube-system Namespaces?
 
@@ -1131,7 +1130,7 @@ kubectl get ns
 * `default`:
     * For your applications, when you don't create a specific ns
     * The `default` Namespace is used as default when executing `kubectl` commands
-    * To get another Namespace: `kubectl get ns -n kube-syatem`
+    * To get another Namespace: `kubectl get ns -n kube-system`
 * `kube-system`:
     * Control Plane Pods are located in `kube-system` ns
 * `kube-public`:
@@ -1194,12 +1193,12 @@ If you change the container runtime in k8s, e.g. from `containerd` to `docker`, 
 
 Multiple containers in a Pod
 
-* Hepler or sider application to your master application
-* Called `side-car` containers
+* Helper or sidecar application to your master application
+* Called `sidecar` containers
 
-### How do containers communicate `insude the Pod`?
+### How do containers communicate `inside the Pod`?
 
-* containers can talk via `localhost` and `port`
+* Containers can talk via `localhost` and `port`
 
 </div>
 
@@ -1218,7 +1217,7 @@ Multiple containers in a Pod
 
 <div id="Container-network-interface">
 
-Networking `WITHIIN PODS`
+Networking `WITHIN PODS`
 
 </div>
 
@@ -1243,7 +1242,7 @@ Networking `WITHIIN PODS`
 Many networking solutions, which implement this module
 
 1) [flannel](https://github.com/flannel-io/flannel)
-2) [waveworks](https://www.weave.works/)
+2) [weaveworks](https://www.weave.works/)
 3) [cilium](https://github.com/cilium/cilium)
 4) VMware NSX
 
@@ -1259,16 +1258,16 @@ Many networking solutions, which implement this module
 
 - [X] Pods are isolated with own private network
 
-* On each Node a private network with a `different IP range` is created (Bridge via a CNI plugin e.g. wavework)
+* On each Node a private network with a `different IP range` is created (Bridge via a CNI plugin e.g. weaveworks)
     - [X] IP address ranges should `not overlap!`
 * Bridge enables Pod communication on the same Node
 
 ##### Unique IP `for each Pod`
 
-How do we make sure each Node gets a different set of IP addresses? We need to ensure `unique IP's` --> Because K8S
+How do we make sure each Node gets a different set of IP addresses? We need to ensure `unique IPs` --> Because K8S
 doesn't care!
 
-* CNI Plugin! (e.g. Wavework)
+* CNI Plugin! (e.g. Weaveworks)
 * Each Node gets an equal subset of this IP range
 * `Virtual Private Networks with own sets of IP addresses`
 
@@ -1289,7 +1288,7 @@ doesn't care!
 
 ### A more scalable solution-`Agents on Node`
 
-So how to manage thousands of Nodes? we need a more `Automated` & `Scalable` solution...
+So how to manage thousands of Nodes? We need a more `Automated` & `Scalable` solution...
 
 - [X] CNI Plugins solved this!
 
@@ -1305,9 +1304,9 @@ So how to manage thousands of Nodes? we need a more `Automated` & `Scalable` sol
 
 <div id="intro-to-Finishing-Cluster-Bootstrapping">
 
-Now is we should do something about master node status, because currently it is in `NotReady` statement... also
-the `coredns` pods can't be `Ready` because of our node statement... so we should implement a networking solution to
-achieve these goals... the solution is `implenting a CNI Plugin`... In this scenario, we are going with `Weave Net`
+Now we should do something about master node status, because currently it is in `NotReady` state... also
+the `coredns` pods can't be `Ready` because of our node state... so we should implement a networking solution to
+achieve these goals... the solution is `implementing a CNI Plugin`... In this scenario, we are going with `Weave Net`
 
 * Note: ONLY after this solution we can add `Worker Nodes` to our cluster...
 
@@ -1368,7 +1367,7 @@ We already installed:
 * kubeadm
 * kubelet
 * kubectl
-* [X] Now lets joining the worker nodes...
+* [X] Now let's join the worker nodes...
 
 * NOTE: A bidirectional trust needs to be established:
     1) Discovery (Node trust the K8s Control Plane)
@@ -1396,13 +1395,13 @@ Paste the output of this command on **Worker Node(s)**. Note that you can use th
 
 <div id="Configure-weave-net">
 
-* Now that workers added to the cluster, lets check a weave-net pod logs...
+* Now that workers are added to the cluster, let's check a weave-net pod logs...
 
 ```shell
 kubectl logs -n kube-system pod/weave-net-4xtwz -c weave
 ```
 
-As you can see, there was a connection error that says weave-nets can not reach each other.
+As you can see, there was a connection error that says weave-nets cannot reach each other.
 
 We need to open a port on each server for `weave-nets`.
 
@@ -1507,7 +1506,7 @@ Now let's deploy an Nginx Deployment with 2 Pods and a test Service for it
 <div id="How-requests-are-forwarded-from-Service-to-Pod">
 
 * Kube Proxy forwards the request
-* Responsible for **mastertaining a list of Service IPs and corresponding Pod IPs**
+* Responsible for **maintaining a list of Service IPs and corresponding Pod IPs**
 
 <img src="images/kube-proxy-2.png" alt="Kube-Proxy Pic-2">
 
@@ -1622,9 +1621,9 @@ options ndots:5
 
 * You can see the `cluster DNS IP` by: `sudo cat /var/lib/kubelet/config.yaml`
 
-### Service - Fully Qualified Domaster Name (FQDN)
+### Service - Fully Qualified Domain Name (FQDN)
 
-<div id="Service-Fully-Qualified-Domaster-Name">
+<div id="Service-Fully-Qualified-Domain-Name">
 
 <img src="images/core-dns-3.png" alt="CoreDNS Pic-3">
 
@@ -1634,7 +1633,7 @@ options ndots:5
     * `Same namespace`: Only the name is sufficient
     * `Different namespaces`: You need to include that namespace
 
-</div> <!-- /Service - Fully Qualified Domaster Name (FQDN) -->
+</div> <!-- /Service - Fully Qualified Domain Name (FQDN) -->
 </div> <!-- /DNS in kubernetes -->
 
 ## Configure Service IP Address
@@ -1762,7 +1761,7 @@ metadata:
     app: custom-lb
   name: custom-lb
 spec:
-  type: ClusterIP
+  type: ClusterIP # ClusterIP is the default, that's why we didn't need to specify the type before
   # The selector of that service will need to match the pods created by both deployments.
   selector:
     svc: clb
@@ -1770,6 +1769,7 @@ spec:
     - protocol: TCP
       port: 8080
       targetPort: 80
+      nodePort: 30000
 ```
 
 Then create our Nginx Deployment
@@ -2014,11 +2014,11 @@ Some notes:
 
 <div id="Access-Application-Loadbalancer">
 
-Now, How do we access the Loadbalancer?
+Now, how do we access the Loadbalancer?
 
-* A Loadbalancer has an `IP address` but it also has a `Domaster Name`
+* A Loadbalancer has an `IP address` but it also has a `Domain Name`
 
-Now if you paste the Loadbalancer Domaster Name, you should still see the Welcome to Nginx!
+Now if you paste the Loadbalancer Domain Name, you should still see the Welcome to Nginx!
 
 </div> <!-- Access Application -->
 </div> <!-- Loadbalancer Service Type -->
@@ -2032,7 +2032,7 @@ Now if you paste the Loadbalancer Domaster Name, you should still see the Welcom
 
 What is HAProxy?
 
-According to the [docs](http://www.haproxy.org): HAProxy is a free, very fast, and reliable reverse-proxy offering **high availability**, **load balancing**, and **proxying** for **TCP** and **HTTP-based** applications. It is particularly suited for high-traffic websites and powers most of the world's most visited ones. Over the years, it has become the de-facto standard [open-source](https://github.com/haproxy/haproxy) load balancer, is now shipped with most masterstream Linux distributions, and is often deployed by default in cloud platforms.
+According to the [docs](http://www.haproxy.org): HAProxy is a free, very fast, and reliable reverse-proxy offering **high availability**, **load balancing**, and **proxying** for **TCP** and **HTTP-based** applications. It is particularly suited for high-traffic websites and powers most of the world's most visited ones. Over the years, it has become the de-facto standard [open-source](https://github.com/haproxy/haproxy) load balancer, is now shipped with most mainstream Linux distributions, and is often deployed by default in cloud platforms.
 
 ---
 
@@ -2070,7 +2070,7 @@ Here are some benefits:
 * Sometimes you want to go with a cloud LB, and other times, you want to go with HAProxy (based on the situation you are facing it).
 * Fortunately, you know both methods!
 
-</div> <!-- What is HAProxy and why should we use that? -->
+</div> <!-- What is HAProxy and why should we use that?-->
 
 ### Setup HAProxy
 <div id="HAProxy-as-LoadBalancer-Setup-HAProxy">
@@ -2110,7 +2110,7 @@ sudo add-apt-repository ppa:vbernat/haproxy-2.6
 sudo apt install haproxy=2.6.\*
 ```
 
-Adding `=2.6.\*` to the end tells `apt` that we want to mastertain the latest version of HAProxy in the `2.6` branch, so if there are future updates in that branch, you’ll get them when you do an `apt upgrade`.
+Adding `=2.6.\*` to the end tells `apt` that we want to maintain the latest version of HAProxy in the `2.6` branch, so if there are future updates in that branch, you’ll get them when you do an `apt upgrade`.
 
 If you execute the `haproxy -v` command, you'll see your installed HAProxy version.
 
@@ -2276,12 +2276,12 @@ We will learn more about HAProxy after we learn Ingress.
 
 * **Loadbalancer Disadvantages**:
 
-1) Loadbalancer that all become entrypoints
-2) Configure the Domaster Name
+1) Multiple Loadbalancers become entrypoints
+2) Configure the Domain Name
 3) Each Loadbalancer exposes new NodePort
 4) Each Loadbalancer increases the cloud bill
 5) `Configure` everything `outside the cluster`
-6) Isn't it good:
+6) Wouldn't it be better:
 
 * Having this as part of the K8s cluster?
 * Configure secure connection
@@ -2305,8 +2305,8 @@ We will learn more about HAProxy after we learn Ingress.
 
 <div id="How-Ingress-works">
 
-* Valid domaster address
-* Map domaster name to `the IP address`, which is the `entrypoint`
+* Valid domain address
+* Map domain name to `the IP address`, which is the `entrypoint`
 
 <img src="images/ingress-3.png" alt="Ingress Pic-3">
 
@@ -2357,7 +2357,7 @@ We will learn more about HAProxy after we learn Ingress.
 
 <img src="images/ingress-6.png" alt="Ingress Pic-6">
 
-* Multiple `sub-domasters` or `domasters`
+* Multiple `sub-domains` or `domains`
 
 <img src="images/ingress-7.png" alt="Ingress Pic-7">
 
@@ -2492,7 +2492,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: www.kube.com # The Loadbalancer Domaster (MUST be domaster, NOT IP address)
+    - host: www.kube.com # The Loadbalancer Domain (MUST be domain, NOT IP address)
       http:
         paths:
           - pathType: Exact
@@ -2970,9 +2970,9 @@ Congrats!
 
 Lecture Overview
 
-* How `Authentication` and `Authorization` works in Kubernetes
+* How `Authentication` and `Authorization` work in Kubernetes
 * How to configure users, groups, and their permissions
-* Authorization with `Role Based Access Control (RBAC)`.
+* Authorization with `Role Based Access Control (RBAC)`
 * Which K8s resources to use to define permissions in the cluster
 
 ### Role & Role Binding
@@ -2998,7 +2998,7 @@ Lecture Overview
 
 <div id="Cluster-Role-ClusterRole-Binding">
 
-How about K8s Admins?
+What about K8s Admins?
 
 * Managing Namespaces in a cluster
 * Configuring cluster-wide Volumes
